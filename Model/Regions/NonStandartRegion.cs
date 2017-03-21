@@ -1,5 +1,7 @@
 ﻿using System;
 
+using Model.Zones;
+
 namespace Model.Regions
 {
     public class NonStandartRegion:IRegion

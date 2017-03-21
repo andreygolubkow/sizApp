@@ -1,4 +1,6 @@
-﻿namespace Model.Regions
+﻿using Model.Zones;
+
+namespace Model.Regions
 {
     /// <summary>
     /// Регионы с привязкой к поясам

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Model
+namespace Model.Zones
 {
     public class StandartZone:IZone
     {

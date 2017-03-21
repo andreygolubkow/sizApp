@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace Model
+using Model.Zones;
+
+namespace Model.Equipments
 {
     public class ByZoneEquipment:IEquipment
     {
