@@ -10,6 +10,11 @@ namespace Model
         private int _id;
         private string _countString;
 
+        public  PerYearEquipment(int id)
+        {
+            Id = Id;
+        }
+
         #region Implementation of IEquipment
 
         public string Name
@@ -19,7 +24,7 @@ namespace Model
             }
             set
             {
-                if ( value.Length <= 0 )
+                if ( value.Length == 0 )
                 {
                     throw new ArgumentException("Название слишком короткое");
                 }
@@ -37,7 +42,7 @@ namespace Model
             {
                 if ( value < 0 )
                 {
-                    throw new ArgumentOutOfRangeException("Не верный Id");
+                    throw new ArgumentOutOfRangeException("Неверный Id");
                 }
                 _id = value;
             }

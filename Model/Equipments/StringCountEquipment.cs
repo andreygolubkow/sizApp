@@ -8,6 +8,11 @@ namespace Model
         private string _name;
         private string _count;
 
+        public StringCountEquipment(int id)
+        {
+            Id = id;
+        }
+
         #region Implementation of IEquipment
 
         public int Id
@@ -18,9 +23,9 @@ namespace Model
             }
             set
             {
-                if ( value <= 0 )
+                if ( value < 0 )
                 {
-                    throw new ArgumentOutOfRangeException("Не верный ID");
+                    throw new ArgumentOutOfRangeException("Неверный ID");
                 }
                 _id = value;
             }
@@ -36,7 +41,7 @@ namespace Model
             {
                 if ( value.Length == 0 )
                 {
-                    throw new ArgumentException("Не верное название");
+                    throw new ArgumentException("Неверное название");
                 }
                 _name = value;
             }
@@ -45,7 +50,7 @@ namespace Model
         public string CountString => Count;
         #endregion
 
-        private string Count
+        public string Count
         {
             get
             {
