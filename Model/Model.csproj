@@ -43,6 +43,9 @@
     <Compile Include="Equipments\ByZoneEquipment.cs" />
     <Compile Include="Equipments\IEquipment.cs" />
     <Compile Include="Equipments\PerYearEquipment.cs" />
+    <Compile Include="Regions\IRegion.cs" />
+    <Compile Include="Regions\NonStandartRegion.cs" />
+    <Compile Include="Regions\StandartRegion.cs" />
     <Compile Include="Zones\IZone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Equipments\StringCountEquipment.cs" />

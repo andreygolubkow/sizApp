@@ -1,5 +1,8 @@
 ﻿namespace Model
 {
+    /// <summary>
+    /// Пояса
+    /// </summary>
     public interface IZone
     {   
         int Id { get; set; }

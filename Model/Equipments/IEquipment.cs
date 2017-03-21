@@ -1,5 +1,8 @@
 ﻿namespace Model
 {
+    /// <summary>
+    /// СИЗы
+    /// </summary>
     interface IEquipment
     {
         int Id { get; set; }
