@@ -3,7 +3,7 @@
     /// <summary>
     /// СИЗы
     /// </summary>
-    interface IEquipment
+    public interface IEquipment
     {
         int Id { get; set; }
         string Name { get; set; }
