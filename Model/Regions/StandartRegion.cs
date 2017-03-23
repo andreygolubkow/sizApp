@@ -10,9 +10,11 @@ namespace Model.Regions
         private string _name;
         private IZone _zone;
 
-        public StandartRegion(int id)
+        public StandartRegion(int id, string name, IZone zone)
         {
             Id = id;
+            Name = name;
+            Zone = zone;
         }
 
         #region Implementation of IRegion

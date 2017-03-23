@@ -11,10 +11,12 @@ namespace Model.Regions
         private IZone _zone;
         private string _addition;
 
-        public NonStandartRegion(int id, string addition)
+        public NonStandartRegion(int id, string name, string addition, IZone zone)
         {
             Id = id;
             Addition = addition;
+            Name = name;
+            Zone = zone;
         }
 
         #region Implementation of IRegion

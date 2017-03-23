@@ -2,15 +2,18 @@
 
 namespace Model.Zones
 {
+    [Serializable]
     public class StandartZone:IZone
     {
         private int _id;
         private int _num;
         private string _asString;
 
-        public StandartZone(int id)
+        public StandartZone(int id, int num, string asString)
         {
             Id = id;
+            Num = num;
+            AsString = asString;
         }
 
         #region Implementation of IZone
