@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace Model.Equipments
 {
@@ -8,9 +9,11 @@ namespace Model.Equipments
         private string _name;
         private string _count;
 
-        public StringCountEquipment(int id)
+        public StringCountEquipment(int id,string name, string count)
         {
             Id = id;
+            Name = name;
+            Count = count;
         }
 
         #region Implementation of IEquipment
@@ -48,6 +51,7 @@ namespace Model.Equipments
         }
 
         public string CountString => Count;
+        public string TermOfUse => "";
         #endregion
 
         public string Count

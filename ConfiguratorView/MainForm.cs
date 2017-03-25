@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Model.Equipments;
 using Model.Regions;
 using Model.Zones;
 
@@ -24,6 +25,11 @@ namespace ConfiguratorView
         private List<IRegion> _regionsList;
         private int _regionSelectedId;
         /////////////////////////////////
+
+        //Управление сизами
+        private List<IEquipment> _equipmentsList;
+        private int _equipmentSelectedId;
+        ///////////////////////////
 
         private int MaxZoneId()
         {
@@ -42,6 +48,19 @@ namespace ConfiguratorView
         {
             int max = 0;
             foreach (IRegion item in _regionsList)
+            {
+                if (item.Id > max)
+                {
+                    max = item.Id;
+                }
+            }
+            return max;
+        }
+
+        private int MaxEquipmentId()
+        {
+            int max = 0;
+            foreach (IEquipment item in _equipmentsList)
             {
                 if (item.Id > max)
                 {
@@ -78,11 +97,27 @@ namespace ConfiguratorView
             iRegionBindingSource.DataSource = _regionsList;
             _regionSelectedId = -1;
         }
+
+        private void LoadEquipment()
+        {
+            try
+            {
+                DataSerializer.DeserializeBin("equipmentsList.sdb", ref _equipmentsList);
+            }
+            catch
+            {
+                _equipmentsList = new List<IEquipment>();
+            }
+            iEquipmentBindingSource.DataSource = _equipmentsList;
+            _equipmentSelectedId = -1;
+        }
+
         public MainForm()
         {
             InitializeComponent();
             LoadZone();
             LoadRegion();
+            LoadEquipment();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -144,6 +179,7 @@ namespace ConfiguratorView
         {
             DataSerializer.SerializeBin("zonesList.sdb",ref _zonesList);
             DataSerializer.SerializeBin("regionsList.sdb", ref _regionsList);
+            DataSerializer.SerializeBin("equipmentsList.sdb", ref _regionsList);
         }
 
         private void AdditionalRegionCheckBoxCheckedChanged(object sender, EventArgs e)
@@ -243,6 +279,49 @@ namespace ConfiguratorView
                 _regionsList[index] = new StandartRegion(_regionSelectedId, regionNameTextBox.Text, (IZone)regionZoneComboBox.SelectedItem);
             }
             iRegionBindingSource[iRegionBindingSource.Position] = _regionsList[index];
+        }
+
+        private void SizAddButtonClick(object sender, EventArgs e)
+        {
+            switch ( sizTypeComboBox.SelectedIndex )
+            {
+                case 1:
+                    int id = MaxEquipmentId() + 1;
+                    iEquipmentBindingSource.Add(new StringCountEquipment(id,sizStringCountNameTextBox.Text,sizStringCountCountTextBox.Text));
+                    break;
+            }
+        }
+
+        private void SizTypeComboBoxSelectedIndexChanged(object sender, EventArgs e)
+        {
+            sizStringCountEquipmentGroupBox.Visible = sizTypeComboBox.SelectedIndex == 1;
+        }
+
+        private void SizRemoveButtonClick(object sender, EventArgs e)
+        {
+            try
+            {
+                iEquipmentBindingSource.RemoveCurrent();
+                sizTypeComboBox.SelectedIndex = -1;
+                _equipmentSelectedId = -1;
+                sizStringCountCountTextBox.Clear();
+                sizStringCountNameTextBox.Clear();
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
+        }
+
+        private void SizGridViewCellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if ( iEquipmentBindingSource.Current is StringCountEquipment )
+            {
+                _equipmentSelectedId = ((StringCountEquipment)iEquipmentBindingSource.Current).Id;
+                sizStringCountNameTextBox.Text = ((StringCountEquipment)iEquipmentBindingSource.Current).Name;
+                sizStringCountCountTextBox.Text = ((StringCountEquipment)iEquipmentBindingSource.Current).Count;
+                sizTypeComboBox.SelectedIndex = 1;
+            }
         }
     }
 }

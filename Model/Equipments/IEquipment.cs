@@ -9,5 +9,7 @@
         string Name { get; set; }
 
         string CountString { get; }
+
+        string TermOfUse { get; }
     }
 }

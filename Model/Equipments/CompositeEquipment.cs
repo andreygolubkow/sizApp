@@ -9,10 +9,11 @@ namespace Model.Equipments
         private string _name;
         private List<IEquipment> _equipmentsList;
 
-        public CompositeEquipment(int id)
+        public CompositeEquipment(int id,string name,List<IEquipment> equipments )
         {
-            _equipmentsList = new List<IEquipment>();
+            _equipmentsList = new List<IEquipment>(equipments);
             Id = id;
+            Name = name;
         }
         #region Implementation of IEquipment
 
@@ -49,6 +50,8 @@ namespace Model.Equipments
         }
 
         public string CountString => "...";
+
+        public string TermOfUse => "";
 
         #endregion
 

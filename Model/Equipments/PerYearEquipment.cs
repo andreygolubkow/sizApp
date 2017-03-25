@@ -9,9 +9,11 @@ namespace Model.Equipments
         private double _countPerYear;
         private int _id;
 
-        public  PerYearEquipment(int id)
+        public  PerYearEquipment(int id,string name, double count)
         {
             Id = id;
+            Name = name;
+            CountPerYear = count;
         }
 
         #region Implementation of IEquipment
@@ -50,6 +52,8 @@ namespace Model.Equipments
 
 
         public string CountString => Convert.ToString(CountPerYear, CultureInfo.InvariantCulture);
+
+        public string TermOfUse => Convert.ToString(12/CountPerYear, CultureInfo.InvariantCulture);
 
         #endregion
 

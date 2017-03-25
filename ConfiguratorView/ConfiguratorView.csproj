@@ -67,6 +67,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\Model.Equipments.IEquipment.datasource" />
     <None Include="Properties\DataSources\Model.Regions.IRegion.datasource" />
     <None Include="Properties\DataSources\Model.Zones.IZone.datasource" />
     <None Include="Properties\Settings.settings">
