@@ -4,6 +4,7 @@ using Model.Zones;
 
 namespace Model.Regions
 {
+    [Serializable]
     public class StandartRegion:IRegion
     {
         private int _id;

@@ -43,25 +43,29 @@
             this.zoneNumTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.zonesGridView = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.asStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iZoneBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.removeRegionButton = new System.Windows.Forms.Button();
+            this.addRegionButton = new System.Windows.Forms.Button();
+            this.applyRegionButton = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.additionalRegionCheckBox = new System.Windows.Forms.CheckBox();
+            this.regionZoneComboBox = new System.Windows.Forms.ComboBox();
+            this.regionAdditionTextBox = new System.Windows.Forms.TextBox();
+            this.regionNameTextBox = new System.Windows.Forms.TextBox();
             this.regionsGridView = new System.Windows.Forms.DataGridView();
+            this.iRegionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.zoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iRegionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.regionNameTextBox = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.additionalRegionCheckBox = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.asStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.zoneActionsGroupBox.SuspendLayout();
@@ -69,9 +73,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.zonesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iZoneBindingSource)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.regionsGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iRegionBindingSource)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -215,29 +220,7 @@
             this.zonesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.zonesGridView.Size = new System.Drawing.Size(221, 317);
             this.zonesGridView.TabIndex = 0;
-            this.zonesGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.zonesGridView_RowEnter);
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Идентификатор";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // numDataGridViewTextBoxColumn
-            // 
-            this.numDataGridViewTextBoxColumn.DataPropertyName = "Num";
-            this.numDataGridViewTextBoxColumn.HeaderText = "Номер";
-            this.numDataGridViewTextBoxColumn.Name = "numDataGridViewTextBoxColumn";
-            this.numDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // asStringDataGridViewTextBoxColumn
-            // 
-            this.asStringDataGridViewTextBoxColumn.DataPropertyName = "AsString";
-            this.asStringDataGridViewTextBoxColumn.HeaderText = "Строковое представление";
-            this.asStringDataGridViewTextBoxColumn.Name = "asStringDataGridViewTextBoxColumn";
-            this.asStringDataGridViewTextBoxColumn.ReadOnly = true;
+            this.zonesGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ZonesGridViewCellClick);
             // 
             // iZoneBindingSource
             // 
@@ -246,6 +229,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.regionsGridView);
@@ -256,6 +240,139 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Регионы";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.removeRegionButton);
+            this.groupBox2.Controls.Add(this.addRegionButton);
+            this.groupBox2.Controls.Add(this.applyRegionButton);
+            this.groupBox2.Location = new System.Drawing.Point(247, 259);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(270, 77);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Действия";
+            // 
+            // removeRegionButton
+            // 
+            this.removeRegionButton.Location = new System.Drawing.Point(156, 19);
+            this.removeRegionButton.Name = "removeRegionButton";
+            this.removeRegionButton.Size = new System.Drawing.Size(108, 23);
+            this.removeRegionButton.TabIndex = 2;
+            this.removeRegionButton.Text = "Удалить регион";
+            this.removeRegionButton.UseVisualStyleBackColor = true;
+            this.removeRegionButton.Click += new System.EventHandler(this.RemoveRegionButtonClick);
+            // 
+            // addRegionButton
+            // 
+            this.addRegionButton.Location = new System.Drawing.Point(9, 19);
+            this.addRegionButton.Name = "addRegionButton";
+            this.addRegionButton.Size = new System.Drawing.Size(141, 23);
+            this.addRegionButton.TabIndex = 1;
+            this.addRegionButton.Text = "Добавить регион";
+            this.addRegionButton.UseVisualStyleBackColor = true;
+            this.addRegionButton.Click += new System.EventHandler(this.AddRegionButtonClick);
+            // 
+            // applyRegionButton
+            // 
+            this.applyRegionButton.Location = new System.Drawing.Point(9, 48);
+            this.applyRegionButton.Name = "applyRegionButton";
+            this.applyRegionButton.Size = new System.Drawing.Size(258, 23);
+            this.applyRegionButton.TabIndex = 0;
+            this.applyRegionButton.Text = "Применить правку";
+            this.applyRegionButton.UseVisualStyleBackColor = true;
+            this.applyRegionButton.Click += new System.EventHandler(this.ApplyRegionButtonClick);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(150, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Список регионов по поясам";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.additionalRegionCheckBox);
+            this.groupBox1.Controls.Add(this.regionZoneComboBox);
+            this.groupBox1.Controls.Add(this.regionAdditionTextBox);
+            this.groupBox1.Controls.Add(this.regionNameTextBox);
+            this.groupBox1.Location = new System.Drawing.Point(247, 27);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(270, 145);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Информация";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 94);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(33, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Пояс";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 55);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Уточнение";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(144, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Край, область, республика";
+            // 
+            // additionalRegionCheckBox
+            // 
+            this.additionalRegionCheckBox.AutoSize = true;
+            this.additionalRegionCheckBox.Location = new System.Drawing.Point(184, 71);
+            this.additionalRegionCheckBox.Name = "additionalRegionCheckBox";
+            this.additionalRegionCheckBox.Size = new System.Drawing.Size(80, 17);
+            this.additionalRegionCheckBox.TabIndex = 3;
+            this.additionalRegionCheckBox.Text = "Уточнение";
+            this.additionalRegionCheckBox.UseVisualStyleBackColor = true;
+            this.additionalRegionCheckBox.CheckedChanged += new System.EventHandler(this.AdditionalRegionCheckBoxCheckedChanged);
+            // 
+            // regionZoneComboBox
+            // 
+            this.regionZoneComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.regionZoneComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.regionZoneComboBox.DataSource = this.iZoneBindingSource;
+            this.regionZoneComboBox.DisplayMember = "AsString";
+            this.regionZoneComboBox.FormattingEnabled = true;
+            this.regionZoneComboBox.Location = new System.Drawing.Point(9, 110);
+            this.regionZoneComboBox.Name = "regionZoneComboBox";
+            this.regionZoneComboBox.Size = new System.Drawing.Size(255, 21);
+            this.regionZoneComboBox.TabIndex = 2;
+            this.regionZoneComboBox.ValueMember = "Id";
+            // 
+            // regionAdditionTextBox
+            // 
+            this.regionAdditionTextBox.Enabled = false;
+            this.regionAdditionTextBox.Location = new System.Drawing.Point(9, 71);
+            this.regionAdditionTextBox.Name = "regionAdditionTextBox";
+            this.regionAdditionTextBox.Size = new System.Drawing.Size(169, 20);
+            this.regionAdditionTextBox.TabIndex = 1;
+            // 
+            // regionNameTextBox
+            // 
+            this.regionNameTextBox.Location = new System.Drawing.Point(9, 32);
+            this.regionNameTextBox.Name = "regionNameTextBox";
+            this.regionNameTextBox.Size = new System.Drawing.Size(255, 20);
+            this.regionNameTextBox.TabIndex = 0;
             // 
             // regionsGridView
             // 
@@ -272,8 +389,14 @@
             this.regionsGridView.Name = "regionsGridView";
             this.regionsGridView.ReadOnly = true;
             this.regionsGridView.RowHeadersVisible = false;
+            this.regionsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.regionsGridView.Size = new System.Drawing.Size(235, 309);
             this.regionsGridView.TabIndex = 0;
+            this.regionsGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RegionsGridViewCellClick);
+            // 
+            // iRegionBindingSource
+            // 
+            this.iRegionBindingSource.DataSource = typeof(Model.Regions.IRegion);
             // 
             // idDataGridViewTextBoxColumn1
             // 
@@ -282,6 +405,7 @@
             this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
             this.idDataGridViewTextBoxColumn1.ReadOnly = true;
             this.idDataGridViewTextBoxColumn1.Visible = false;
+            this.idDataGridViewTextBoxColumn1.Width = 5;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -296,99 +420,31 @@
             this.zoneDataGridViewTextBoxColumn.HeaderText = "Пояс";
             this.zoneDataGridViewTextBoxColumn.Name = "zoneDataGridViewTextBoxColumn";
             this.zoneDataGridViewTextBoxColumn.ReadOnly = true;
+            this.zoneDataGridViewTextBoxColumn.Visible = false;
             this.zoneDataGridViewTextBoxColumn.Width = 130;
             // 
-            // iRegionBindingSource
+            // idDataGridViewTextBoxColumn
             // 
-            this.iRegionBindingSource.DataSource = typeof(Model.Regions.IRegion);
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Идентификатор";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
+            this.idDataGridViewTextBoxColumn.Width = 5;
             // 
-            // groupBox1
+            // numDataGridViewTextBoxColumn
             // 
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.additionalRegionCheckBox);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.regionNameTextBox);
-            this.groupBox1.Location = new System.Drawing.Point(247, 27);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(270, 145);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Информация";
+            this.numDataGridViewTextBoxColumn.DataPropertyName = "Num";
+            this.numDataGridViewTextBoxColumn.HeaderText = "Номер";
+            this.numDataGridViewTextBoxColumn.Name = "numDataGridViewTextBoxColumn";
+            this.numDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // label4
+            // asStringDataGridViewTextBoxColumn
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 6);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(150, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Список регионов по поясам";
-            // 
-            // regionNameTextBox
-            // 
-            this.regionNameTextBox.Location = new System.Drawing.Point(9, 32);
-            this.regionNameTextBox.Name = "regionNameTextBox";
-            this.regionNameTextBox.Size = new System.Drawing.Size(255, 20);
-            this.regionNameTextBox.TabIndex = 0;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(9, 71);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(169, 20);
-            this.textBox2.TabIndex = 1;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.iZoneBindingSource, "Id", true));
-            this.comboBox1.DataSource = this.iZoneBindingSource;
-            this.comboBox1.DisplayMember = "AsString";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(9, 110);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(255, 21);
-            this.comboBox1.TabIndex = 2;
-            this.comboBox1.ValueMember = "Id";
-            // 
-            // additionalRegionCheckBox
-            // 
-            this.additionalRegionCheckBox.AutoSize = true;
-            this.additionalRegionCheckBox.Location = new System.Drawing.Point(184, 71);
-            this.additionalRegionCheckBox.Name = "additionalRegionCheckBox";
-            this.additionalRegionCheckBox.Size = new System.Drawing.Size(80, 17);
-            this.additionalRegionCheckBox.TabIndex = 3;
-            this.additionalRegionCheckBox.Text = "Уточнение";
-            this.additionalRegionCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 16);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(144, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Край, область, республика";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 55);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Уточнение";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 94);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(33, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Пояс";
+            this.asStringDataGridViewTextBoxColumn.DataPropertyName = "AsString";
+            this.asStringDataGridViewTextBoxColumn.HeaderText = "Строковое представление";
+            this.asStringDataGridViewTextBoxColumn.Name = "asStringDataGridViewTextBoxColumn";
+            this.asStringDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // MainForm
             // 
@@ -412,10 +468,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.iZoneBindingSource)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.regionsGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iRegionBindingSource)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.regionsGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iRegionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -426,9 +483,6 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView zonesGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn numDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn asStringDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource iZoneBindingSource;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox zoneActionsGroupBox;
@@ -441,9 +495,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox zoneNumTextBox;
         private System.Windows.Forms.DataGridView regionsGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource iRegionBindingSource;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -451,9 +502,19 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox additionalRegionCheckBox;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox regionZoneComboBox;
+        private System.Windows.Forms.TextBox regionAdditionTextBox;
         private System.Windows.Forms.TextBox regionNameTextBox;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button removeRegionButton;
+        private System.Windows.Forms.Button addRegionButton;
+        private System.Windows.Forms.Button applyRegionButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn numDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn asStringDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zoneDataGridViewTextBoxColumn;
     }
 }
 
