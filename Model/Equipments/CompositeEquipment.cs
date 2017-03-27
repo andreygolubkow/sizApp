@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace Model.Equipments
 {
+    [Serializable]
     public class CompositeEquipment:IEquipment
     {
         private int _id;

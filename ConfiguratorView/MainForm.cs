@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using ConfiguratorView.Tools;
 
 using Model.Equipments;
 using Model.Regions;
@@ -29,6 +26,8 @@ namespace ConfiguratorView
         //Управление сизами
         private List<IEquipment> _equipmentsList;
         private int _equipmentSelectedId;
+            //Список СИЗ для нескольких СИЗ
+        private List<IEquipment> _sizEquipmentsList;
         ///////////////////////////
 
         private int MaxZoneId()
@@ -179,7 +178,7 @@ namespace ConfiguratorView
         {
             DataSerializer.SerializeBin("zonesList.sdb",ref _zonesList);
             DataSerializer.SerializeBin("regionsList.sdb", ref _regionsList);
-            DataSerializer.SerializeBin("equipmentsList.sdb", ref _regionsList);
+            DataSerializer.SerializeBin("equipmentsList.sdb", ref _equipmentsList);
         }
 
         private void AdditionalRegionCheckBoxCheckedChanged(object sender, EventArgs e)
@@ -283,10 +282,15 @@ namespace ConfiguratorView
 
         private void SizAddButtonClick(object sender, EventArgs e)
         {
+            int id = MaxEquipmentId() + 1;
             switch ( sizTypeComboBox.SelectedIndex )
             {
+                case 0:
+                    iEquipmentBindingSource.Add(new PerYearEquipment(id,
+                                                                     sizPerYearNameTextBox.Text,
+                                                                     Convert.ToDouble(sizPerYearCountTextBox.Text)));
+                    break;
                 case 1:
-                    int id = MaxEquipmentId() + 1;
                     iEquipmentBindingSource.Add(new StringCountEquipment(id,sizStringCountNameTextBox.Text,sizStringCountCountTextBox.Text));
                     break;
             }
@@ -294,6 +298,7 @@ namespace ConfiguratorView
 
         private void SizTypeComboBoxSelectedIndexChanged(object sender, EventArgs e)
         {
+            sizPerYearEquipmentGroupBox.Visible = sizTypeComboBox.SelectedIndex == 0;
             sizStringCountEquipmentGroupBox.Visible = sizTypeComboBox.SelectedIndex == 1;
         }
 
@@ -321,7 +326,46 @@ namespace ConfiguratorView
                 sizStringCountNameTextBox.Text = ((StringCountEquipment)iEquipmentBindingSource.Current).Name;
                 sizStringCountCountTextBox.Text = ((StringCountEquipment)iEquipmentBindingSource.Current).Count;
                 sizTypeComboBox.SelectedIndex = 1;
+            } else
+                if (iEquipmentBindingSource.Current is PerYearEquipment)
+            {
+                _equipmentSelectedId = ((PerYearEquipment)iEquipmentBindingSource.Current).Id;
+                sizPerYearNameTextBox.Text = ((PerYearEquipment)iEquipmentBindingSource.Current).Name;
+                sizPerYearCountTextBox.Text = Convert.ToString(((PerYearEquipment)iEquipmentBindingSource.Current).CountPerYear);
+                sizTypeComboBox.SelectedIndex = 0;
             }
+
+        }
+
+        private void SizApplyButtonClick(object sender, EventArgs e)
+        {
+
+            if (_equipmentSelectedId <= -1)
+            {
+                MessageBox.Show("Выберите элемент для правки");
+                return;
+            }
+
+            int index = _equipmentsList.IndexOf((IEquipment)iEquipmentBindingSource.Current);
+            
+            switch (sizTypeComboBox.SelectedIndex)
+            {
+                case 0:
+                    _equipmentsList[index] = new PerYearEquipment(_equipmentSelectedId,
+                                                                  sizPerYearNameTextBox.Text,
+                                                                  Convert.ToDouble(sizPerYearCountTextBox.Text));
+                    break;   
+                case 1:
+                    _equipmentsList[index] = new StringCountEquipment(_equipmentSelectedId, sizStringCountNameTextBox.Text, sizStringCountCountTextBox.Text);
+                    
+                    break;
+            }
+            iEquipmentBindingSource[iEquipmentBindingSource.Position] = _equipmentsList[index];
+        }
+
+        private void sizPerYearCountTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Validators.DoubleEnterValidate(e);
         }
     }
 }

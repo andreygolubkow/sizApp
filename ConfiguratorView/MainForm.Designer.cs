@@ -72,6 +72,11 @@
             this.sizRemoveButton = new System.Windows.Forms.Button();
             this.sizAddButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.sizPerYearEquipmentGroupBox = new System.Windows.Forms.GroupBox();
+            this.sizPerYearCountTextBox = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.sizPerYearNameTextBox = new System.Windows.Forms.TextBox();
             this.sizStringCountEquipmentGroupBox = new System.Windows.Forms.GroupBox();
             this.sizStringCountCountTextBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -81,11 +86,17 @@
             this.sizTypeComboBox = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.sizGridView = new System.Windows.Forms.DataGridView();
-            this.iEquipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TermOfUse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iEquipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sizCompositeEquipmentGroupBox = new System.Windows.Forms.GroupBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.iSizListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.zoneActionsGroupBox.SuspendLayout();
@@ -100,9 +111,12 @@
             this.tabPage3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.sizPerYearEquipmentGroupBox.SuspendLayout();
             this.sizStringCountEquipmentGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sizGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iEquipmentBindingSource)).BeginInit();
+            this.sizCompositeEquipmentGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iSizListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -522,6 +536,7 @@
             this.sizApplyButton.TabIndex = 2;
             this.sizApplyButton.Text = "Применить правки";
             this.sizApplyButton.UseVisualStyleBackColor = true;
+            this.sizApplyButton.Click += new System.EventHandler(this.SizApplyButtonClick);
             // 
             // sizRemoveButton
             // 
@@ -546,6 +561,8 @@
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.sizCompositeEquipmentGroupBox);
+            this.groupBox3.Controls.Add(this.sizPerYearEquipmentGroupBox);
             this.groupBox3.Controls.Add(this.sizStringCountEquipmentGroupBox);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.sizTypeComboBox);
@@ -555,6 +572,53 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Информация";
+            // 
+            // sizPerYearEquipmentGroupBox
+            // 
+            this.sizPerYearEquipmentGroupBox.Controls.Add(this.sizPerYearCountTextBox);
+            this.sizPerYearEquipmentGroupBox.Controls.Add(this.label13);
+            this.sizPerYearEquipmentGroupBox.Controls.Add(this.label12);
+            this.sizPerYearEquipmentGroupBox.Controls.Add(this.sizPerYearNameTextBox);
+            this.sizPerYearEquipmentGroupBox.Location = new System.Drawing.Point(9, 59);
+            this.sizPerYearEquipmentGroupBox.Name = "sizPerYearEquipmentGroupBox";
+            this.sizPerYearEquipmentGroupBox.Size = new System.Drawing.Size(302, 101);
+            this.sizPerYearEquipmentGroupBox.TabIndex = 3;
+            this.sizPerYearEquipmentGroupBox.TabStop = false;
+            this.sizPerYearEquipmentGroupBox.Text = "СИЗ со сроком на год";
+            this.sizPerYearEquipmentGroupBox.Visible = false;
+            // 
+            // sizPerYearCountTextBox
+            // 
+            this.sizPerYearCountTextBox.Location = new System.Drawing.Point(9, 71);
+            this.sizPerYearCountTextBox.Name = "sizPerYearCountTextBox";
+            this.sizPerYearCountTextBox.Size = new System.Drawing.Size(158, 20);
+            this.sizPerYearCountTextBox.TabIndex = 3;
+            this.sizPerYearCountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sizPerYearCountTextBox_KeyPress);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 55);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(116, 13);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "Норма выдачи на год";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 16);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(108, 13);
+            this.label12.TabIndex = 1;
+            this.label12.Text = "Наименование СИЗ";
+            // 
+            // sizPerYearNameTextBox
+            // 
+            this.sizPerYearNameTextBox.Location = new System.Drawing.Point(9, 32);
+            this.sizPerYearNameTextBox.Name = "sizPerYearNameTextBox";
+            this.sizPerYearNameTextBox.Size = new System.Drawing.Size(285, 20);
+            this.sizPerYearNameTextBox.TabIndex = 0;
             // 
             // sizStringCountEquipmentGroupBox
             // 
@@ -660,10 +724,6 @@
             this.sizGridView.TabIndex = 0;
             this.sizGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SizGridViewCellClick);
             // 
-            // iEquipmentBindingSource
-            // 
-            this.iEquipmentBindingSource.DataSource = typeof(Model.Equipments.IEquipment);
-            // 
             // idDataGridViewTextBoxColumn2
             // 
             this.idDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -698,6 +758,68 @@
             this.TermOfUse.Name = "TermOfUse";
             this.TermOfUse.ReadOnly = true;
             // 
+            // iEquipmentBindingSource
+            // 
+            this.iEquipmentBindingSource.DataSource = typeof(Model.Equipments.IEquipment);
+            // 
+            // sizCompositeEquipmentGroupBox
+            // 
+            this.sizCompositeEquipmentGroupBox.Controls.Add(this.button2);
+            this.sizCompositeEquipmentGroupBox.Controls.Add(this.button1);
+            this.sizCompositeEquipmentGroupBox.Controls.Add(this.comboBox1);
+            this.sizCompositeEquipmentGroupBox.Controls.Add(this.listBox1);
+            this.sizCompositeEquipmentGroupBox.Location = new System.Drawing.Point(9, 59);
+            this.sizCompositeEquipmentGroupBox.Name = "sizCompositeEquipmentGroupBox";
+            this.sizCompositeEquipmentGroupBox.Size = new System.Drawing.Size(302, 190);
+            this.sizCompositeEquipmentGroupBox.TabIndex = 4;
+            this.sizCompositeEquipmentGroupBox.TabStop = false;
+            this.sizCompositeEquipmentGroupBox.Text = "СИЗ состоящий из нескольких СИЗ";
+            // 
+            // listBox1
+            // 
+            this.listBox1.DataSource = this.iSizListBindingSource;
+            this.listBox1.DisplayMember = "Name";
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(6, 128);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(290, 56);
+            this.listBox1.TabIndex = 0;
+            this.listBox1.ValueMember = "CountString";
+            // 
+            // iSizListBindingSource
+            // 
+            this.iSizListBindingSource.DataSource = typeof(Model.Equipments.IEquipment);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox1.DataSource = this.iEquipmentBindingSource;
+            this.comboBox1.DisplayMember = "Name";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(6, 101);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(237, 21);
+            this.comboBox1.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(249, 99);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(22, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "+";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(277, 99);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(21, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "-";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -729,10 +851,14 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.sizPerYearEquipmentGroupBox.ResumeLayout(false);
+            this.sizPerYearEquipmentGroupBox.PerformLayout();
             this.sizStringCountEquipmentGroupBox.ResumeLayout(false);
             this.sizStringCountEquipmentGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sizGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iEquipmentBindingSource)).EndInit();
+            this.sizCompositeEquipmentGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iSizListBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -795,6 +921,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn countStringDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn TermOfUse;
+        private System.Windows.Forms.GroupBox sizPerYearEquipmentGroupBox;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox sizPerYearNameTextBox;
+        private System.Windows.Forms.TextBox sizPerYearCountTextBox;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.GroupBox sizCompositeEquipmentGroupBox;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.BindingSource iSizListBindingSource;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

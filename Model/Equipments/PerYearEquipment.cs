@@ -3,6 +3,7 @@ using System.Globalization;
 
 namespace Model.Equipments
 {
+    [Serializable]
     public class PerYearEquipment:IEquipment
     {
         private string _name;

@@ -6,6 +6,7 @@ using Model.Zones;
 
 namespace Model.Equipments
 {
+    [Serializable]
     public class ByZoneEquipment:IEquipment
     {
         private int _id;
