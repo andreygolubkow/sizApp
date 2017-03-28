@@ -12,7 +12,7 @@ namespace Model.Equipments
 
         public CompositeEquipment(int id,string name,List<IEquipment> equipments )
         {
-            _equipmentsList = new List<IEquipment>(equipments);
+            _equipmentsList = equipments;
             Id = id;
             Name = name;
         }

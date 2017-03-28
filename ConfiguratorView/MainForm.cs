@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -293,6 +294,11 @@ namespace ConfiguratorView
                 case 1:
                     iEquipmentBindingSource.Add(new StringCountEquipment(id,sizStringCountNameTextBox.Text,sizStringCountCountTextBox.Text));
                     break;
+                case 2:
+                    iEquipmentBindingSource.Add(new CompositeEquipment(id,
+                                                                       sizCompositeEquipmentNameTextBox.Text,
+                                                                       _sizEquipmentsList));
+                    break;
             }
         }
 
@@ -300,6 +306,7 @@ namespace ConfiguratorView
         {
             sizPerYearEquipmentGroupBox.Visible = sizTypeComboBox.SelectedIndex == 0;
             sizStringCountEquipmentGroupBox.Visible = sizTypeComboBox.SelectedIndex == 1;
+            sizCompositeEquipmentGroupBox.Visible = sizTypeComboBox.SelectedIndex == 2;
         }
 
         private void SizRemoveButtonClick(object sender, EventArgs e)
@@ -320,19 +327,27 @@ namespace ConfiguratorView
 
         private void SizGridViewCellClick(object sender, DataGridViewCellEventArgs e)
         {
+            sizApplyButton.Enabled =
+                    !(iEquipmentBindingSource.Current is CompositeEquipment || iEquipmentBindingSource.Current is ByZoneEquipment);
             if ( iEquipmentBindingSource.Current is StringCountEquipment )
             {
                 _equipmentSelectedId = ((StringCountEquipment)iEquipmentBindingSource.Current).Id;
                 sizStringCountNameTextBox.Text = ((StringCountEquipment)iEquipmentBindingSource.Current).Name;
                 sizStringCountCountTextBox.Text = ((StringCountEquipment)iEquipmentBindingSource.Current).Count;
                 sizTypeComboBox.SelectedIndex = 1;
-            } else
-                if (iEquipmentBindingSource.Current is PerYearEquipment)
+            } else if (iEquipmentBindingSource.Current is PerYearEquipment)
             {
                 _equipmentSelectedId = ((PerYearEquipment)iEquipmentBindingSource.Current).Id;
                 sizPerYearNameTextBox.Text = ((PerYearEquipment)iEquipmentBindingSource.Current).Name;
-                sizPerYearCountTextBox.Text = Convert.ToString(((PerYearEquipment)iEquipmentBindingSource.Current).CountPerYear);
+                sizPerYearCountTextBox.Text = Convert.ToString(((PerYearEquipment)iEquipmentBindingSource.Current).CountPerYear, CultureInfo.InvariantCulture);
                 sizTypeComboBox.SelectedIndex = 0;
+            } else if ( iEquipmentBindingSource.Current is CompositeEquipment )
+            {
+                _equipmentSelectedId = ((CompositeEquipment)iEquipmentBindingSource.Current).Id;
+                sizTypeComboBox.SelectedIndex = 2;
+                sizCompositeEquipmentNameTextBox.Text = ((CompositeEquipment)iEquipmentBindingSource.Current).Name;
+                _sizEquipmentsList = ((CompositeEquipment)iEquipmentBindingSource.Current).EquipmentsList;
+                iSizListBindingSource.DataSource = _sizEquipmentsList;
             }
 
         }
@@ -356,8 +371,7 @@ namespace ConfiguratorView
                                                                   Convert.ToDouble(sizPerYearCountTextBox.Text));
                     break;   
                 case 1:
-                    _equipmentsList[index] = new StringCountEquipment(_equipmentSelectedId, sizStringCountNameTextBox.Text, sizStringCountCountTextBox.Text);
-                    
+                    _equipmentsList[index] = new StringCountEquipment(_equipmentSelectedId, sizStringCountNameTextBox.Text, sizStringCountCountTextBox.Text);       
                     break;
             }
             iEquipmentBindingSource[iEquipmentBindingSource.Position] = _equipmentsList[index];
@@ -366,6 +380,21 @@ namespace ConfiguratorView
         private void sizPerYearCountTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             Validators.DoubleEnterValidate(e);
+        }
+
+        private void sizCompositeEquipmentAddButton_Click(object sender, EventArgs e)
+        {
+            iSizListBindingSource.Add(iEquipmentBindingSource.Current);
+        }
+
+        private void SizCompositeEquipmentComboBoxSelectedIndexChanged(object sender, EventArgs e)
+        {
+            _equipmentSelectedId = 0;
+        }
+
+        private void sizCompositeEquipmentRemoveButton_Click(object sender, EventArgs e)
+        {
+            iSizListBindingSource.RemoveCurrent();
         }
     }
 }

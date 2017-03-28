@@ -72,6 +72,16 @@
             this.sizRemoveButton = new System.Windows.Forms.Button();
             this.sizAddButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.sizCompositeEquipmentGroupBox = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.sizCompositeEquipmentNameTextBox = new System.Windows.Forms.TextBox();
+            this.sizCompositeEquipmentRemoveButton = new System.Windows.Forms.Button();
+            this.sizCompositeEquipmentAddButton = new System.Windows.Forms.Button();
+            this.sizCompositeEquipmentComboBox = new System.Windows.Forms.ComboBox();
+            this.iEquipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sizCompositeEquipmentListBox = new System.Windows.Forms.ListBox();
+            this.iSizListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sizPerYearEquipmentGroupBox = new System.Windows.Forms.GroupBox();
             this.sizPerYearCountTextBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -90,13 +100,7 @@
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TermOfUse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.iEquipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sizCompositeEquipmentGroupBox = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.iSizListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.zoneActionsGroupBox.SuspendLayout();
@@ -111,12 +115,12 @@
             this.tabPage3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.sizCompositeEquipmentGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iEquipmentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iSizListBindingSource)).BeginInit();
             this.sizPerYearEquipmentGroupBox.SuspendLayout();
             this.sizStringCountEquipmentGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sizGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iEquipmentBindingSource)).BeginInit();
-            this.sizCompositeEquipmentGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iSizListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -561,6 +565,7 @@
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.groupBox5);
             this.groupBox3.Controls.Add(this.sizCompositeEquipmentGroupBox);
             this.groupBox3.Controls.Add(this.sizPerYearEquipmentGroupBox);
             this.groupBox3.Controls.Add(this.sizStringCountEquipmentGroupBox);
@@ -572,6 +577,99 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Информация";
+            // 
+            // sizCompositeEquipmentGroupBox
+            // 
+            this.sizCompositeEquipmentGroupBox.Controls.Add(this.label15);
+            this.sizCompositeEquipmentGroupBox.Controls.Add(this.label14);
+            this.sizCompositeEquipmentGroupBox.Controls.Add(this.sizCompositeEquipmentNameTextBox);
+            this.sizCompositeEquipmentGroupBox.Controls.Add(this.sizCompositeEquipmentRemoveButton);
+            this.sizCompositeEquipmentGroupBox.Controls.Add(this.sizCompositeEquipmentAddButton);
+            this.sizCompositeEquipmentGroupBox.Controls.Add(this.sizCompositeEquipmentComboBox);
+            this.sizCompositeEquipmentGroupBox.Controls.Add(this.sizCompositeEquipmentListBox);
+            this.sizCompositeEquipmentGroupBox.Location = new System.Drawing.Point(9, 59);
+            this.sizCompositeEquipmentGroupBox.Name = "sizCompositeEquipmentGroupBox";
+            this.sizCompositeEquipmentGroupBox.Size = new System.Drawing.Size(302, 190);
+            this.sizCompositeEquipmentGroupBox.TabIndex = 4;
+            this.sizCompositeEquipmentGroupBox.TabStop = false;
+            this.sizCompositeEquipmentGroupBox.Text = "СИЗ состоящий из нескольких СИЗ";
+            this.sizCompositeEquipmentGroupBox.Visible = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 85);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(69, 13);
+            this.label15.TabIndex = 6;
+            this.label15.Text = "Список СИЗ";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 16);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(83, 13);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "Наименование";
+            // 
+            // sizCompositeEquipmentNameTextBox
+            // 
+            this.sizCompositeEquipmentNameTextBox.Location = new System.Drawing.Point(9, 32);
+            this.sizCompositeEquipmentNameTextBox.Name = "sizCompositeEquipmentNameTextBox";
+            this.sizCompositeEquipmentNameTextBox.Size = new System.Drawing.Size(285, 20);
+            this.sizCompositeEquipmentNameTextBox.TabIndex = 4;
+            // 
+            // sizCompositeEquipmentRemoveButton
+            // 
+            this.sizCompositeEquipmentRemoveButton.Location = new System.Drawing.Point(277, 99);
+            this.sizCompositeEquipmentRemoveButton.Name = "sizCompositeEquipmentRemoveButton";
+            this.sizCompositeEquipmentRemoveButton.Size = new System.Drawing.Size(21, 23);
+            this.sizCompositeEquipmentRemoveButton.TabIndex = 3;
+            this.sizCompositeEquipmentRemoveButton.Text = "-";
+            this.sizCompositeEquipmentRemoveButton.UseVisualStyleBackColor = true;
+            this.sizCompositeEquipmentRemoveButton.Click += new System.EventHandler(this.sizCompositeEquipmentRemoveButton_Click);
+            // 
+            // sizCompositeEquipmentAddButton
+            // 
+            this.sizCompositeEquipmentAddButton.Location = new System.Drawing.Point(249, 99);
+            this.sizCompositeEquipmentAddButton.Name = "sizCompositeEquipmentAddButton";
+            this.sizCompositeEquipmentAddButton.Size = new System.Drawing.Size(22, 23);
+            this.sizCompositeEquipmentAddButton.TabIndex = 2;
+            this.sizCompositeEquipmentAddButton.Text = "+";
+            this.sizCompositeEquipmentAddButton.UseVisualStyleBackColor = true;
+            this.sizCompositeEquipmentAddButton.Click += new System.EventHandler(this.sizCompositeEquipmentAddButton_Click);
+            // 
+            // sizCompositeEquipmentComboBox
+            // 
+            this.sizCompositeEquipmentComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.sizCompositeEquipmentComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.sizCompositeEquipmentComboBox.DataSource = this.iEquipmentBindingSource;
+            this.sizCompositeEquipmentComboBox.DisplayMember = "Name";
+            this.sizCompositeEquipmentComboBox.FormattingEnabled = true;
+            this.sizCompositeEquipmentComboBox.Location = new System.Drawing.Point(9, 101);
+            this.sizCompositeEquipmentComboBox.Name = "sizCompositeEquipmentComboBox";
+            this.sizCompositeEquipmentComboBox.Size = new System.Drawing.Size(234, 21);
+            this.sizCompositeEquipmentComboBox.TabIndex = 1;
+            this.sizCompositeEquipmentComboBox.SelectedIndexChanged += new System.EventHandler(this.SizCompositeEquipmentComboBoxSelectedIndexChanged);
+            // 
+            // iEquipmentBindingSource
+            // 
+            this.iEquipmentBindingSource.DataSource = typeof(Model.Equipments.IEquipment);
+            // 
+            // sizCompositeEquipmentListBox
+            // 
+            this.sizCompositeEquipmentListBox.DataSource = this.iSizListBindingSource;
+            this.sizCompositeEquipmentListBox.DisplayMember = "Name";
+            this.sizCompositeEquipmentListBox.FormattingEnabled = true;
+            this.sizCompositeEquipmentListBox.Location = new System.Drawing.Point(9, 128);
+            this.sizCompositeEquipmentListBox.Name = "sizCompositeEquipmentListBox";
+            this.sizCompositeEquipmentListBox.Size = new System.Drawing.Size(287, 56);
+            this.sizCompositeEquipmentListBox.TabIndex = 0;
+            // 
+            // iSizListBindingSource
+            // 
+            this.iSizListBindingSource.DataSource = typeof(Model.Equipments.IEquipment);
             // 
             // sizPerYearEquipmentGroupBox
             // 
@@ -758,67 +856,14 @@
             this.TermOfUse.Name = "TermOfUse";
             this.TermOfUse.ReadOnly = true;
             // 
-            // iEquipmentBindingSource
+            // groupBox5
             // 
-            this.iEquipmentBindingSource.DataSource = typeof(Model.Equipments.IEquipment);
-            // 
-            // sizCompositeEquipmentGroupBox
-            // 
-            this.sizCompositeEquipmentGroupBox.Controls.Add(this.button2);
-            this.sizCompositeEquipmentGroupBox.Controls.Add(this.button1);
-            this.sizCompositeEquipmentGroupBox.Controls.Add(this.comboBox1);
-            this.sizCompositeEquipmentGroupBox.Controls.Add(this.listBox1);
-            this.sizCompositeEquipmentGroupBox.Location = new System.Drawing.Point(9, 59);
-            this.sizCompositeEquipmentGroupBox.Name = "sizCompositeEquipmentGroupBox";
-            this.sizCompositeEquipmentGroupBox.Size = new System.Drawing.Size(302, 190);
-            this.sizCompositeEquipmentGroupBox.TabIndex = 4;
-            this.sizCompositeEquipmentGroupBox.TabStop = false;
-            this.sizCompositeEquipmentGroupBox.Text = "СИЗ состоящий из нескольких СИЗ";
-            // 
-            // listBox1
-            // 
-            this.listBox1.DataSource = this.iSizListBindingSource;
-            this.listBox1.DisplayMember = "Name";
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(6, 128);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(290, 56);
-            this.listBox1.TabIndex = 0;
-            this.listBox1.ValueMember = "CountString";
-            // 
-            // iSizListBindingSource
-            // 
-            this.iSizListBindingSource.DataSource = typeof(Model.Equipments.IEquipment);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.DataSource = this.iEquipmentBindingSource;
-            this.comboBox1.DisplayMember = "Name";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 101);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(237, 21);
-            this.comboBox1.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(249, 99);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(22, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "+";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(277, 99);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(21, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "-";
-            this.button2.UseVisualStyleBackColor = true;
+            this.groupBox5.Location = new System.Drawing.Point(9, 59);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(302, 190);
+            this.groupBox5.TabIndex = 5;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "СИЗ сроки которого зависят от пояса";
             // 
             // MainForm
             // 
@@ -851,14 +896,15 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.sizCompositeEquipmentGroupBox.ResumeLayout(false);
+            this.sizCompositeEquipmentGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iEquipmentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iSizListBindingSource)).EndInit();
             this.sizPerYearEquipmentGroupBox.ResumeLayout(false);
             this.sizPerYearEquipmentGroupBox.PerformLayout();
             this.sizStringCountEquipmentGroupBox.ResumeLayout(false);
             this.sizStringCountEquipmentGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sizGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iEquipmentBindingSource)).EndInit();
-            this.sizCompositeEquipmentGroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.iSizListBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -927,11 +973,15 @@
         private System.Windows.Forms.TextBox sizPerYearCountTextBox;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox sizCompositeEquipmentGroupBox;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox sizCompositeEquipmentListBox;
         private System.Windows.Forms.BindingSource iSizListBindingSource;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button sizCompositeEquipmentRemoveButton;
+        private System.Windows.Forms.Button sizCompositeEquipmentAddButton;
+        private System.Windows.Forms.ComboBox sizCompositeEquipmentComboBox;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox sizCompositeEquipmentNameTextBox;
+        private System.Windows.Forms.GroupBox groupBox5;
     }
 }
 
