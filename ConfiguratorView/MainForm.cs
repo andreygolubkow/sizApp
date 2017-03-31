@@ -29,6 +29,8 @@ namespace ConfiguratorView
         private int _equipmentSelectedId;
             //Список СИЗ для нескольких СИЗ
         private List<IEquipment> _sizEquipmentsList;
+        //Словарь для сизов и поясов
+        private IDictionary<IZone, double> _sizByZoneDictionary;
         ///////////////////////////
 
         private int MaxZoneId()
@@ -307,6 +309,7 @@ namespace ConfiguratorView
             sizPerYearEquipmentGroupBox.Visible = sizTypeComboBox.SelectedIndex == 0;
             sizStringCountEquipmentGroupBox.Visible = sizTypeComboBox.SelectedIndex == 1;
             sizCompositeEquipmentGroupBox.Visible = sizTypeComboBox.SelectedIndex == 2;
+            sizByZoneGroupBox.Visible = sizTypeComboBox.SelectedIndex == 3;
         }
 
         private void SizRemoveButtonClick(object sender, EventArgs e)
@@ -395,6 +398,16 @@ namespace ConfiguratorView
         private void sizCompositeEquipmentRemoveButton_Click(object sender, EventArgs e)
         {
             iSizListBindingSource.RemoveCurrent();
+        }
+
+        private void SizByZoneGroupBoxVisibleChanged(object sender, EventArgs e)
+        {
+            if ( sizByZoneGroupBox.Visible )
+            {
+                _sizByZoneDictionary = new Dictionary<IZone, double>();
+                sizByZoneBindingSource.DataSource = _sizByZoneDictionary.ToArray();
+                sizByZoneDataGridView.DataSource = sizByZoneBindingSource;
+            }
         }
     }
 }

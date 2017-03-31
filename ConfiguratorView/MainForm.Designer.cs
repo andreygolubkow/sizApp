@@ -72,6 +72,12 @@
             this.sizRemoveButton = new System.Windows.Forms.Button();
             this.sizAddButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.sizByZoneGroupBox = new System.Windows.Forms.GroupBox();
+            this.sizByZoneDataGridView = new System.Windows.Forms.DataGridView();
+            this.sizByZoneBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.sizByZoneNameTextBox = new System.Windows.Forms.TextBox();
             this.sizCompositeEquipmentGroupBox = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -100,7 +106,6 @@
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TermOfUse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.zoneActionsGroupBox.SuspendLayout();
@@ -115,6 +120,9 @@
             this.tabPage3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.sizByZoneGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sizByZoneDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sizByZoneBindingSource)).BeginInit();
             this.sizCompositeEquipmentGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iEquipmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iSizListBindingSource)).BeginInit();
@@ -565,7 +573,7 @@
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.groupBox5);
+            this.groupBox3.Controls.Add(this.sizByZoneGroupBox);
             this.groupBox3.Controls.Add(this.sizCompositeEquipmentGroupBox);
             this.groupBox3.Controls.Add(this.sizPerYearEquipmentGroupBox);
             this.groupBox3.Controls.Add(this.sizStringCountEquipmentGroupBox);
@@ -577,6 +585,56 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Информация";
+            // 
+            // sizByZoneGroupBox
+            // 
+            this.sizByZoneGroupBox.Controls.Add(this.sizByZoneDataGridView);
+            this.sizByZoneGroupBox.Controls.Add(this.label17);
+            this.sizByZoneGroupBox.Controls.Add(this.label16);
+            this.sizByZoneGroupBox.Controls.Add(this.sizByZoneNameTextBox);
+            this.sizByZoneGroupBox.Location = new System.Drawing.Point(9, 59);
+            this.sizByZoneGroupBox.Name = "sizByZoneGroupBox";
+            this.sizByZoneGroupBox.Size = new System.Drawing.Size(302, 190);
+            this.sizByZoneGroupBox.TabIndex = 5;
+            this.sizByZoneGroupBox.TabStop = false;
+            this.sizByZoneGroupBox.Text = "СИЗ сроки которого зависят от пояса";
+            this.sizByZoneGroupBox.Visible = false;
+            this.sizByZoneGroupBox.VisibleChanged += new System.EventHandler(this.SizByZoneGroupBoxVisibleChanged);
+            // 
+            // sizByZoneDataGridView
+            // 
+            this.sizByZoneDataGridView.AllowUserToAddRows = false;
+            this.sizByZoneDataGridView.AllowUserToDeleteRows = false;
+            this.sizByZoneDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.sizByZoneDataGridView.Location = new System.Drawing.Point(9, 71);
+            this.sizByZoneDataGridView.Name = "sizByZoneDataGridView";
+            this.sizByZoneDataGridView.Size = new System.Drawing.Size(285, 113);
+            this.sizByZoneDataGridView.TabIndex = 4;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(7, 55);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(65, 13);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Список зон";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(3, 16);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(83, 13);
+            this.label16.TabIndex = 1;
+            this.label16.Text = "Наименование";
+            // 
+            // sizByZoneNameTextBox
+            // 
+            this.sizByZoneNameTextBox.Location = new System.Drawing.Point(6, 32);
+            this.sizByZoneNameTextBox.Name = "sizByZoneNameTextBox";
+            this.sizByZoneNameTextBox.Size = new System.Drawing.Size(288, 20);
+            this.sizByZoneNameTextBox.TabIndex = 0;
             // 
             // sizCompositeEquipmentGroupBox
             // 
@@ -856,15 +914,6 @@
             this.TermOfUse.Name = "TermOfUse";
             this.TermOfUse.ReadOnly = true;
             // 
-            // groupBox5
-            // 
-            this.groupBox5.Location = new System.Drawing.Point(9, 59);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(302, 190);
-            this.groupBox5.TabIndex = 5;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "СИЗ сроки которого зависят от пояса";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -896,6 +945,10 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.sizByZoneGroupBox.ResumeLayout(false);
+            this.sizByZoneGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sizByZoneDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sizByZoneBindingSource)).EndInit();
             this.sizCompositeEquipmentGroupBox.ResumeLayout(false);
             this.sizCompositeEquipmentGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iEquipmentBindingSource)).EndInit();
@@ -981,7 +1034,12 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox sizCompositeEquipmentNameTextBox;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox sizByZoneGroupBox;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox sizByZoneNameTextBox;
+        private System.Windows.Forms.DataGridView sizByZoneDataGridView;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.BindingSource sizByZoneBindingSource;
     }
 }
 
