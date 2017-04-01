@@ -316,6 +316,20 @@ namespace ConfiguratorView
             sizCompositeEquipmentGroupBox.Visible = sizTypeComboBox.SelectedIndex == 2;
             sizByZoneGroupBox.Visible = sizTypeComboBox.SelectedIndex == 3;
             sizApplyButton.Enabled = sizTypeComboBox.SelectedIndex != 2;
+
+            if ( sizCompositeEquipmentGroupBox.Visible )
+            {
+                _sizEquipmentsList = new List<IEquipment>();
+                List<IEquipment> equipments = _equipmentsList.ToList();
+                sizCompositeEquipmentComboBox.DisplayMember = "Name";
+                sizCompositeEquipmentComboBox.DataSource = equipments;
+                sizCompositeEquipmentListBox.Items.Clear();
+
+                
+
+
+
+            }
         }
 
         private void SizRemoveButtonClick(object sender, EventArgs e)
@@ -355,7 +369,11 @@ namespace ConfiguratorView
                 sizTypeComboBox.SelectedIndex = 2;
                 sizCompositeEquipmentNameTextBox.Text = ((CompositeEquipment)iEquipmentBindingSource.Current).Name;
                 _sizEquipmentsList = ((CompositeEquipment)iEquipmentBindingSource.Current).EquipmentsList;
-                iSizListBindingSource.DataSource = _sizEquipmentsList;
+                sizCompositeEquipmentListBox.Items.Clear();
+                foreach (IEquipment eq in _sizEquipmentsList)
+                {
+                    sizCompositeEquipmentListBox.Items.Add(eq.Name);
+                }
             } else if ( iEquipmentBindingSource.Current is ByZoneEquipment )
             {
                 _equipmentSelectedId = ((ByZoneEquipment)iEquipmentBindingSource.Current).Id;
@@ -415,7 +433,16 @@ namespace ConfiguratorView
 
         private void SizCompositeEquipmentAddButtonClick(object sender, EventArgs e)
         {
-            iSizListBindingSource.Add(iEquipmentBindingSource.Current);
+            var list = new List<IEquipment>((IList<IEquipment>)sizCompositeEquipmentComboBox.DataSource);
+            IEquipment item = list[sizCompositeEquipmentComboBox.SelectedIndex];
+
+            _sizEquipmentsList.Add(item);
+            sizCompositeEquipmentListBox.Items.Clear();
+            foreach (IEquipment eq in _sizEquipmentsList)
+            {
+                sizCompositeEquipmentListBox.Items.Add(eq.Name);
+            }
+
         }
 
         private void SizCompositeEquipmentComboBoxSelectedIndexChanged(object sender, EventArgs e)
@@ -425,7 +452,12 @@ namespace ConfiguratorView
 
         private void SizCompositeEquipmentRemoveButtonClick(object sender, EventArgs e)
         {
-            iSizListBindingSource.RemoveCurrent();
+            _sizEquipmentsList.RemoveAt(sizCompositeEquipmentListBox.SelectedIndex);
+            sizCompositeEquipmentListBox.Items.Clear();
+            foreach (IEquipment eq in _sizEquipmentsList)
+            {
+                sizCompositeEquipmentListBox.Items.Add(eq.Name);
+            }
         }
 
         private void SizByZoneGroupBoxVisibleChanged(object sender, EventArgs e)
