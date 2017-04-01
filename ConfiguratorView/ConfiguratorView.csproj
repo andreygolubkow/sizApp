@@ -56,6 +56,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tools\Validators.cs" />
+    <Compile Include="Tools\ZonesWithItems.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -68,6 +69,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\ConfiguratorView.Tools.ZonesWithItems.datasource" />
     <None Include="Properties\DataSources\Model.Equipments.IEquipment.datasource" />
     <None Include="Properties\DataSources\Model.Regions.IRegion.datasource" />
     <None Include="Properties\DataSources\Model.Zones.IZone.datasource" />

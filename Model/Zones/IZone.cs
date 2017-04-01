@@ -11,5 +11,7 @@
 
         string AsString { get; set; }
 
+        string ToString();
+
     }
 }

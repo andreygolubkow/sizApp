@@ -74,7 +74,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.sizByZoneGroupBox = new System.Windows.Forms.GroupBox();
             this.sizByZoneDataGridView = new System.Windows.Forms.DataGridView();
-            this.sizByZoneBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.zonesWithItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.sizByZoneNameTextBox = new System.Windows.Forms.TextBox();
@@ -106,6 +106,8 @@
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.countStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TermOfUse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zoneStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.zoneActionsGroupBox.SuspendLayout();
@@ -122,7 +124,7 @@
             this.groupBox3.SuspendLayout();
             this.sizByZoneGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sizByZoneDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sizByZoneBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zonesWithItemsBindingSource)).BeginInit();
             this.sizCompositeEquipmentGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iEquipmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iSizListBindingSource)).BeginInit();
@@ -605,11 +607,25 @@
             // 
             this.sizByZoneDataGridView.AllowUserToAddRows = false;
             this.sizByZoneDataGridView.AllowUserToDeleteRows = false;
+            this.sizByZoneDataGridView.AllowUserToResizeColumns = false;
+            this.sizByZoneDataGridView.AllowUserToResizeRows = false;
+            this.sizByZoneDataGridView.AutoGenerateColumns = false;
+            this.sizByZoneDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.sizByZoneDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.sizByZoneDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.zoneStringDataGridViewTextBoxColumn,
+            this.countDataGridViewTextBoxColumn});
+            this.sizByZoneDataGridView.DataSource = this.zonesWithItemsBindingSource;
+            this.sizByZoneDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.sizByZoneDataGridView.Location = new System.Drawing.Point(9, 71);
             this.sizByZoneDataGridView.Name = "sizByZoneDataGridView";
+            this.sizByZoneDataGridView.RowHeadersVisible = false;
             this.sizByZoneDataGridView.Size = new System.Drawing.Size(285, 113);
             this.sizByZoneDataGridView.TabIndex = 4;
+            // 
+            // zonesWithItemsBindingSource
+            // 
+            this.zonesWithItemsBindingSource.DataSource = typeof(ConfiguratorView.Tools.ZonesWithItems);
             // 
             // label17
             // 
@@ -686,7 +702,7 @@
             this.sizCompositeEquipmentRemoveButton.TabIndex = 3;
             this.sizCompositeEquipmentRemoveButton.Text = "-";
             this.sizCompositeEquipmentRemoveButton.UseVisualStyleBackColor = true;
-            this.sizCompositeEquipmentRemoveButton.Click += new System.EventHandler(this.sizCompositeEquipmentRemoveButton_Click);
+            this.sizCompositeEquipmentRemoveButton.Click += new System.EventHandler(this.SizCompositeEquipmentRemoveButtonClick);
             // 
             // sizCompositeEquipmentAddButton
             // 
@@ -696,7 +712,7 @@
             this.sizCompositeEquipmentAddButton.TabIndex = 2;
             this.sizCompositeEquipmentAddButton.Text = "+";
             this.sizCompositeEquipmentAddButton.UseVisualStyleBackColor = true;
-            this.sizCompositeEquipmentAddButton.Click += new System.EventHandler(this.sizCompositeEquipmentAddButton_Click);
+            this.sizCompositeEquipmentAddButton.Click += new System.EventHandler(this.SizCompositeEquipmentAddButtonClick);
             // 
             // sizCompositeEquipmentComboBox
             // 
@@ -749,7 +765,7 @@
             this.sizPerYearCountTextBox.Name = "sizPerYearCountTextBox";
             this.sizPerYearCountTextBox.Size = new System.Drawing.Size(158, 20);
             this.sizPerYearCountTextBox.TabIndex = 3;
-            this.sizPerYearCountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sizPerYearCountTextBox_KeyPress);
+            this.sizPerYearCountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SizPerYearCountTextBoxKeyPress);
             // 
             // label13
             // 
@@ -914,6 +930,19 @@
             this.TermOfUse.Name = "TermOfUse";
             this.TermOfUse.ReadOnly = true;
             // 
+            // zoneStringDataGridViewTextBoxColumn
+            // 
+            this.zoneStringDataGridViewTextBoxColumn.DataPropertyName = "ZoneString";
+            this.zoneStringDataGridViewTextBoxColumn.HeaderText = "Пояс";
+            this.zoneStringDataGridViewTextBoxColumn.Name = "zoneStringDataGridViewTextBoxColumn";
+            this.zoneStringDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // countDataGridViewTextBoxColumn
+            // 
+            this.countDataGridViewTextBoxColumn.DataPropertyName = "Count";
+            this.countDataGridViewTextBoxColumn.HeaderText = "Кол-во";
+            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -948,7 +977,7 @@
             this.sizByZoneGroupBox.ResumeLayout(false);
             this.sizByZoneGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sizByZoneDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sizByZoneBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zonesWithItemsBindingSource)).EndInit();
             this.sizCompositeEquipmentGroupBox.ResumeLayout(false);
             this.sizCompositeEquipmentGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iEquipmentBindingSource)).EndInit();
@@ -1039,7 +1068,9 @@
         private System.Windows.Forms.TextBox sizByZoneNameTextBox;
         private System.Windows.Forms.DataGridView sizByZoneDataGridView;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.BindingSource sizByZoneBindingSource;
+        private System.Windows.Forms.BindingSource zonesWithItemsBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn zoneStringDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
     }
 }
 

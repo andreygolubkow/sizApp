@@ -301,6 +301,11 @@ namespace ConfiguratorView
                                                                        sizCompositeEquipmentNameTextBox.Text,
                                                                        _sizEquipmentsList));
                     break;
+                case 3:
+                    //Конвертируем лист в дикшинари
+                    Dictionary<IZone, double> zonesDictionary = ((List<ZonesWithItems>)zonesWithItemsBindingSource.DataSource).ToDictionary(zone => zone.GetZone(), zone => zone.Count);
+                    iEquipmentBindingSource.Add(new ByZoneEquipment(id, sizByZoneNameTextBox.Text, zonesDictionary));
+                    break;
             }
         }
 
@@ -310,6 +315,7 @@ namespace ConfiguratorView
             sizStringCountEquipmentGroupBox.Visible = sizTypeComboBox.SelectedIndex == 1;
             sizCompositeEquipmentGroupBox.Visible = sizTypeComboBox.SelectedIndex == 2;
             sizByZoneGroupBox.Visible = sizTypeComboBox.SelectedIndex == 3;
+            sizApplyButton.Enabled = sizTypeComboBox.SelectedIndex != 2;
         }
 
         private void SizRemoveButtonClick(object sender, EventArgs e)
@@ -330,8 +336,7 @@ namespace ConfiguratorView
 
         private void SizGridViewCellClick(object sender, DataGridViewCellEventArgs e)
         {
-            sizApplyButton.Enabled =
-                    !(iEquipmentBindingSource.Current is CompositeEquipment || iEquipmentBindingSource.Current is ByZoneEquipment);
+            var zonesList = new List<ZonesWithItems>();
             if ( iEquipmentBindingSource.Current is StringCountEquipment )
             {
                 _equipmentSelectedId = ((StringCountEquipment)iEquipmentBindingSource.Current).Id;
@@ -351,6 +356,22 @@ namespace ConfiguratorView
                 sizCompositeEquipmentNameTextBox.Text = ((CompositeEquipment)iEquipmentBindingSource.Current).Name;
                 _sizEquipmentsList = ((CompositeEquipment)iEquipmentBindingSource.Current).EquipmentsList;
                 iSizListBindingSource.DataSource = _sizEquipmentsList;
+            } else if ( iEquipmentBindingSource.Current is ByZoneEquipment )
+            {
+                _equipmentSelectedId = ((ByZoneEquipment)iEquipmentBindingSource.Current).Id;
+                sizTypeComboBox.SelectedIndex = 3;
+                sizByZoneNameTextBox.Text = ((ByZoneEquipment)iEquipmentBindingSource.Current).Name;
+                //Конвертируем дикшинари в лист
+                foreach (KeyValuePair<IZone, double> item in ((ByZoneEquipment)iEquipmentBindingSource.Current).CountByZone)
+                {
+                    var zone = new ZonesWithItems
+                               {
+                                   Count = item.Value
+                               };
+                    zone.SetZone(item.Key);
+                    zonesList.Add(zone);
+                }
+                zonesWithItemsBindingSource.DataSource = zonesList;
             }
 
         }
@@ -376,16 +397,23 @@ namespace ConfiguratorView
                 case 1:
                     _equipmentsList[index] = new StringCountEquipment(_equipmentSelectedId, sizStringCountNameTextBox.Text, sizStringCountCountTextBox.Text);       
                     break;
+                case 2:
+                    _equipmentsList[index] = new CompositeEquipment(_equipmentSelectedId, sizCompositeEquipmentNameTextBox.Text, _sizEquipmentsList);
+                    break;
+                case 3:
+                    Dictionary<IZone, double> zonesDictionary = ((List<ZonesWithItems>)zonesWithItemsBindingSource.DataSource).ToDictionary(zone => zone.GetZone(), zone => zone.Count);
+                    _equipmentsList[index] = new ByZoneEquipment(_equipmentSelectedId, sizByZoneNameTextBox.Text, zonesDictionary);                    
+                    break;
             }
             iEquipmentBindingSource[iEquipmentBindingSource.Position] = _equipmentsList[index];
         }
 
-        private void sizPerYearCountTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void SizPerYearCountTextBoxKeyPress(object sender, KeyPressEventArgs e)
         {
             Validators.DoubleEnterValidate(e);
         }
 
-        private void sizCompositeEquipmentAddButton_Click(object sender, EventArgs e)
+        private void SizCompositeEquipmentAddButtonClick(object sender, EventArgs e)
         {
             iSizListBindingSource.Add(iEquipmentBindingSource.Current);
         }
@@ -395,7 +423,7 @@ namespace ConfiguratorView
             _equipmentSelectedId = 0;
         }
 
-        private void sizCompositeEquipmentRemoveButton_Click(object sender, EventArgs e)
+        private void SizCompositeEquipmentRemoveButtonClick(object sender, EventArgs e)
         {
             iSizListBindingSource.RemoveCurrent();
         }
@@ -404,9 +432,17 @@ namespace ConfiguratorView
         {
             if ( sizByZoneGroupBox.Visible )
             {
-                _sizByZoneDictionary = new Dictionary<IZone, double>();
-                sizByZoneBindingSource.DataSource = _sizByZoneDictionary.ToArray();
-                sizByZoneDataGridView.DataSource = sizByZoneBindingSource;
+                var zones = new List<ZonesWithItems>();
+                foreach (IZone item in _zonesList)
+                {
+                    var zone = new ZonesWithItems
+                               {
+                                   Count = 0
+                               };
+                    zone.SetZone(item);
+                    zones.Add(zone);
+                }
+                zonesWithItemsBindingSource.DataSource = zones;
             }
         }
     }

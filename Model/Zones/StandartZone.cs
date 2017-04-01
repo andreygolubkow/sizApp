@@ -66,6 +66,11 @@ namespace Model.Zones
             }
         }
 
+        public override string ToString()
+        {
+            return AsString;
+        }
+
         #endregion
     }
 }
