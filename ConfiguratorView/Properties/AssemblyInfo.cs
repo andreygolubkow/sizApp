@@ -6,10 +6,10 @@ using System.Runtime.InteropServices;
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
 [assembly: AssemblyTitle("ConfiguratorView")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Конфигуратор для учета СИЗ")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ConfiguratorView")]
+[assembly: AssemblyProduct("Учет СИЗ")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
