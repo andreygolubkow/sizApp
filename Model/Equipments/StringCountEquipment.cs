@@ -10,11 +10,12 @@ namespace Model.Equipments
         private string _name;
         private string _count;
 
-        public StringCountEquipment(int id,string name, string count)
+        public StringCountEquipment(int id,string name, string count, string units)
         {
             Id = id;
             Name = name;
             Count = count;
+            Units = units;
         }
 
         #region Implementation of IEquipment
@@ -70,5 +71,8 @@ namespace Model.Equipments
                 _count = value;
             }
         }
+
+        public string Units { get; set; }
+
     }
 }

@@ -11,5 +11,7 @@
         string CountString { get; }
 
         string TermOfUse { get; }
+
+        string Units { get; set; }
     }
 }

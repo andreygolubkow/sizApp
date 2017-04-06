@@ -13,11 +13,12 @@ namespace Model.Equipments
         private string _name;
         private IDictionary<IZone, double> _countByZone;
 
-        public ByZoneEquipment(int id,string name, IDictionary<IZone,double> countDictionary )
+        public ByZoneEquipment(int id,string name, IDictionary<IZone,double> countDictionary , string units)
         {
             Id = id;
             Name = name;
             CountByZone = countDictionary;
+            Units = units;
         }
 
         #region Implementation of IEquipment
@@ -86,5 +87,8 @@ namespace Model.Equipments
                 _countByZone = value;
             }
         }
+
+       public string Units { get; set; }
+
     }
 }

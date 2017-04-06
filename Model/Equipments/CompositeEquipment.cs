@@ -10,11 +10,12 @@ namespace Model.Equipments
         private string _name;
         private List<IEquipment> _equipmentsList;
 
-        public CompositeEquipment(int id,string name,List<IEquipment> equipments )
+        public CompositeEquipment(int id,string name,List<IEquipment> equipments , string units)
         {
             _equipmentsList = equipments;
             Id = id;
             Name = name;
+            Units = units;
         }
         #region Implementation of IEquipment
 
@@ -67,6 +68,9 @@ namespace Model.Equipments
                 throw new ArgumentException("Пустое СИЗ");
             }
         }
+
+        public string Units { get; set; }
+
 
         public void RemoveEquipment(int index)
         {

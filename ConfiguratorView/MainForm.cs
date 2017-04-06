@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using ConfiguratorView.Tools;
 
 using Model.Equipments;
+using Model.Professions;
 using Model.Regions;
 using Model.Zones;
 
@@ -32,6 +33,11 @@ namespace ConfiguratorView
         //Словарь для сизов и поясов
         private IDictionary<IZone, double> _sizByZoneDictionary;
         ///////////////////////////
+        
+        //Управление профессиями
+        private List<IProfession> _professionsList;
+        private List<IEquipment> _professionEquipmentsList;
+        private int _professionSelectedId;
 
         private int MaxZoneId()
         {
@@ -291,20 +297,20 @@ namespace ConfiguratorView
                 case 0:
                     iEquipmentBindingSource.Add(new PerYearEquipment(id,
                                                                      sizPerYearNameTextBox.Text,
-                                                                     Convert.ToDouble(sizPerYearCountTextBox.Text)));
+                                                                     Convert.ToDouble(sizPerYearCountTextBox.Text), sizPerYearUnitsTextBox.Text));
                     break;
                 case 1:
-                    iEquipmentBindingSource.Add(new StringCountEquipment(id,sizStringCountNameTextBox.Text,sizStringCountCountTextBox.Text));
+                    iEquipmentBindingSource.Add(new StringCountEquipment(id,sizStringCountNameTextBox.Text,sizStringCountCountTextBox.Text,sizStringUnitsTextBox.Text));
                     break;
                 case 2:
                     iEquipmentBindingSource.Add(new CompositeEquipment(id,
                                                                        sizCompositeEquipmentNameTextBox.Text,
-                                                                       _sizEquipmentsList));
+                                                                       _sizEquipmentsList,""));
                     break;
                 case 3:
                     //Конвертируем лист в дикшинари
-                    Dictionary<IZone, double> zonesDictionary = ((List<ZonesWithItems>)zonesWithItemsBindingSource.DataSource).ToDictionary(zone => zone.GetZone(), zone => zone.Count);
-                    iEquipmentBindingSource.Add(new ByZoneEquipment(id, sizByZoneNameTextBox.Text, zonesDictionary));
+                    var zonesDictionary =new Dictionary<IZone, double>(((List<ZonesWithItems>)zonesWithItemsBindingSource.DataSource).ToDictionary(zone => zone.GetZone(), zone => zone.Count));
+                    iEquipmentBindingSource.Add(new ByZoneEquipment(id, sizByZoneNameTextBox.Text, zonesDictionary,sizByZoneUnitsTextBox.Text));
                     break;
             }
         }
@@ -356,6 +362,7 @@ namespace ConfiguratorView
                 _equipmentSelectedId = ((StringCountEquipment)iEquipmentBindingSource.Current).Id;
                 sizStringCountNameTextBox.Text = ((StringCountEquipment)iEquipmentBindingSource.Current).Name;
                 sizStringCountCountTextBox.Text = ((StringCountEquipment)iEquipmentBindingSource.Current).Count;
+                sizStringUnitsTextBox.Text = ((StringCountEquipment)iEquipmentBindingSource.Current).Units;
                 sizTypeComboBox.SelectedIndex = 1;
             } else if (iEquipmentBindingSource.Current is PerYearEquipment)
             {
@@ -363,12 +370,13 @@ namespace ConfiguratorView
                 sizPerYearNameTextBox.Text = ((PerYearEquipment)iEquipmentBindingSource.Current).Name;
                 sizPerYearCountTextBox.Text = Convert.ToString(((PerYearEquipment)iEquipmentBindingSource.Current).CountPerYear, CultureInfo.InvariantCulture);
                 sizTypeComboBox.SelectedIndex = 0;
+                sizPerYearUnitsTextBox.Text = ((PerYearEquipment)iEquipmentBindingSource.Current).Units;
             } else if ( iEquipmentBindingSource.Current is CompositeEquipment )
             {
                 _equipmentSelectedId = ((CompositeEquipment)iEquipmentBindingSource.Current).Id;
                 sizTypeComboBox.SelectedIndex = 2;
                 sizCompositeEquipmentNameTextBox.Text = ((CompositeEquipment)iEquipmentBindingSource.Current).Name;
-                _sizEquipmentsList = ((CompositeEquipment)iEquipmentBindingSource.Current).EquipmentsList;
+                _sizEquipmentsList = new List<IEquipment>(((CompositeEquipment)iEquipmentBindingSource.Current).EquipmentsList);
                 sizCompositeEquipmentListBox.Items.Clear();
                 foreach (IEquipment eq in _sizEquipmentsList)
                 {
@@ -379,6 +387,7 @@ namespace ConfiguratorView
                 _equipmentSelectedId = ((ByZoneEquipment)iEquipmentBindingSource.Current).Id;
                 sizTypeComboBox.SelectedIndex = 3;
                 sizByZoneNameTextBox.Text = ((ByZoneEquipment)iEquipmentBindingSource.Current).Name;
+                sizByZoneUnitsTextBox.Text = ((ByZoneEquipment)iEquipmentBindingSource.Current).Units;
                 //Конвертируем дикшинари в лист
                 foreach (KeyValuePair<IZone, double> item in ((ByZoneEquipment)iEquipmentBindingSource.Current).CountByZone)
                 {
@@ -410,17 +419,17 @@ namespace ConfiguratorView
                 case 0:
                     _equipmentsList[index] = new PerYearEquipment(_equipmentSelectedId,
                                                                   sizPerYearNameTextBox.Text,
-                                                                  Convert.ToDouble(sizPerYearCountTextBox.Text));
+                                                                  Convert.ToDouble(sizPerYearCountTextBox.Text),sizPerYearUnitsTextBox.Text);
                     break;   
                 case 1:
-                    _equipmentsList[index] = new StringCountEquipment(_equipmentSelectedId, sizStringCountNameTextBox.Text, sizStringCountCountTextBox.Text);       
+                    _equipmentsList[index] = new StringCountEquipment(_equipmentSelectedId, sizStringCountNameTextBox.Text, sizStringCountCountTextBox.Text,sizStringUnitsTextBox.Text);       
                     break;
                 case 2:
-                    _equipmentsList[index] = new CompositeEquipment(_equipmentSelectedId, sizCompositeEquipmentNameTextBox.Text, _sizEquipmentsList);
+                    _equipmentsList[index] = new CompositeEquipment(_equipmentSelectedId, sizCompositeEquipmentNameTextBox.Text, _sizEquipmentsList,"");
                     break;
                 case 3:
-                    Dictionary<IZone, double> zonesDictionary = ((List<ZonesWithItems>)zonesWithItemsBindingSource.DataSource).ToDictionary(zone => zone.GetZone(), zone => zone.Count);
-                    _equipmentsList[index] = new ByZoneEquipment(_equipmentSelectedId, sizByZoneNameTextBox.Text, zonesDictionary);                    
+                    var zonesDictionary = new Dictionary<IZone, double>(((List<ZonesWithItems>)zonesWithItemsBindingSource.DataSource).ToDictionary(zone => zone.GetZone(), zone => zone.Count));
+                    _equipmentsList[index] = new ByZoneEquipment(_equipmentSelectedId, sizByZoneNameTextBox.Text, zonesDictionary,sizByZoneUnitsTextBox.Text);                    
                     break;
             }
             iEquipmentBindingSource[iEquipmentBindingSource.Position] = _equipmentsList[index];
@@ -452,11 +461,14 @@ namespace ConfiguratorView
 
         private void SizCompositeEquipmentRemoveButtonClick(object sender, EventArgs e)
         {
-            _sizEquipmentsList.RemoveAt(sizCompositeEquipmentListBox.SelectedIndex);
-            sizCompositeEquipmentListBox.Items.Clear();
-            foreach (IEquipment eq in _sizEquipmentsList)
+            if ( sizCompositeEquipmentListBox.SelectedIndex > -1 )
             {
-                sizCompositeEquipmentListBox.Items.Add(eq.Name);
+                _sizEquipmentsList.RemoveAt(sizCompositeEquipmentListBox.SelectedIndex);
+                sizCompositeEquipmentListBox.Items.Clear();
+                foreach (IEquipment eq in _sizEquipmentsList)
+                {
+                    sizCompositeEquipmentListBox.Items.Add(eq.Name);
+                }
             }
         }
 
@@ -476,6 +488,11 @@ namespace ConfiguratorView
                 }
                 zonesWithItemsBindingSource.DataSource = zones;
             }
+        }
+
+        private void sizAddInList_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -10,11 +10,12 @@ namespace Model.Equipments
         private double _countPerYear;
         private int _id;
 
-        public  PerYearEquipment(int id,string name, double count)
+        public  PerYearEquipment(int id,string name, double count,string units)
         {
             Id = id;
             Name = name;
             CountPerYear = count;
+            Units = units;
         }
 
         #region Implementation of IEquipment
@@ -73,6 +74,10 @@ namespace Model.Equipments
                 _countPerYear = value;
             }
         }
-       
+
+
+        public string Units { get; set; }
+
+
     }
 }

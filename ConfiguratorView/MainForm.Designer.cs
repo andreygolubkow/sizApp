@@ -72,6 +72,18 @@
             this.sizRemoveButton = new System.Windows.Forms.Button();
             this.sizAddButton = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.sizTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.sizByZoneGroupBox = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.sizByZoneUnitsTextBox = new System.Windows.Forms.TextBox();
+            this.sizByZoneDataGridView = new System.Windows.Forms.DataGridView();
+            this.zoneStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.zonesWithItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.sizByZoneNameTextBox = new System.Windows.Forms.TextBox();
             this.sizCompositeEquipmentGroupBox = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -81,25 +93,19 @@
             this.sizCompositeEquipmentComboBox = new System.Windows.Forms.ComboBox();
             this.sizCompositeEquipmentListBox = new System.Windows.Forms.ListBox();
             this.sizPerYearEquipmentGroupBox = new System.Windows.Forms.GroupBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.sizPerYearUnitsTextBox = new System.Windows.Forms.TextBox();
             this.sizPerYearCountTextBox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.sizPerYearNameTextBox = new System.Windows.Forms.TextBox();
             this.sizStringCountEquipmentGroupBox = new System.Windows.Forms.GroupBox();
+            this.sizStringUnitsTextBox = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.sizStringCountCountTextBox = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.sizStringCountNameTextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.sizTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.sizByZoneGroupBox = new System.Windows.Forms.GroupBox();
-            this.sizByZoneDataGridView = new System.Windows.Forms.DataGridView();
-            this.zoneStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zonesWithItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.sizByZoneNameTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.sizGridView = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -107,7 +113,30 @@
             this.countStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TermOfUse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iEquipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.professionControlGroupBox = new System.Windows.Forms.GroupBox();
+            this.professionAddButton = new System.Windows.Forms.Button();
+            this.professionApplyButton = new System.Windows.Forms.Button();
+            this.professionRemoveButton = new System.Windows.Forms.Button();
+            this.professionGroupBox = new System.Windows.Forms.GroupBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.professionDataGridView = new System.Windows.Forms.DataGridView();
             this.iSizListBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iProfessionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.equipmentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderTextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label22 = new System.Windows.Forms.Label();
+            this.professionNameTextBox = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.professionOrderTextBox = new System.Windows.Forms.TextBox();
+            this.sizProfessionListBox = new System.Windows.Forms.ListBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.sizAddInList = new System.Windows.Forms.Button();
+            this.sizRemoveFromList = new System.Windows.Forms.Button();
+            this.professionEquipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.zoneActionsGroupBox.SuspendLayout();
@@ -122,15 +151,22 @@
             this.tabPage3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.sizCompositeEquipmentGroupBox.SuspendLayout();
-            this.sizPerYearEquipmentGroupBox.SuspendLayout();
-            this.sizStringCountEquipmentGroupBox.SuspendLayout();
             this.sizByZoneGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sizByZoneDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.zonesWithItemsBindingSource)).BeginInit();
+            this.sizCompositeEquipmentGroupBox.SuspendLayout();
+            this.sizPerYearEquipmentGroupBox.SuspendLayout();
+            this.sizStringCountEquipmentGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sizGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iEquipmentBindingSource)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            this.professionControlGroupBox.SuspendLayout();
+            this.professionGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.professionDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iSizListBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iProfessionBindingSource)).BeginInit();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.professionEquipmentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -138,6 +174,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -575,18 +612,136 @@
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.sizCompositeEquipmentGroupBox);
-            this.groupBox3.Controls.Add(this.sizPerYearEquipmentGroupBox);
-            this.groupBox3.Controls.Add(this.sizStringCountEquipmentGroupBox);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.sizTypeComboBox);
             this.groupBox3.Controls.Add(this.sizByZoneGroupBox);
+            this.groupBox3.Controls.Add(this.sizCompositeEquipmentGroupBox);
+            this.groupBox3.Controls.Add(this.sizPerYearEquipmentGroupBox);
+            this.groupBox3.Controls.Add(this.sizStringCountEquipmentGroupBox);
             this.groupBox3.Location = new System.Drawing.Point(224, 19);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(315, 255);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Информация";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 16);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(51, 13);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Тип СИЗ";
+            // 
+            // sizTypeComboBox
+            // 
+            this.sizTypeComboBox.FormattingEnabled = true;
+            this.sizTypeComboBox.Items.AddRange(new object[] {
+            "СИЗ со сроком на год",
+            "СИЗ с особым сроком",
+            "СИЗ состоящий из нескольких СИЗ",
+            "СИЗ сроки которого зависят от пояса"});
+            this.sizTypeComboBox.Location = new System.Drawing.Point(9, 32);
+            this.sizTypeComboBox.Name = "sizTypeComboBox";
+            this.sizTypeComboBox.Size = new System.Drawing.Size(300, 21);
+            this.sizTypeComboBox.TabIndex = 0;
+            this.sizTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.SizTypeComboBoxSelectedIndexChanged);
+            // 
+            // sizByZoneGroupBox
+            // 
+            this.sizByZoneGroupBox.Controls.Add(this.label20);
+            this.sizByZoneGroupBox.Controls.Add(this.sizByZoneUnitsTextBox);
+            this.sizByZoneGroupBox.Controls.Add(this.sizByZoneDataGridView);
+            this.sizByZoneGroupBox.Controls.Add(this.label17);
+            this.sizByZoneGroupBox.Controls.Add(this.label16);
+            this.sizByZoneGroupBox.Controls.Add(this.sizByZoneNameTextBox);
+            this.sizByZoneGroupBox.Location = new System.Drawing.Point(9, 59);
+            this.sizByZoneGroupBox.Name = "sizByZoneGroupBox";
+            this.sizByZoneGroupBox.Size = new System.Drawing.Size(302, 190);
+            this.sizByZoneGroupBox.TabIndex = 5;
+            this.sizByZoneGroupBox.TabStop = false;
+            this.sizByZoneGroupBox.Text = "СИЗ сроки которого зависят от пояса";
+            this.sizByZoneGroupBox.Visible = false;
+            this.sizByZoneGroupBox.VisibleChanged += new System.EventHandler(this.SizByZoneGroupBoxVisibleChanged);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(207, 16);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(75, 13);
+            this.label20.TabIndex = 6;
+            this.label20.Text = "Единицы изм";
+            // 
+            // sizByZoneUnitsTextBox
+            // 
+            this.sizByZoneUnitsTextBox.Location = new System.Drawing.Point(210, 32);
+            this.sizByZoneUnitsTextBox.Name = "sizByZoneUnitsTextBox";
+            this.sizByZoneUnitsTextBox.Size = new System.Drawing.Size(78, 20);
+            this.sizByZoneUnitsTextBox.TabIndex = 5;
+            // 
+            // sizByZoneDataGridView
+            // 
+            this.sizByZoneDataGridView.AllowUserToAddRows = false;
+            this.sizByZoneDataGridView.AllowUserToDeleteRows = false;
+            this.sizByZoneDataGridView.AllowUserToResizeColumns = false;
+            this.sizByZoneDataGridView.AllowUserToResizeRows = false;
+            this.sizByZoneDataGridView.AutoGenerateColumns = false;
+            this.sizByZoneDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.sizByZoneDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.sizByZoneDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.zoneStringDataGridViewTextBoxColumn,
+            this.countDataGridViewTextBoxColumn});
+            this.sizByZoneDataGridView.DataSource = this.zonesWithItemsBindingSource;
+            this.sizByZoneDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.sizByZoneDataGridView.Location = new System.Drawing.Point(9, 71);
+            this.sizByZoneDataGridView.Name = "sizByZoneDataGridView";
+            this.sizByZoneDataGridView.RowHeadersVisible = false;
+            this.sizByZoneDataGridView.Size = new System.Drawing.Size(285, 113);
+            this.sizByZoneDataGridView.TabIndex = 4;
+            // 
+            // zoneStringDataGridViewTextBoxColumn
+            // 
+            this.zoneStringDataGridViewTextBoxColumn.DataPropertyName = "ZoneString";
+            this.zoneStringDataGridViewTextBoxColumn.HeaderText = "Пояс";
+            this.zoneStringDataGridViewTextBoxColumn.Name = "zoneStringDataGridViewTextBoxColumn";
+            this.zoneStringDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // countDataGridViewTextBoxColumn
+            // 
+            this.countDataGridViewTextBoxColumn.DataPropertyName = "Count";
+            this.countDataGridViewTextBoxColumn.HeaderText = "Кол-во";
+            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            // 
+            // zonesWithItemsBindingSource
+            // 
+            this.zonesWithItemsBindingSource.DataSource = typeof(ConfiguratorView.Tools.ZonesWithItems);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(7, 55);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(65, 13);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Список зон";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(3, 16);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(83, 13);
+            this.label16.TabIndex = 1;
+            this.label16.Text = "Наименование";
+            // 
+            // sizByZoneNameTextBox
+            // 
+            this.sizByZoneNameTextBox.Location = new System.Drawing.Point(6, 32);
+            this.sizByZoneNameTextBox.Name = "sizByZoneNameTextBox";
+            this.sizByZoneNameTextBox.Size = new System.Drawing.Size(198, 20);
+            this.sizByZoneNameTextBox.TabIndex = 0;
             // 
             // sizCompositeEquipmentGroupBox
             // 
@@ -671,6 +826,8 @@
             // 
             // sizPerYearEquipmentGroupBox
             // 
+            this.sizPerYearEquipmentGroupBox.Controls.Add(this.label18);
+            this.sizPerYearEquipmentGroupBox.Controls.Add(this.sizPerYearUnitsTextBox);
             this.sizPerYearEquipmentGroupBox.Controls.Add(this.sizPerYearCountTextBox);
             this.sizPerYearEquipmentGroupBox.Controls.Add(this.label13);
             this.sizPerYearEquipmentGroupBox.Controls.Add(this.label12);
@@ -682,6 +839,22 @@
             this.sizPerYearEquipmentGroupBox.TabStop = false;
             this.sizPerYearEquipmentGroupBox.Text = "СИЗ со сроком на год";
             this.sizPerYearEquipmentGroupBox.Visible = false;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(191, 55);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(109, 13);
+            this.label18.TabIndex = 5;
+            this.label18.Text = "Единица измерения";
+            // 
+            // sizPerYearUnitsTextBox
+            // 
+            this.sizPerYearUnitsTextBox.Location = new System.Drawing.Point(194, 71);
+            this.sizPerYearUnitsTextBox.Name = "sizPerYearUnitsTextBox";
+            this.sizPerYearUnitsTextBox.Size = new System.Drawing.Size(100, 20);
+            this.sizPerYearUnitsTextBox.TabIndex = 4;
             // 
             // sizPerYearCountTextBox
             // 
@@ -718,6 +891,8 @@
             // 
             // sizStringCountEquipmentGroupBox
             // 
+            this.sizStringCountEquipmentGroupBox.Controls.Add(this.sizStringUnitsTextBox);
+            this.sizStringCountEquipmentGroupBox.Controls.Add(this.label19);
             this.sizStringCountEquipmentGroupBox.Controls.Add(this.sizStringCountCountTextBox);
             this.sizStringCountEquipmentGroupBox.Controls.Add(this.label11);
             this.sizStringCountEquipmentGroupBox.Controls.Add(this.sizStringCountNameTextBox);
@@ -729,6 +904,22 @@
             this.sizStringCountEquipmentGroupBox.TabStop = false;
             this.sizStringCountEquipmentGroupBox.Text = "СИЗ с особым сроком";
             this.sizStringCountEquipmentGroupBox.Visible = false;
+            // 
+            // sizStringUnitsTextBox
+            // 
+            this.sizStringUnitsTextBox.Location = new System.Drawing.Point(164, 71);
+            this.sizStringUnitsTextBox.Name = "sizStringUnitsTextBox";
+            this.sizStringUnitsTextBox.Size = new System.Drawing.Size(130, 20);
+            this.sizStringUnitsTextBox.TabIndex = 5;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(163, 55);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(111, 13);
+            this.label19.TabIndex = 4;
+            this.label19.Text = "Единицы измерения";
             // 
             // sizStringCountCountTextBox
             // 
@@ -761,106 +952,6 @@
             this.label10.Size = new System.Drawing.Size(108, 13);
             this.label10.TabIndex = 0;
             this.label10.Text = "Наименование СИЗ";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 16);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(51, 13);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Тип СИЗ";
-            // 
-            // sizTypeComboBox
-            // 
-            this.sizTypeComboBox.FormattingEnabled = true;
-            this.sizTypeComboBox.Items.AddRange(new object[] {
-            "СИЗ со сроком на год",
-            "СИЗ с особым сроком",
-            "СИЗ состоящий из нескольких СИЗ",
-            "СИЗ сроки которого зависят от пояса"});
-            this.sizTypeComboBox.Location = new System.Drawing.Point(9, 32);
-            this.sizTypeComboBox.Name = "sizTypeComboBox";
-            this.sizTypeComboBox.Size = new System.Drawing.Size(300, 21);
-            this.sizTypeComboBox.TabIndex = 0;
-            this.sizTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.SizTypeComboBoxSelectedIndexChanged);
-            // 
-            // sizByZoneGroupBox
-            // 
-            this.sizByZoneGroupBox.Controls.Add(this.sizByZoneDataGridView);
-            this.sizByZoneGroupBox.Controls.Add(this.label17);
-            this.sizByZoneGroupBox.Controls.Add(this.label16);
-            this.sizByZoneGroupBox.Controls.Add(this.sizByZoneNameTextBox);
-            this.sizByZoneGroupBox.Location = new System.Drawing.Point(9, 59);
-            this.sizByZoneGroupBox.Name = "sizByZoneGroupBox";
-            this.sizByZoneGroupBox.Size = new System.Drawing.Size(302, 190);
-            this.sizByZoneGroupBox.TabIndex = 5;
-            this.sizByZoneGroupBox.TabStop = false;
-            this.sizByZoneGroupBox.Text = "СИЗ сроки которого зависят от пояса";
-            this.sizByZoneGroupBox.Visible = false;
-            this.sizByZoneGroupBox.VisibleChanged += new System.EventHandler(this.SizByZoneGroupBoxVisibleChanged);
-            // 
-            // sizByZoneDataGridView
-            // 
-            this.sizByZoneDataGridView.AllowUserToAddRows = false;
-            this.sizByZoneDataGridView.AllowUserToDeleteRows = false;
-            this.sizByZoneDataGridView.AllowUserToResizeColumns = false;
-            this.sizByZoneDataGridView.AllowUserToResizeRows = false;
-            this.sizByZoneDataGridView.AutoGenerateColumns = false;
-            this.sizByZoneDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.sizByZoneDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.sizByZoneDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.zoneStringDataGridViewTextBoxColumn,
-            this.countDataGridViewTextBoxColumn});
-            this.sizByZoneDataGridView.DataSource = this.zonesWithItemsBindingSource;
-            this.sizByZoneDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.sizByZoneDataGridView.Location = new System.Drawing.Point(9, 71);
-            this.sizByZoneDataGridView.Name = "sizByZoneDataGridView";
-            this.sizByZoneDataGridView.RowHeadersVisible = false;
-            this.sizByZoneDataGridView.Size = new System.Drawing.Size(285, 113);
-            this.sizByZoneDataGridView.TabIndex = 4;
-            // 
-            // zoneStringDataGridViewTextBoxColumn
-            // 
-            this.zoneStringDataGridViewTextBoxColumn.DataPropertyName = "ZoneString";
-            this.zoneStringDataGridViewTextBoxColumn.HeaderText = "Пояс";
-            this.zoneStringDataGridViewTextBoxColumn.Name = "zoneStringDataGridViewTextBoxColumn";
-            this.zoneStringDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // countDataGridViewTextBoxColumn
-            // 
-            this.countDataGridViewTextBoxColumn.DataPropertyName = "Count";
-            this.countDataGridViewTextBoxColumn.HeaderText = "Кол-во";
-            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
-            // 
-            // zonesWithItemsBindingSource
-            // 
-            this.zonesWithItemsBindingSource.DataSource = typeof(ConfiguratorView.Tools.ZonesWithItems);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(7, 55);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(65, 13);
-            this.label17.TabIndex = 3;
-            this.label17.Text = "Список зон";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(3, 16);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(83, 13);
-            this.label16.TabIndex = 1;
-            this.label16.Text = "Наименование";
-            // 
-            // sizByZoneNameTextBox
-            // 
-            this.sizByZoneNameTextBox.Location = new System.Drawing.Point(6, 32);
-            this.sizByZoneNameTextBox.Name = "sizByZoneNameTextBox";
-            this.sizByZoneNameTextBox.Size = new System.Drawing.Size(288, 20);
-            this.sizByZoneNameTextBox.TabIndex = 0;
             // 
             // label8
             // 
@@ -935,10 +1026,235 @@
             // 
             this.iEquipmentBindingSource.DataSource = typeof(Model.Equipments.IEquipment);
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.groupBox5);
+            this.tabPage4.Controls.Add(this.professionControlGroupBox);
+            this.tabPage4.Controls.Add(this.professionGroupBox);
+            this.tabPage4.Controls.Add(this.label21);
+            this.tabPage4.Controls.Add(this.professionDataGridView);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(547, 366);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Профессии";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // professionControlGroupBox
+            // 
+            this.professionControlGroupBox.Controls.Add(this.professionAddButton);
+            this.professionControlGroupBox.Controls.Add(this.professionApplyButton);
+            this.professionControlGroupBox.Controls.Add(this.professionRemoveButton);
+            this.professionControlGroupBox.Location = new System.Drawing.Point(285, 303);
+            this.professionControlGroupBox.Name = "professionControlGroupBox";
+            this.professionControlGroupBox.Size = new System.Drawing.Size(254, 55);
+            this.professionControlGroupBox.TabIndex = 3;
+            this.professionControlGroupBox.TabStop = false;
+            this.professionControlGroupBox.Text = "Управление профессией";
+            // 
+            // professionAddButton
+            // 
+            this.professionAddButton.Location = new System.Drawing.Point(6, 19);
+            this.professionAddButton.Name = "professionAddButton";
+            this.professionAddButton.Size = new System.Drawing.Size(75, 23);
+            this.professionAddButton.TabIndex = 2;
+            this.professionAddButton.Text = "Добавить";
+            this.professionAddButton.UseVisualStyleBackColor = true;
+            // 
+            // professionApplyButton
+            // 
+            this.professionApplyButton.Location = new System.Drawing.Point(87, 19);
+            this.professionApplyButton.Name = "professionApplyButton";
+            this.professionApplyButton.Size = new System.Drawing.Size(75, 23);
+            this.professionApplyButton.TabIndex = 1;
+            this.professionApplyButton.Text = "Изменить";
+            this.professionApplyButton.UseVisualStyleBackColor = true;
+            // 
+            // professionRemoveButton
+            // 
+            this.professionRemoveButton.Location = new System.Drawing.Point(168, 19);
+            this.professionRemoveButton.Name = "professionRemoveButton";
+            this.professionRemoveButton.Size = new System.Drawing.Size(75, 23);
+            this.professionRemoveButton.TabIndex = 0;
+            this.professionRemoveButton.Text = "Удалить";
+            this.professionRemoveButton.UseVisualStyleBackColor = true;
+            // 
+            // professionGroupBox
+            // 
+            this.professionGroupBox.Controls.Add(this.sizProfessionListBox);
+            this.professionGroupBox.Controls.Add(this.professionOrderTextBox);
+            this.professionGroupBox.Controls.Add(this.label23);
+            this.professionGroupBox.Controls.Add(this.professionNameTextBox);
+            this.professionGroupBox.Controls.Add(this.label22);
+            this.professionGroupBox.Location = new System.Drawing.Point(8, 162);
+            this.professionGroupBox.Name = "professionGroupBox";
+            this.professionGroupBox.Size = new System.Drawing.Size(531, 135);
+            this.professionGroupBox.TabIndex = 2;
+            this.professionGroupBox.TabStop = false;
+            this.professionGroupBox.Text = "Информация";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(3, 3);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(65, 13);
+            this.label21.TabIndex = 1;
+            this.label21.Text = "Профессии";
+            // 
+            // professionDataGridView
+            // 
+            this.professionDataGridView.AllowUserToAddRows = false;
+            this.professionDataGridView.AllowUserToDeleteRows = false;
+            this.professionDataGridView.AutoGenerateColumns = false;
+            this.professionDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.professionDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.professionDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn3,
+            this.nameDataGridViewTextBoxColumn2,
+            this.equipmentsDataGridViewTextBoxColumn,
+            this.orderTextDataGridViewTextBoxColumn});
+            this.professionDataGridView.DataSource = this.iProfessionBindingSource;
+            this.professionDataGridView.Location = new System.Drawing.Point(6, 19);
+            this.professionDataGridView.Name = "professionDataGridView";
+            this.professionDataGridView.ReadOnly = true;
+            this.professionDataGridView.RowHeadersVisible = false;
+            this.professionDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.professionDataGridView.Size = new System.Drawing.Size(533, 137);
+            this.professionDataGridView.TabIndex = 0;
+            // 
             // iSizListBindingSource
             // 
             this.iSizListBindingSource.AllowNew = true;
             this.iSizListBindingSource.DataSource = typeof(Model.Equipments.IEquipment);
+            // 
+            // iProfessionBindingSource
+            // 
+            this.iProfessionBindingSource.DataSource = typeof(Model.Professions.IProfession);
+            // 
+            // idDataGridViewTextBoxColumn3
+            // 
+            this.idDataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.idDataGridViewTextBoxColumn3.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn3.FillWeight = 2F;
+            this.idDataGridViewTextBoxColumn3.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn3.MinimumWidth = 2;
+            this.idDataGridViewTextBoxColumn3.Name = "idDataGridViewTextBoxColumn3";
+            this.idDataGridViewTextBoxColumn3.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn3.Width = 2;
+            // 
+            // nameDataGridViewTextBoxColumn2
+            // 
+            this.nameDataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn2.HeaderText = "Наименование профессий и должностей";
+            this.nameDataGridViewTextBoxColumn2.Name = "nameDataGridViewTextBoxColumn2";
+            this.nameDataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // equipmentsDataGridViewTextBoxColumn
+            // 
+            this.equipmentsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.equipmentsDataGridViewTextBoxColumn.DataPropertyName = "Equipments";
+            this.equipmentsDataGridViewTextBoxColumn.FillWeight = 2F;
+            this.equipmentsDataGridViewTextBoxColumn.HeaderText = "Equipments";
+            this.equipmentsDataGridViewTextBoxColumn.MinimumWidth = 2;
+            this.equipmentsDataGridViewTextBoxColumn.Name = "equipmentsDataGridViewTextBoxColumn";
+            this.equipmentsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.equipmentsDataGridViewTextBoxColumn.Width = 2;
+            // 
+            // orderTextDataGridViewTextBoxColumn
+            // 
+            this.orderTextDataGridViewTextBoxColumn.DataPropertyName = "OrderText";
+            this.orderTextDataGridViewTextBoxColumn.HeaderText = "Пункт типовых отраслевых норм";
+            this.orderTextDataGridViewTextBoxColumn.Name = "orderTextDataGridViewTextBoxColumn";
+            this.orderTextDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(6, 19);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(83, 13);
+            this.label22.TabIndex = 4;
+            this.label22.Text = "Наименование";
+            // 
+            // professionNameTextBox
+            // 
+            this.professionNameTextBox.Location = new System.Drawing.Point(9, 35);
+            this.professionNameTextBox.Name = "professionNameTextBox";
+            this.professionNameTextBox.Size = new System.Drawing.Size(223, 20);
+            this.professionNameTextBox.TabIndex = 5;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(6, 58);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(174, 13);
+            this.label23.TabIndex = 6;
+            this.label23.Text = "Пункт типовых отраслевых норм";
+            // 
+            // professionOrderTextBox
+            // 
+            this.professionOrderTextBox.Location = new System.Drawing.Point(9, 74);
+            this.professionOrderTextBox.Name = "professionOrderTextBox";
+            this.professionOrderTextBox.Size = new System.Drawing.Size(221, 20);
+            this.professionOrderTextBox.TabIndex = 7;
+            // 
+            // sizProfessionListBox
+            // 
+            this.sizProfessionListBox.DataSource = this.professionEquipmentBindingSource;
+            this.sizProfessionListBox.DisplayMember = "Name";
+            this.sizProfessionListBox.FormattingEnabled = true;
+            this.sizProfessionListBox.Location = new System.Drawing.Point(238, 19);
+            this.sizProfessionListBox.Name = "sizProfessionListBox";
+            this.sizProfessionListBox.Size = new System.Drawing.Size(287, 108);
+            this.sizProfessionListBox.TabIndex = 8;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.sizRemoveFromList);
+            this.groupBox5.Controls.Add(this.sizAddInList);
+            this.groupBox5.Controls.Add(this.comboBox1);
+            this.groupBox5.Location = new System.Drawing.Point(8, 303);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(271, 57);
+            this.groupBox5.TabIndex = 4;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Управление СИЗ";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DataSource = this.iEquipmentBindingSource;
+            this.comboBox1.DisplayMember = "Name";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(6, 21);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(189, 21);
+            this.comboBox1.TabIndex = 0;
+            // 
+            // sizAddInList
+            // 
+            this.sizAddInList.Location = new System.Drawing.Point(201, 19);
+            this.sizAddInList.Name = "sizAddInList";
+            this.sizAddInList.Size = new System.Drawing.Size(29, 23);
+            this.sizAddInList.TabIndex = 1;
+            this.sizAddInList.Text = "+";
+            this.sizAddInList.UseVisualStyleBackColor = true;
+            this.sizAddInList.Click += new System.EventHandler(this.sizAddInList_Click);
+            // 
+            // sizRemoveFromList
+            // 
+            this.sizRemoveFromList.Location = new System.Drawing.Point(236, 19);
+            this.sizRemoveFromList.Name = "sizRemoveFromList";
+            this.sizRemoveFromList.Size = new System.Drawing.Size(29, 23);
+            this.sizRemoveFromList.TabIndex = 2;
+            this.sizRemoveFromList.Text = "-";
+            this.sizRemoveFromList.UseVisualStyleBackColor = true;
+            // 
+            // professionEquipmentBindingSource
+            // 
+            this.professionEquipmentBindingSource.DataSource = typeof(Model.Equipments.IEquipment);
             // 
             // MainForm
             // 
@@ -971,19 +1287,28 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.sizByZoneGroupBox.ResumeLayout(false);
+            this.sizByZoneGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sizByZoneDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.zonesWithItemsBindingSource)).EndInit();
             this.sizCompositeEquipmentGroupBox.ResumeLayout(false);
             this.sizCompositeEquipmentGroupBox.PerformLayout();
             this.sizPerYearEquipmentGroupBox.ResumeLayout(false);
             this.sizPerYearEquipmentGroupBox.PerformLayout();
             this.sizStringCountEquipmentGroupBox.ResumeLayout(false);
             this.sizStringCountEquipmentGroupBox.PerformLayout();
-            this.sizByZoneGroupBox.ResumeLayout(false);
-            this.sizByZoneGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sizByZoneDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.zonesWithItemsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iEquipmentBindingSource)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            this.professionControlGroupBox.ResumeLayout(false);
+            this.professionGroupBox.ResumeLayout(false);
+            this.professionGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.professionDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iSizListBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iProfessionBindingSource)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.professionEquipmentBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1068,6 +1393,35 @@
         private System.Windows.Forms.BindingSource zonesWithItemsBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn zoneStringDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox sizByZoneUnitsTextBox;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox sizPerYearUnitsTextBox;
+        private System.Windows.Forms.TextBox sizStringUnitsTextBox;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.GroupBox professionControlGroupBox;
+        private System.Windows.Forms.Button professionAddButton;
+        private System.Windows.Forms.Button professionApplyButton;
+        private System.Windows.Forms.Button professionRemoveButton;
+        private System.Windows.Forms.GroupBox professionGroupBox;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.DataGridView professionDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn equipmentsDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderTextDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource iProfessionBindingSource;
+        private System.Windows.Forms.TextBox professionOrderTextBox;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox professionNameTextBox;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button sizRemoveFromList;
+        private System.Windows.Forms.Button sizAddInList;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ListBox sizProfessionListBox;
+        private System.Windows.Forms.BindingSource professionEquipmentBindingSource;
     }
 }
 
