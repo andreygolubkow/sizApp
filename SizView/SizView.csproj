@@ -49,11 +49,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\EmployesList.cs">
+    <Compile Include="Controls\EmployesListControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Controls\EmployesList.Designer.cs">
-      <DependentUpon>EmployesList.cs</DependentUpon>
+    <Compile Include="Controls\EmployesListControl.Designer.cs">
+      <DependentUpon>EmployesListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\StandartEmployeeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\StandartEmployeeControl.Designer.cs">
+      <DependentUpon>StandartEmployeeControl.cs</DependentUpon>
     </Compile>
     <Compile Include="EmployesForm.cs">
       <SubType>Form</SubType>
@@ -69,8 +75,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Controls\EmployesList.resx">
-      <DependentUpon>EmployesList.cs</DependentUpon>
+    <EmbeddedResource Include="Controls\EmployesListControl.resx">
+      <DependentUpon>EmployesListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\StandartEmployeeControl.resx">
+      <DependentUpon>StandartEmployeeControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EmployesForm.resx">
       <DependentUpon>EmployesForm.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace SizView.Controls
 {
-    partial class EmployesList
+    partial class EmployesListControl
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.employesGridView = new System.Windows.Forms.DataGridView();
-            this.iEmployeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.surnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,8 +49,10 @@
             this.respiratorSizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gauntletsSizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.glovesSizeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.iEmployeeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.searchGroupBox = new System.Windows.Forms.GroupBox();
             this.searchComboBox = new System.Windows.Forms.ComboBox();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iEmployeeBindingSource)).BeginInit();
@@ -60,10 +61,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.employesGridView);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(538, 423);
+            this.groupBox1.Size = new System.Drawing.Size(542, 427);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Список работников";
@@ -72,6 +76,9 @@
             // 
             this.employesGridView.AllowUserToAddRows = false;
             this.employesGridView.AllowUserToDeleteRows = false;
+            this.employesGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.employesGridView.AutoGenerateColumns = false;
             this.employesGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.employesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -99,12 +106,8 @@
             this.employesGridView.Name = "employesGridView";
             this.employesGridView.ReadOnly = true;
             this.employesGridView.RowHeadersVisible = false;
-            this.employesGridView.Size = new System.Drawing.Size(526, 398);
+            this.employesGridView.Size = new System.Drawing.Size(530, 402);
             this.employesGridView.TabIndex = 0;
-            // 
-            // iEmployeeBindingSource
-            // 
-            this.iEmployeeBindingSource.DataSource = typeof(Model.Employee.IEmployee);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -250,15 +253,21 @@
             this.glovesSizeDataGridViewTextBoxColumn.ReadOnly = true;
             this.glovesSizeDataGridViewTextBoxColumn.Visible = false;
             // 
+            // iEmployeeBindingSource
+            // 
+            this.iEmployeeBindingSource.DataSource = typeof(Model.Employee.IEmployee);
+            // 
             // searchGroupBox
             // 
+            this.searchGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.searchGroupBox.Controls.Add(this.searchComboBox);
-            this.searchGroupBox.Location = new System.Drawing.Point(341, 3);
+            this.searchGroupBox.Location = new System.Drawing.Point(345, 3);
             this.searchGroupBox.Name = "searchGroupBox";
             this.searchGroupBox.Size = new System.Drawing.Size(200, 49);
             this.searchGroupBox.TabIndex = 1;
             this.searchGroupBox.TabStop = false;
             this.searchGroupBox.Text = "Поиск по фамилии";
+            this.searchGroupBox.Visible = false;
             // 
             // searchComboBox
             // 
@@ -271,15 +280,21 @@
             this.searchComboBox.Name = "searchComboBox";
             this.searchComboBox.Size = new System.Drawing.Size(188, 21);
             this.searchComboBox.TabIndex = 0;
+            this.toolTip.SetToolTip(this.searchComboBox, "Начните вводить фамилию");
             // 
-            // EmployesList
+            // toolTip
+            // 
+            this.toolTip.IsBalloon = true;
+            this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
+            // EmployesListControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.searchGroupBox);
             this.Controls.Add(this.groupBox1);
-            this.Name = "EmployesList";
-            this.Size = new System.Drawing.Size(544, 429);
+            this.Name = "EmployesListControl";
+            this.Size = new System.Drawing.Size(548, 433);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.employesGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iEmployeeBindingSource)).EndInit();
@@ -313,5 +328,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn glovesSizeDataGridViewTextBoxColumn;
         private System.Windows.Forms.GroupBox searchGroupBox;
         private System.Windows.Forms.ComboBox searchComboBox;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SizView.Controls
 {
-    public partial class EmployesList : UserControl
+    public partial class StandartEmployeeControl : UserControl
     {
-        public EmployesList()
+        public StandartEmployeeControl()
         {
             InitializeComponent();
         }
