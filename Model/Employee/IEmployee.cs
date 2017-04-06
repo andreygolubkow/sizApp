@@ -1,11 +1,15 @@
-﻿using System;
-
-using Model.Professions;
-
-namespace Model
+﻿namespace Model.Employee
 {
+    using System;
+
+    using Model.Professions;
+
     public interface IEmployee
     {
+        /// <summary>
+        /// Идентификатор.
+        /// </summary>
+        int Id { get; set; }
 
         /// <summary>
         /// Фамилия.

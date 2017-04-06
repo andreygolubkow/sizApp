@@ -1,10 +1,10 @@
-﻿using System;
-
-using Model.Professions;
-
-namespace Model
+﻿namespace Model.Employee
 {
-    public class StandartEmployee:IEmployee
+    using System;
+
+    using Model.Professions;
+
+    public class StandartEmployee : IEmployee
     {
         private string _surname;
         private string _name;
@@ -23,8 +23,25 @@ namespace Model
         private string _respiratorSize;
         private string _gauntletsSize;
         private string _glovesSize;
+        private int _id;
 
         #region Implementation of IEmployee
+
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if ( value < 0 )
+                {
+                    throw new ArgumentOutOfRangeException("Ошибка в идентификаторе.");
+                }
+                _id = value;
+            }
+        }
 
         /// <summary>
         /// Фамилия.
@@ -52,7 +69,12 @@ namespace Model
             }
             set
             {
+                if ( value.Length == 0 )
+                {
+                    throw new ArgumentException("Имя должно быть заполнено.");
+                }
                 _name = value;
+
             }
         }
 
@@ -112,6 +134,10 @@ namespace Model
             }
             set
             {
+                if ( value == null )
+                {
+                    throw new ArgumentException("Нужна профессия.");
+                }
                 _profession = value;
             }
         }
@@ -157,6 +183,10 @@ namespace Model
             }
             set
             {
+                if ( value == null )
+                {
+                    throw new ArgumentException("Нужно заполнить пол.");
+                }
                 _sex = value;
             }
         }
