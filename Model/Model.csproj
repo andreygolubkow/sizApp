@@ -40,15 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Employee\StandartEmployee.cs" />
     <Compile Include="Equipments\ByZoneEquipment.cs" />
     <Compile Include="Equipments\CompositeEquipment.cs" />
     <Compile Include="Equipments\IEquipment.cs" />
     <Compile Include="Equipments\PerYearEquipment.cs" />
+    <Compile Include="Employee\IEmployee.cs" />
     <Compile Include="Professions\IProfession.cs" />
     <Compile Include="Professions\StandartProfession.cs" />
     <Compile Include="Regions\IRegion.cs" />
     <Compile Include="Regions\NonStandartRegion.cs" />
     <Compile Include="Regions\StandartRegion.cs" />
+    <Compile Include="Employee\Sex.cs" />
     <Compile Include="Zones\IZone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Equipments\StringCountEquipment.cs" />
