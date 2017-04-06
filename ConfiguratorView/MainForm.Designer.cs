@@ -114,29 +114,29 @@
             this.TermOfUse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.iEquipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.sizRemoveFromList = new System.Windows.Forms.Button();
+            this.sizAddInList = new System.Windows.Forms.Button();
+            this.sizForListComboBox = new System.Windows.Forms.ComboBox();
             this.professionControlGroupBox = new System.Windows.Forms.GroupBox();
             this.professionAddButton = new System.Windows.Forms.Button();
             this.professionApplyButton = new System.Windows.Forms.Button();
             this.professionRemoveButton = new System.Windows.Forms.Button();
             this.professionGroupBox = new System.Windows.Forms.GroupBox();
+            this.sizProfessionListBox = new System.Windows.Forms.ListBox();
+            this.professionEquipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.professionOrderTextBox = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.professionNameTextBox = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.professionDataGridView = new System.Windows.Forms.DataGridView();
-            this.iSizListBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iProfessionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.equipmentsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderTextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label22 = new System.Windows.Forms.Label();
-            this.professionNameTextBox = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.professionOrderTextBox = new System.Windows.Forms.TextBox();
-            this.sizProfessionListBox = new System.Windows.Forms.ListBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.sizAddInList = new System.Windows.Forms.Button();
-            this.sizRemoveFromList = new System.Windows.Forms.Button();
-            this.professionEquipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iProfessionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iSizListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.zoneActionsGroupBox.SuspendLayout();
@@ -160,13 +160,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.sizGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iEquipmentBindingSource)).BeginInit();
             this.tabPage4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.professionControlGroupBox.SuspendLayout();
             this.professionGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.professionDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iSizListBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iProfessionBindingSource)).BeginInit();
-            this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.professionEquipmentBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.professionDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iProfessionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iSizListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1041,6 +1041,50 @@
             this.tabPage4.Text = "Профессии";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.sizRemoveFromList);
+            this.groupBox5.Controls.Add(this.sizAddInList);
+            this.groupBox5.Controls.Add(this.sizForListComboBox);
+            this.groupBox5.Location = new System.Drawing.Point(8, 303);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(271, 57);
+            this.groupBox5.TabIndex = 4;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Управление СИЗ";
+            // 
+            // sizRemoveFromList
+            // 
+            this.sizRemoveFromList.Location = new System.Drawing.Point(236, 19);
+            this.sizRemoveFromList.Name = "sizRemoveFromList";
+            this.sizRemoveFromList.Size = new System.Drawing.Size(29, 23);
+            this.sizRemoveFromList.TabIndex = 2;
+            this.sizRemoveFromList.Text = "-";
+            this.sizRemoveFromList.UseVisualStyleBackColor = true;
+            this.sizRemoveFromList.Click += new System.EventHandler(this.SizRemoveFromListClick);
+            // 
+            // sizAddInList
+            // 
+            this.sizAddInList.Location = new System.Drawing.Point(201, 19);
+            this.sizAddInList.Name = "sizAddInList";
+            this.sizAddInList.Size = new System.Drawing.Size(29, 23);
+            this.sizAddInList.TabIndex = 1;
+            this.sizAddInList.Text = "+";
+            this.sizAddInList.UseVisualStyleBackColor = true;
+            this.sizAddInList.Click += new System.EventHandler(this.SizAddInListClick);
+            // 
+            // sizForListComboBox
+            // 
+            this.sizForListComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.sizForListComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.sizForListComboBox.DataSource = this.iEquipmentBindingSource;
+            this.sizForListComboBox.DisplayMember = "Name";
+            this.sizForListComboBox.FormattingEnabled = true;
+            this.sizForListComboBox.Location = new System.Drawing.Point(6, 21);
+            this.sizForListComboBox.Name = "sizForListComboBox";
+            this.sizForListComboBox.Size = new System.Drawing.Size(189, 21);
+            this.sizForListComboBox.TabIndex = 0;
+            // 
             // professionControlGroupBox
             // 
             this.professionControlGroupBox.Controls.Add(this.professionAddButton);
@@ -1061,6 +1105,7 @@
             this.professionAddButton.TabIndex = 2;
             this.professionAddButton.Text = "Добавить";
             this.professionAddButton.UseVisualStyleBackColor = true;
+            this.professionAddButton.Click += new System.EventHandler(this.ProfessionAddButtonClick);
             // 
             // professionApplyButton
             // 
@@ -1070,6 +1115,7 @@
             this.professionApplyButton.TabIndex = 1;
             this.professionApplyButton.Text = "Изменить";
             this.professionApplyButton.UseVisualStyleBackColor = true;
+            this.professionApplyButton.Click += new System.EventHandler(this.ProfessionApplyButtonClick);
             // 
             // professionRemoveButton
             // 
@@ -1079,6 +1125,7 @@
             this.professionRemoveButton.TabIndex = 0;
             this.professionRemoveButton.Text = "Удалить";
             this.professionRemoveButton.UseVisualStyleBackColor = true;
+            this.professionRemoveButton.Click += new System.EventHandler(this.ProfessionRemoveButtonClick);
             // 
             // professionGroupBox
             // 
@@ -1093,6 +1140,52 @@
             this.professionGroupBox.TabIndex = 2;
             this.professionGroupBox.TabStop = false;
             this.professionGroupBox.Text = "Информация";
+            // 
+            // sizProfessionListBox
+            // 
+            this.sizProfessionListBox.DataSource = this.professionEquipmentBindingSource;
+            this.sizProfessionListBox.DisplayMember = "Name";
+            this.sizProfessionListBox.FormattingEnabled = true;
+            this.sizProfessionListBox.Location = new System.Drawing.Point(238, 19);
+            this.sizProfessionListBox.Name = "sizProfessionListBox";
+            this.sizProfessionListBox.Size = new System.Drawing.Size(287, 108);
+            this.sizProfessionListBox.TabIndex = 8;
+            // 
+            // professionEquipmentBindingSource
+            // 
+            this.professionEquipmentBindingSource.DataSource = typeof(Model.Equipments.IEquipment);
+            // 
+            // professionOrderTextBox
+            // 
+            this.professionOrderTextBox.Location = new System.Drawing.Point(9, 74);
+            this.professionOrderTextBox.Name = "professionOrderTextBox";
+            this.professionOrderTextBox.Size = new System.Drawing.Size(221, 20);
+            this.professionOrderTextBox.TabIndex = 7;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(6, 58);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(174, 13);
+            this.label23.TabIndex = 6;
+            this.label23.Text = "Пункт типовых отраслевых норм";
+            // 
+            // professionNameTextBox
+            // 
+            this.professionNameTextBox.Location = new System.Drawing.Point(9, 35);
+            this.professionNameTextBox.Name = "professionNameTextBox";
+            this.professionNameTextBox.Size = new System.Drawing.Size(223, 20);
+            this.professionNameTextBox.TabIndex = 5;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(6, 19);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(83, 13);
+            this.label22.TabIndex = 4;
+            this.label22.Text = "Наименование";
             // 
             // label21
             // 
@@ -1123,15 +1216,7 @@
             this.professionDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.professionDataGridView.Size = new System.Drawing.Size(533, 137);
             this.professionDataGridView.TabIndex = 0;
-            // 
-            // iSizListBindingSource
-            // 
-            this.iSizListBindingSource.AllowNew = true;
-            this.iSizListBindingSource.DataSource = typeof(Model.Equipments.IEquipment);
-            // 
-            // iProfessionBindingSource
-            // 
-            this.iProfessionBindingSource.DataSource = typeof(Model.Professions.IProfession);
+            this.professionDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProfessionDataGridViewCellClick);
             // 
             // idDataGridViewTextBoxColumn3
             // 
@@ -1169,92 +1254,14 @@
             this.orderTextDataGridViewTextBoxColumn.Name = "orderTextDataGridViewTextBoxColumn";
             this.orderTextDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // label22
+            // iProfessionBindingSource
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(6, 19);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(83, 13);
-            this.label22.TabIndex = 4;
-            this.label22.Text = "Наименование";
+            this.iProfessionBindingSource.DataSource = typeof(Model.Professions.IProfession);
             // 
-            // professionNameTextBox
+            // iSizListBindingSource
             // 
-            this.professionNameTextBox.Location = new System.Drawing.Point(9, 35);
-            this.professionNameTextBox.Name = "professionNameTextBox";
-            this.professionNameTextBox.Size = new System.Drawing.Size(223, 20);
-            this.professionNameTextBox.TabIndex = 5;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(6, 58);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(174, 13);
-            this.label23.TabIndex = 6;
-            this.label23.Text = "Пункт типовых отраслевых норм";
-            // 
-            // professionOrderTextBox
-            // 
-            this.professionOrderTextBox.Location = new System.Drawing.Point(9, 74);
-            this.professionOrderTextBox.Name = "professionOrderTextBox";
-            this.professionOrderTextBox.Size = new System.Drawing.Size(221, 20);
-            this.professionOrderTextBox.TabIndex = 7;
-            // 
-            // sizProfessionListBox
-            // 
-            this.sizProfessionListBox.DataSource = this.professionEquipmentBindingSource;
-            this.sizProfessionListBox.DisplayMember = "Name";
-            this.sizProfessionListBox.FormattingEnabled = true;
-            this.sizProfessionListBox.Location = new System.Drawing.Point(238, 19);
-            this.sizProfessionListBox.Name = "sizProfessionListBox";
-            this.sizProfessionListBox.Size = new System.Drawing.Size(287, 108);
-            this.sizProfessionListBox.TabIndex = 8;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.sizRemoveFromList);
-            this.groupBox5.Controls.Add(this.sizAddInList);
-            this.groupBox5.Controls.Add(this.comboBox1);
-            this.groupBox5.Location = new System.Drawing.Point(8, 303);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(271, 57);
-            this.groupBox5.TabIndex = 4;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Управление СИЗ";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DataSource = this.iEquipmentBindingSource;
-            this.comboBox1.DisplayMember = "Name";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 21);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(189, 21);
-            this.comboBox1.TabIndex = 0;
-            // 
-            // sizAddInList
-            // 
-            this.sizAddInList.Location = new System.Drawing.Point(201, 19);
-            this.sizAddInList.Name = "sizAddInList";
-            this.sizAddInList.Size = new System.Drawing.Size(29, 23);
-            this.sizAddInList.TabIndex = 1;
-            this.sizAddInList.Text = "+";
-            this.sizAddInList.UseVisualStyleBackColor = true;
-            this.sizAddInList.Click += new System.EventHandler(this.sizAddInList_Click);
-            // 
-            // sizRemoveFromList
-            // 
-            this.sizRemoveFromList.Location = new System.Drawing.Point(236, 19);
-            this.sizRemoveFromList.Name = "sizRemoveFromList";
-            this.sizRemoveFromList.Size = new System.Drawing.Size(29, 23);
-            this.sizRemoveFromList.TabIndex = 2;
-            this.sizRemoveFromList.Text = "-";
-            this.sizRemoveFromList.UseVisualStyleBackColor = true;
-            // 
-            // professionEquipmentBindingSource
-            // 
-            this.professionEquipmentBindingSource.DataSource = typeof(Model.Equipments.IEquipment);
+            this.iSizListBindingSource.AllowNew = true;
+            this.iSizListBindingSource.DataSource = typeof(Model.Equipments.IEquipment);
             // 
             // MainForm
             // 
@@ -1301,14 +1308,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.iEquipmentBindingSource)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
             this.professionControlGroupBox.ResumeLayout(false);
             this.professionGroupBox.ResumeLayout(false);
             this.professionGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.professionDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iSizListBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iProfessionBindingSource)).EndInit();
-            this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.professionEquipmentBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.professionDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iProfessionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iSizListBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1419,7 +1426,7 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button sizRemoveFromList;
         private System.Windows.Forms.Button sizAddInList;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox sizForListComboBox;
         private System.Windows.Forms.ListBox sizProfessionListBox;
         private System.Windows.Forms.BindingSource professionEquipmentBindingSource;
     }

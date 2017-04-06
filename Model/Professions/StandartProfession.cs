@@ -5,6 +5,7 @@ using Model.Equipments;
 
 namespace Model.Professions
 {
+    [Serializable]
     public class StandartProfession : IProfession
     {
         private int _id;

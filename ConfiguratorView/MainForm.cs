@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace ConfiguratorView
             //Список СИЗ для нескольких СИЗ
         private List<IEquipment> _sizEquipmentsList;
         //Словарь для сизов и поясов
-        private IDictionary<IZone, double> _sizByZoneDictionary;
+  //      private IDictionary<IZone, double> _sizByZoneDictionary;
         ///////////////////////////
         
         //Управление профессиями
@@ -41,41 +42,34 @@ namespace ConfiguratorView
 
         private int MaxZoneId()
         {
-            int max = 0;
-            foreach (IZone item in _zonesList)
-            {
-                if (item.Id > max)
-                {
-                    max = item.Id;
-                }
-            }
-            return max;
+            return _zonesList.Select(item => item.Id).Concat(new[]
+                                                             {
+                                                                 0
+                                                             }).Max();
         }
 
         private int MaxRegionId()
         {
-            int max = 0;
-            foreach (IRegion item in _regionsList)
-            {
-                if (item.Id > max)
-                {
-                    max = item.Id;
-                }
-            }
-            return max;
+            return _regionsList.Select(item => item.Id).Concat(new[]
+                                                               {
+                                                                   0
+                                                               }).Max();
         }
 
         private int MaxEquipmentId()
         {
-            int max = 0;
-            foreach (IEquipment item in _equipmentsList)
-            {
-                if (item.Id > max)
-                {
-                    max = item.Id;
-                }
-            }
-            return max;
+            return _equipmentsList.Select(item => item.Id).Concat(new[]
+                                                                  {
+                                                                      0
+                                                                  }).Max();
+        }
+
+        private int MaxProfessionId()
+        {
+            return _professionsList.Select(item => item.Id).Concat(new[]
+                                                                  {
+                                                                      0
+                                                                  }).Max();
         }
 
         private void LoadZone()
@@ -117,7 +111,25 @@ namespace ConfiguratorView
                 _equipmentsList = new List<IEquipment>();
             }
             iEquipmentBindingSource.DataSource = _equipmentsList;
+            //_sizByZoneDictionary = new Dictionary<IZone, double>();
             _equipmentSelectedId = -1;
+        }
+
+        private void LoadProfession()
+        {
+            try
+            {
+                DataSerializer.DeserializeBin("professionsList.sdb", ref _professionsList);
+            }
+            catch
+            {
+                _professionsList = new List<IProfession>();
+            }
+            iProfessionBindingSource.DataSource = _professionsList;
+            _professionSelectedId = -1;
+            _professionEquipmentsList = new List<IEquipment>();
+            professionEquipmentBindingSource.DataSource = _professionEquipmentsList;
+
         }
 
         public MainForm()
@@ -126,6 +138,7 @@ namespace ConfiguratorView
             LoadZone();
             LoadRegion();
             LoadEquipment();
+            LoadProfession();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -188,6 +201,7 @@ namespace ConfiguratorView
             DataSerializer.SerializeBin("zonesList.sdb",ref _zonesList);
             DataSerializer.SerializeBin("regionsList.sdb", ref _regionsList);
             DataSerializer.SerializeBin("equipmentsList.sdb", ref _equipmentsList);
+            DataSerializer.SerializeBin("professionsList.sdb", ref _professionsList);
         }
 
         private void AdditionalRegionCheckBoxCheckedChanged(object sender, EventArgs e)
@@ -490,9 +504,73 @@ namespace ConfiguratorView
             }
         }
 
-        private void sizAddInList_Click(object sender, EventArgs e)
+        private void SizAddInListClick(object sender, EventArgs e)
         {
+            if ( iEquipmentBindingSource.Current != null )
+            {
+                professionEquipmentBindingSource.Add(iEquipmentBindingSource.Current);
+            }
+        }
 
+        private void SizRemoveFromListClick(object sender, EventArgs e)
+        {
+            if ( professionEquipmentBindingSource.Current != null )
+            {
+                professionEquipmentBindingSource.RemoveCurrent();
+            }
+        }
+
+        private void ProfessionAddButtonClick(object sender, EventArgs e)
+        {
+            try
+            {
+                iProfessionBindingSource.Add(new StandartProfession(MaxProfessionId(), professionNameTextBox.Text, new List<IEquipment>(_professionEquipmentsList), professionOrderTextBox.Text));
+                professionNameTextBox.Clear();
+                professionOrderTextBox.Clear();
+                _professionEquipmentsList = new List<IEquipment>();
+                professionEquipmentBindingSource.DataSource = _professionEquipmentsList;
+            }
+            catch ( Exception exception )
+            {
+                MessageBox.Show(exception.Message);
+            }
+            
+        }
+
+        private void ProfessionRemoveButtonClick(object sender, EventArgs e)
+        {
+            if ( iProfessionBindingSource.Current != null )
+            {
+                iProfessionBindingSource.RemoveCurrent();
+                professionNameTextBox.Clear();
+                professionOrderTextBox.Clear();
+                _professionEquipmentsList = new List<IEquipment>();
+                professionEquipmentBindingSource.DataSource = _professionEquipmentsList;
+            }
+        }
+
+        private void ProfessionApplyButtonClick(object sender, EventArgs e)
+        {
+            if (_professionSelectedId<= -1)
+            {
+                MessageBox.Show("Выберите элемент для правки");
+                return;
+            }
+            int index = _professionsList.IndexOf((IProfession)iEquipmentBindingSource.Current);
+            _professionsList[index] = new StandartProfession(_professionSelectedId, professionNameTextBox.Text, new List<IEquipment>(_professionEquipmentsList), professionOrderTextBox.Text);
+            iProfessionBindingSource[iProfessionBindingSource.Position] = _professionsList[index];
+        }
+
+        private void ProfessionDataGridViewCellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if ( iProfessionBindingSource.Current is StandartProfession )
+            {
+                _professionSelectedId = ((StandartProfession)iProfessionBindingSource.Current).Id;
+                professionNameTextBox.Text = ((StandartProfession)iProfessionBindingSource.Current).Name;
+                professionOrderTextBox.Text = ((StandartProfession)iProfessionBindingSource.Current).OrderText;
+                _professionEquipmentsList = new List<IEquipment>(((StandartProfession)iProfessionBindingSource.Current).Equipments);
+                professionEquipmentBindingSource.DataSource = _professionEquipmentsList;
+            }
         }
     }
 }
