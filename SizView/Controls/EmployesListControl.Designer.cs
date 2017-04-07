@@ -103,11 +103,14 @@
             this.glovesSizeDataGridViewTextBoxColumn});
             this.employesGridView.DataSource = this.iEmployeeBindingSource;
             this.employesGridView.Location = new System.Drawing.Point(6, 19);
+            this.employesGridView.MultiSelect = false;
             this.employesGridView.Name = "employesGridView";
             this.employesGridView.ReadOnly = true;
             this.employesGridView.RowHeadersVisible = false;
+            this.employesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.employesGridView.Size = new System.Drawing.Size(530, 402);
             this.employesGridView.TabIndex = 0;
+            this.employesGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.employesGridView_CellClick);
             // 
             // idDataGridViewTextBoxColumn
             // 

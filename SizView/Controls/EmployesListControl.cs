@@ -14,6 +14,13 @@ namespace SizView.Controls
 
     public partial class EmployesListControl : UserControl
     {
+        public delegate void OnSelectMethod();
+
+        /// <summary>
+        /// Выбор работника в таблице.
+        /// </summary>
+        public event OnSelectMethod onSelectEmployee;
+
         private IList<IEmployee> _employees;
 
         public EmployesListControl()
@@ -60,6 +67,30 @@ namespace SizView.Controls
             {
                 iEmployeeBindingSource.RemoveCurrent();
             }
+        }
+
+        public bool SearchBox
+        {
+            get
+            {
+                return searchGroupBox.Visible;
+            }
+            set
+            {
+                if ( value != null )
+                {
+                    searchGroupBox.Visible = value;
+                }
+            }
+        }
+
+        private void employesGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if ( iEmployeeBindingSource.Current != null )
+            {
+                onSelectEmployee?.Invoke();
+            }
+            
         }
     }
 }

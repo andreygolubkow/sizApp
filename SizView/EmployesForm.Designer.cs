@@ -28,19 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployesForm));
+            this.employeeMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.employesListControl = new SizView.Controls.EmployesListControl();
             this.SuspendLayout();
+            // 
+            // employeeMenuStrip
+            // 
+            this.employeeMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.employeeMenuStrip.Name = "employeeMenuStrip";
+            this.employeeMenuStrip.Size = new System.Drawing.Size(747, 24);
+            this.employeeMenuStrip.TabIndex = 1;
+            this.employeeMenuStrip.Text = "menuStrip1";
+            // 
+            // employesListControl
+            // 
+            this.employesListControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.employesListControl.Employees = ((System.Collections.Generic.IList<Model.Employee.IEmployee>)(resources.GetObject("employesListControl.Employees")));
+            this.employesListControl.Location = new System.Drawing.Point(0, 27);
+            this.employesListControl.Name = "employesListControl";
+            this.employesListControl.SearchBox = false;
+            this.employesListControl.Size = new System.Drawing.Size(747, 456);
+            this.employesListControl.TabIndex = 0;
             // 
             // EmployesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(747, 483);
+            this.Controls.Add(this.employesListControl);
+            this.Controls.Add(this.employeeMenuStrip);
+            this.MainMenuStrip = this.employeeMenuStrip;
             this.Name = "EmployesForm";
-            this.Text = "EmployesForm";
+            this.Text = "Работники";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private Controls.EmployesListControl employesListControl;
+        private System.Windows.Forms.MenuStrip employeeMenuStrip;
     }
 }

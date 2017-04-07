@@ -29,48 +29,63 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.видToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.показатьИнформациюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showInfoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.controlMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.employesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.настройкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.работникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip1.SuspendLayout();
+            this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // mainMenuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.файлToolStripMenuItem,
-            this.видToolStripMenuItem,
-            this.настройкаToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(680, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileMenuItem,
+            this.viewMenuItem,
+            this.controlMenuItem});
+            this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.mainMenuStrip.Name = "mainMenuStrip";
+            this.mainMenuStrip.Size = new System.Drawing.Size(680, 24);
+            this.mainMenuStrip.TabIndex = 0;
+            this.mainMenuStrip.Text = "menuStrip1";
             // 
-            // файлToolStripMenuItem
+            // fileMenuItem
             // 
-            this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.файлToolStripMenuItem.Text = "Файл";
+            this.fileMenuItem.Name = "fileMenuItem";
+            this.fileMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.fileMenuItem.Text = "Файл";
             // 
-            // видToolStripMenuItem
+            // viewMenuItem
             // 
-            this.видToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.показатьИнформациюToolStripMenuItem});
-            this.видToolStripMenuItem.Name = "видToolStripMenuItem";
-            this.видToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.видToolStripMenuItem.Text = "Вид";
+            this.viewMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showInfoMenuItem});
+            this.viewMenuItem.Name = "viewMenuItem";
+            this.viewMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.viewMenuItem.Text = "Вид";
             // 
-            // показатьИнформациюToolStripMenuItem
+            // showInfoMenuItem
             // 
-            this.показатьИнформациюToolStripMenuItem.Name = "показатьИнформациюToolStripMenuItem";
-            this.показатьИнформациюToolStripMenuItem.Size = new System.Drawing.Size(203, 22);
-            this.показатьИнформациюToolStripMenuItem.Text = "Показать информацию";
+            this.showInfoMenuItem.Name = "showInfoMenuItem";
+            this.showInfoMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.showInfoMenuItem.Text = "Показать информацию";
+            // 
+            // controlMenuItem
+            // 
+            this.controlMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.employesMenuItem});
+            this.controlMenuItem.Name = "controlMenuItem";
+            this.controlMenuItem.Size = new System.Drawing.Size(85, 20);
+            this.controlMenuItem.Text = "Управление";
+            // 
+            // employesMenuItem
+            // 
+            this.employesMenuItem.Name = "employesMenuItem";
+            this.employesMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.employesMenuItem.Text = "Работники";
+            this.employesMenuItem.Click += new System.EventHandler(this.employesMenuItem_Click);
             // 
             // dataGridView1
             // 
@@ -83,33 +98,19 @@
             this.dataGridView1.Size = new System.Drawing.Size(656, 283);
             this.dataGridView1.TabIndex = 1;
             // 
-            // настройкаToolStripMenuItem
-            // 
-            this.настройкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.работникиToolStripMenuItem});
-            this.настройкаToolStripMenuItem.Name = "настройкаToolStripMenuItem";
-            this.настройкаToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
-            this.настройкаToolStripMenuItem.Text = "Настройка";
-            // 
-            // работникиToolStripMenuItem
-            // 
-            this.работникиToolStripMenuItem.Name = "работникиToolStripMenuItem";
-            this.работникиToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.работникиToolStripMenuItem.Text = "Работники";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(680, 322);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.mainMenuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.mainMenuStrip;
             this.Name = "MainForm";
             this.Text = "СИЗ Контроль";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.mainMenuStrip.ResumeLayout(false);
+            this.mainMenuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -118,13 +119,13 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem файлToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem видToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem показатьИнформациюToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip mainMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem fileMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showInfoMenuItem;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ToolStripMenuItem настройкаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem работникиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem controlMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem employesMenuItem;
     }
 }
 
