@@ -97,6 +97,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="Properties\DataSources\Model.Employee.IEmployee.datasource" />
+    <None Include="Properties\DataSources\Model.Professions.IProfession.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

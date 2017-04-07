@@ -13,7 +13,7 @@
         private string _structuralUnit;
         private IProfession _profession;
         private DateTime _dateOfEmployment;
-        private DateTime _dateChangePosition;
+        private DateTime? _dateChangePosition;
         private Sex _sex;
         private double _growth;
         private string _clothingSize;
@@ -160,7 +160,7 @@
         /// <summary>
         /// Дата изменения должности.
         /// </summary>
-        public DateTime DateChangePosition
+        public DateTime? DateChangePosition
         {
             get
             {

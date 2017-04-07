@@ -49,7 +49,7 @@
         /// <summary>
         /// Дата изменения должности.
         /// </summary>
-        DateTime DateChangePosition { get; set; }
+        DateTime? DateChangePosition { get; set; }
 
         /// <summary>
         /// Пол.

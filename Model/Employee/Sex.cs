@@ -8,10 +8,10 @@
         /// <summary>
         /// Мужчина.
         /// </summary>
-        Male,
+        Male = 0,
         /// <summary>
         /// Женщина.
         /// </summary>
-        Female
+        Female = 1
     }
 }
