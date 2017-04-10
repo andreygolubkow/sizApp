@@ -3,14 +3,18 @@ using System.Windows.Forms;
 
 namespace SizView
 {
+    using System.Collections.Generic;
+
     using Model.Employee;
+    using Model.Professions;
 
     public partial class EmployeeForm : Form
     {
-        public EmployeeForm(int id)
+        public EmployeeForm(int id,List<IProfession> professions )
         {
             InitializeComponent();
             standartEmployeeControl.Id = id;
+            standartEmployeeControl.Professions = professions;
             DialogResult = DialogResult.Cancel;
         }
 

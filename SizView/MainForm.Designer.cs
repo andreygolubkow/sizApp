@@ -83,7 +83,7 @@
             // employesMenuItem
             // 
             this.employesMenuItem.Name = "employesMenuItem";
-            this.employesMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.employesMenuItem.Size = new System.Drawing.Size(133, 22);
             this.employesMenuItem.Text = "Работники";
             this.employesMenuItem.Click += new System.EventHandler(this.employesMenuItem_Click);
             // 
@@ -109,6 +109,7 @@
             this.MainMenuStrip = this.mainMenuStrip;
             this.Name = "MainForm";
             this.Text = "СИЗ Контроль";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

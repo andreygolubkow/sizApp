@@ -3,7 +3,7 @@
     using System;
 
     using Model.Professions;
-
+    [Serializable]
     public class StandartEmployee : IEmployee
     {
         private string _surname;

@@ -1,8 +1,11 @@
 ﻿namespace Model.Employee
 {
+    using System;
+
     /// <summary>
     /// Пол.
     /// </summary>
+    [Serializable]
     public enum Sex
     {
         /// <summary>

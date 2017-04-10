@@ -8,24 +8,19 @@ namespace SizView
     using System.Linq;
 
     using Model.Employee;
+    using Model.Professions;
 
     public partial class EmployesListForm : Form
     {
+        private IList<IEmployee> _employees;
 
-
-        public EmployesListForm()
+        private IList<IProfession> _professions;
+        public EmployesListForm(List<IEmployee> employeesList,List<IProfession>  professions)
         {
             InitializeComponent();
-            var empList = new List<IEmployee>();
-            try
-            {
-                DataSerializer.DeserializeBin("employesList.sdb", ref empList);
-            }
-            catch (Exception)
-            {
-                empList = new List<IEmployee>();
-            }
+            var empList = employeesList;
             employesListControl.Employees = empList;
+            _professions = professions;
         }
 
         private void EmployesForm_Load(object sender, EventArgs e)
@@ -44,7 +39,7 @@ namespace SizView
                                                                   {
                                                                       0
                                                                   }).Max();
-            var addForm = new EmployeeForm(id+1);
+            var addForm = new EmployeeForm(id+1,(List<IProfession>)_professions);
             if ( addForm.ShowDialog() == DialogResult.OK )
             {
                 employesListControl.AddEmploye(addForm.Employee);
@@ -53,9 +48,10 @@ namespace SizView
 
         private void EmployesListForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            IList<IEmployee> employees = employesListControl.Employees;
-            DataSerializer.SerializeBin("employesList.sdb", ref employees);
+            _employees = employesListControl.Employees;
         }
+
+        public List<IEmployee> Employees => (List<IEmployee>)_employees;
 
         private void removeMenuItem_Click(object sender, EventArgs e)
         {
