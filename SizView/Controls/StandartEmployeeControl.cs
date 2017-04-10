@@ -100,7 +100,6 @@
                     if ( _employee.DateChangePosition == null )
                     {
                         dateChangePositionPicker.Checked = false;
-                        dateChangePositionPicker.Value = _employee.DateChangePosition.Value;
                     }
                     else
                     {

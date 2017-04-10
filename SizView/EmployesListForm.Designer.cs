@@ -76,6 +76,7 @@
             this.editMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
             this.editMenuItem.Size = new System.Drawing.Size(168, 22);
             this.editMenuItem.Text = "Изменить";
+            this.editMenuItem.Click += new System.EventHandler(this.editMenuItem_Click);
             // 
             // removeMenuItem
             // 

@@ -57,5 +57,14 @@ namespace SizView
         {
             employesListControl.RemoveCurrent();
         }
+
+        private void editMenuItem_Click(object sender, EventArgs e)
+        {
+            var addForm = new EmployeeForm(employesListControl.CurrentEmployee, (List<IProfession>)_professions);
+            if (addForm.ShowDialog() == DialogResult.OK)
+            {
+                employesListControl.CurrentEmployee = addForm.Employee;
+            }
+        }
     }
 }

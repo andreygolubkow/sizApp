@@ -51,7 +51,19 @@ namespace SizView.Controls
             }
         }
 
-        public IEmployee CurrentEmployee => (IEmployee)iEmployeeBindingSource.Current;
+        public IEmployee CurrentEmployee
+        {
+            get
+            {
+                return (IEmployee)iEmployeeBindingSource.Current;
+            }
+            set
+            {
+                int index = _employees.IndexOf((IEmployee)iEmployeeBindingSource.Current);
+                _employees[index] = value;
+                iEmployeeBindingSource[iEmployeeBindingSource.Position] = _employees[index];
+            }
+        }
 
         public void AddEmploye(IEmployee employee)
         {

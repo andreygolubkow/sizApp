@@ -16,13 +16,16 @@ namespace SizView
             standartEmployeeControl.Id = id;
             standartEmployeeControl.Professions = professions;
             DialogResult = DialogResult.Cancel;
+            addButton.Text = "Добавить";
         }
 
-        public EmployeeForm(IEmployee employee)
+        public EmployeeForm(IEmployee employee, List<IProfession> professions)
         {
             InitializeComponent();
+            standartEmployeeControl.Professions = professions;
             standartEmployeeControl.Employee = (StandartEmployee)employee;
             standartEmployeeControl.Id = employee.Id;
+            addButton.Text = "Сохранить";
             DialogResult = DialogResult.Cancel;
         }
 
