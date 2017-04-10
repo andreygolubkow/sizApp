@@ -19,7 +19,7 @@ namespace SizView
 
         private void employesMenuItem_Click(object sender, EventArgs e)
         {
-            var employesForm = new EmployesForm();
+            var employesForm = new EmployesListForm();
             employesForm.ShowDialog();
         }
     }

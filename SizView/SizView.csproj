@@ -61,11 +61,17 @@
     <Compile Include="Controls\StandartEmployeeControl.Designer.cs">
       <DependentUpon>StandartEmployeeControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmployesForm.cs">
+    <Compile Include="EmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmployesForm.Designer.cs">
-      <DependentUpon>EmployesForm.cs</DependentUpon>
+    <Compile Include="EmployeeForm.Designer.cs">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployesListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployesListForm.Designer.cs">
+      <DependentUpon>EmployesListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -81,8 +87,11 @@
     <EmbeddedResource Include="Controls\StandartEmployeeControl.resx">
       <DependentUpon>StandartEmployeeControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmployesForm.resx">
-      <DependentUpon>EmployesForm.cs</DependentUpon>
+    <EmbeddedResource Include="EmployeeForm.resx">
+      <DependentUpon>EmployeeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployesListForm.resx">
+      <DependentUpon>EmployesListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -118,6 +127,10 @@
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{4fc05933-50ae-485d-812e-13cc2fbf54da}</Project>
       <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tools\Tools.csproj">
+      <Project>{da631f5a-5891-4843-96ba-9f4b86228809}</Project>
+      <Name>Tools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

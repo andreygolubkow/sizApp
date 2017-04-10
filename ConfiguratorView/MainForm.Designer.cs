@@ -716,7 +716,7 @@
             // 
             // zonesWithItemsBindingSource
             // 
-            this.zonesWithItemsBindingSource.DataSource = typeof(ConfiguratorView.Tools.ZonesWithItems);
+            this.zonesWithItemsBindingSource.DataSource = typeof(Tools.ZonesWithItems);
             // 
             // label17
             // 

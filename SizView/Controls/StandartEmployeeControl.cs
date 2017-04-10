@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Globalization;
     using System.Linq;
     using System.Windows.Forms;
@@ -15,16 +16,32 @@
 
         private IList<IProfession> _professions;
 
+        private int _empId;
+
         public StandartEmployeeControl()
         {
+            InitializeComponent();
             dateOfEmploymentPicker.Value = DateTime.Today;
             dateChangePositionPicker.Value = DateTime.Today;
             dateChangePositionPicker.Checked = false;
-            _professions = new List<IProfession>();
-            _employee = new StandartEmployee();
-            InitializeComponent();
+
+
+
         }
 
+        public int Id
+        {
+            get
+            {
+                return _empId;
+            }
+            set
+            {
+                _empId = value;
+            }
+        }
+
+        [DefaultValue(null)]
         public StandartEmployee Employee
         {
             get
@@ -32,25 +49,26 @@
                 try
                 {
                     _employee = new StandartEmployee
-                                {
-                                    Surname = surnameTextBox.Text,
-                                    Name = nameTextBox.Text,
-                                    MiddleName = middleNameTextBox.Text,
-                                    PersonnelNumber = personnelNumberTextBox.Text,
-                                    StructuralUnit = structuralUnitTextBox.Text,
-                                    Profession = (IProfession)iProfessionBindingSource.Current,
-                                    DateOfEmployment = dateOfEmploymentPicker.Value,
-                                    Sex = (Sex)sexComboBox.SelectedIndex,
-                                    Growth = Convert.ToDouble(growthTextBox.Text),
-                                    ClothingSize = clothingSizeTextBox.Text,
-                                    ShoeSize = shoeSizeTextBox.Text,
-                                    HeadgearSize = headgearSizeTextBox.Text,
-                                    GasmaskSize = gasmaskSizeTextBox.Text,
-                                    RespiratorSize = respiratorSizeTextBox.Text,
-                                    GauntletsSize = gauntletsSizeTextBox.Text,
-                                    GlovesSize = glovesSizeTextBox.Text
-                                };
-                    if (dateChangePositionPicker.Checked)
+                                    {
+                                        Id = _empId,
+                                        Surname = surnameTextBox.Text,
+                                        Name = nameTextBox.Text,
+                                        MiddleName = middleNameTextBox.Text,
+                                        PersonnelNumber = personnelNumberTextBox.Text,
+                                        StructuralUnit = structuralUnitTextBox.Text,
+                                        Profession = (IProfession)iProfessionBindingSource.Current,
+                                        DateOfEmployment = dateOfEmploymentPicker.Value,
+                                        Sex = (Sex)sexComboBox.SelectedIndex,
+                                        Growth = Convert.ToDouble(growthTextBox.Text),
+                                        ClothingSize = clothingSizeTextBox.Text,
+                                        ShoeSize = shoeSizeTextBox.Text,
+                                        HeadgearSize = headgearSizeTextBox.Text,
+                                        GasmaskSize = gasmaskSizeTextBox.Text,
+                                        RespiratorSize = respiratorSizeTextBox.Text,
+                                        GauntletsSize = gauntletsSizeTextBox.Text,
+                                        GlovesSize = glovesSizeTextBox.Text
+                                    };
+                    if ( dateChangePositionPicker.Checked )
                     {
                         _employee.DateChangePosition = dateChangePositionPicker.Value;
                     }
@@ -61,7 +79,7 @@
                 }
                 catch (Exception exception)
                 {
-                    MessageBox.Show(exception.Message);
+                    throw exception;
                 }
                 return _employee;
             }
@@ -70,6 +88,7 @@
                 if ( value != null )
                 {
                     _employee = value;
+                    _empId = _employee.Id;
                     surnameTextBox.Text = _employee.Surname;
                     nameTextBox.Text = _employee.Name;
                     middleNameTextBox.Text = _employee.MiddleName;
@@ -104,7 +123,7 @@
                 }
             }
         }
-
+        [DefaultValue(null)]
         public IList<IProfession> Professions
         {
             get
@@ -116,6 +135,32 @@
                 _professions = value ?? new List<IProfession>();
                 iProfessionBindingSource.DataSource = _professions;
             }
+        }
+
+        private bool CheckData()
+        {
+
+            if ( surnameTextBox.Text == string.Empty )
+            {
+                return false;
+            }
+            if (middleNameTextBox.Text == string.Empty)
+            {
+                return false;
+            }
+            if (personnelNumberTextBox.Text == string.Empty)
+            {
+                return false;
+            }
+            if (structuralUnitTextBox.Text == string.Empty)
+            {
+                return false;
+            }
+            if ( iProfessionBindingSource.Current == null )
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

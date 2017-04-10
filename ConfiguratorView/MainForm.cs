@@ -1,19 +1,18 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-
-using ConfiguratorView.Tools;
-
 using Model.Equipments;
 using Model.Professions;
 using Model.Regions;
 using Model.Zones;
+using Tools;
 
 namespace ConfiguratorView
 {
+
+
     public partial class MainForm : Form
     {
         //Управление поясами

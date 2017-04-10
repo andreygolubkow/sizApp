@@ -1,7 +1,8 @@
-﻿using Model.Zones;
-
-namespace ConfiguratorView.Tools
+﻿
+namespace Tools
 {
+    using Model.Zones;
+
     public class ZonesWithItems
     {
         private IZone _zone;

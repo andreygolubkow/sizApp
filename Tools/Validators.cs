@@ -1,7 +1,9 @@
-﻿using System.Windows.Forms;
+﻿
 
-namespace ConfiguratorView.Tools
+namespace Tools
 {
+    using System.Windows.Forms;
+
     public class Validators
     {
         public static void DoubleEnterValidate(KeyPressEventArgs e)

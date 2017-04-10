@@ -30,8 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.sexComboBox = new System.Windows.Forms.ComboBox();
+            this.dateChangePositionPicker = new System.Windows.Forms.DateTimePicker();
             this.dateOfEmploymentPicker = new System.Windows.Forms.DateTimePicker();
             this.professionComboBox = new System.Windows.Forms.ComboBox();
+            this.iProfessionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -56,15 +65,6 @@
             this.middleNameTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.surnameTextBox = new System.Windows.Forms.TextBox();
-            this.dateChangePositionPicker = new System.Windows.Forms.DateTimePicker();
-            this.sexComboBox = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.iProfessionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iProfessionBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -115,6 +115,80 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Работник";
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 439);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(95, 13);
+            this.label17.TabIndex = 34;
+            this.label17.Text = "Размер перчаток";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 413);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(90, 13);
+            this.label16.TabIndex = 33;
+            this.label16.Text = "Размер рукавиц";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(6, 387);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(114, 13);
+            this.label15.TabIndex = 32;
+            this.label15.Text = "Размер респиратора";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(6, 361);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(113, 13);
+            this.label14.TabIndex = 31;
+            this.label14.Text = "Размер противогаза";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 335);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(133, 13);
+            this.label13.TabIndex = 30;
+            this.label13.Text = "Размер головного убора";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(6, 309);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(78, 13);
+            this.label12.TabIndex = 29;
+            this.label12.Text = "Размер обуви";
+            // 
+            // sexComboBox
+            // 
+            this.sexComboBox.FormattingEnabled = true;
+            this.sexComboBox.Items.AddRange(new object[] {
+            "Мужской",
+            "Женский"});
+            this.sexComboBox.Location = new System.Drawing.Point(107, 226);
+            this.sexComboBox.Name = "sexComboBox";
+            this.sexComboBox.Size = new System.Drawing.Size(184, 21);
+            this.sexComboBox.TabIndex = 28;
+            // 
+            // dateChangePositionPicker
+            // 
+            this.dateChangePositionPicker.Location = new System.Drawing.Point(162, 200);
+            this.dateChangePositionPicker.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
+            this.dateChangePositionPicker.Name = "dateChangePositionPicker";
+            this.dateChangePositionPicker.ShowCheckBox = true;
+            this.dateChangePositionPicker.Size = new System.Drawing.Size(129, 20);
+            this.dateChangePositionPicker.TabIndex = 27;
+            // 
             // dateOfEmploymentPicker
             // 
             this.dateOfEmploymentPicker.Location = new System.Drawing.Point(107, 170);
@@ -132,6 +206,10 @@
             this.professionComboBox.Name = "professionComboBox";
             this.professionComboBox.Size = new System.Drawing.Size(184, 21);
             this.professionComboBox.TabIndex = 25;
+            // 
+            // iProfessionBindingSource
+            // 
+            this.iProfessionBindingSource.DataSource = typeof(Model.Professions.IProfession);
             // 
             // label11
             // 
@@ -322,84 +400,6 @@
             this.surnameTextBox.Name = "surnameTextBox";
             this.surnameTextBox.Size = new System.Drawing.Size(184, 20);
             this.surnameTextBox.TabIndex = 0;
-            // 
-            // dateChangePositionPicker
-            // 
-            this.dateChangePositionPicker.Location = new System.Drawing.Point(162, 200);
-            this.dateChangePositionPicker.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
-            this.dateChangePositionPicker.Name = "dateChangePositionPicker";
-            this.dateChangePositionPicker.ShowCheckBox = true;
-            this.dateChangePositionPicker.Size = new System.Drawing.Size(129, 20);
-            this.dateChangePositionPicker.TabIndex = 27;
-            // 
-            // sexComboBox
-            // 
-            this.sexComboBox.FormattingEnabled = true;
-            this.sexComboBox.Items.AddRange(new object[] {
-            "Мужской",
-            "Женский"});
-            this.sexComboBox.Location = new System.Drawing.Point(107, 226);
-            this.sexComboBox.Name = "sexComboBox";
-            this.sexComboBox.Size = new System.Drawing.Size(184, 21);
-            this.sexComboBox.TabIndex = 28;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 309);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(78, 13);
-            this.label12.TabIndex = 29;
-            this.label12.Text = "Размер обуви";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 335);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(133, 13);
-            this.label13.TabIndex = 30;
-            this.label13.Text = "Размер головного убора";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 361);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(113, 13);
-            this.label14.TabIndex = 31;
-            this.label14.Text = "Размер противогаза";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(6, 387);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(114, 13);
-            this.label15.TabIndex = 32;
-            this.label15.Text = "Размер респиратора";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 413);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(90, 13);
-            this.label16.TabIndex = 33;
-            this.label16.Text = "Размер рукавиц";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 439);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(95, 13);
-            this.label17.TabIndex = 34;
-            this.label17.Text = "Размер перчаток";
-            // 
-            // iProfessionBindingSource
-            // 
-            this.iProfessionBindingSource.DataSource = typeof(Model.Professions.IProfession);
             // 
             // StandartEmployeeControl
             // 

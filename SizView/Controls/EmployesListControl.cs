@@ -28,7 +28,7 @@ namespace SizView.Controls
             InitializeComponent();
             _employees = new List<IEmployee>();
         }
-
+        [DefaultValue(null)]
         public IList<IEmployee> Employees
         {
             get
@@ -77,10 +77,7 @@ namespace SizView.Controls
             }
             set
             {
-                if ( value != null )
-                {
                     searchGroupBox.Visible = value;
-                }
             }
         }
 

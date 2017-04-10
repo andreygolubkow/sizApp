@@ -183,10 +183,6 @@
             }
             set
             {
-                if ( value == null )
-                {
-                    throw new ArgumentException("Нужно заполнить пол.");
-                }
                 _sex = value;
             }
         }

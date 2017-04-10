@@ -2,7 +2,7 @@
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace ConfiguratorView
+namespace Tools
 {
     public static class DataSerializer
     {
