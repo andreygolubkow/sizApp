@@ -178,7 +178,7 @@
             this.sexComboBox.Location = new System.Drawing.Point(107, 226);
             this.sexComboBox.Name = "sexComboBox";
             this.sexComboBox.Size = new System.Drawing.Size(184, 21);
-            this.sexComboBox.TabIndex = 28;
+            this.sexComboBox.TabIndex = 9;
             // 
             // dateChangePositionPicker
             // 
@@ -187,7 +187,7 @@
             this.dateChangePositionPicker.Name = "dateChangePositionPicker";
             this.dateChangePositionPicker.ShowCheckBox = true;
             this.dateChangePositionPicker.Size = new System.Drawing.Size(129, 20);
-            this.dateChangePositionPicker.TabIndex = 27;
+            this.dateChangePositionPicker.TabIndex = 8;
             // 
             // dateOfEmploymentPicker
             // 
@@ -195,7 +195,7 @@
             this.dateOfEmploymentPicker.MinDate = new System.DateTime(1990, 1, 1, 0, 0, 0, 0);
             this.dateOfEmploymentPicker.Name = "dateOfEmploymentPicker";
             this.dateOfEmploymentPicker.Size = new System.Drawing.Size(184, 20);
-            this.dateOfEmploymentPicker.TabIndex = 26;
+            this.dateOfEmploymentPicker.TabIndex = 7;
             // 
             // professionComboBox
             // 
@@ -205,7 +205,7 @@
             this.professionComboBox.Location = new System.Drawing.Point(107, 143);
             this.professionComboBox.Name = "professionComboBox";
             this.professionComboBox.Size = new System.Drawing.Size(184, 21);
-            this.professionComboBox.TabIndex = 25;
+            this.professionComboBox.TabIndex = 6;
             // 
             // iProfessionBindingSource
             // 
@@ -315,14 +315,14 @@
             this.glovesSizeTextBox.Location = new System.Drawing.Point(145, 436);
             this.glovesSizeTextBox.Name = "glovesSizeTextBox";
             this.glovesSizeTextBox.Size = new System.Drawing.Size(146, 20);
-            this.glovesSizeTextBox.TabIndex = 12;
+            this.glovesSizeTextBox.TabIndex = 17;
             // 
             // shoeSizeTextBox
             // 
             this.shoeSizeTextBox.Location = new System.Drawing.Point(107, 306);
             this.shoeSizeTextBox.Name = "shoeSizeTextBox";
             this.shoeSizeTextBox.Size = new System.Drawing.Size(184, 20);
-            this.shoeSizeTextBox.TabIndex = 11;
+            this.shoeSizeTextBox.TabIndex = 12;
             // 
             // growthTextBox
             // 
@@ -336,70 +336,70 @@
             this.gauntletsSizeTextBox.Location = new System.Drawing.Point(145, 410);
             this.gauntletsSizeTextBox.Name = "gauntletsSizeTextBox";
             this.gauntletsSizeTextBox.Size = new System.Drawing.Size(146, 20);
-            this.gauntletsSizeTextBox.TabIndex = 9;
+            this.gauntletsSizeTextBox.TabIndex = 16;
             // 
             // headgearSizeTextBox
             // 
             this.headgearSizeTextBox.Location = new System.Drawing.Point(145, 332);
             this.headgearSizeTextBox.Name = "headgearSizeTextBox";
             this.headgearSizeTextBox.Size = new System.Drawing.Size(146, 20);
-            this.headgearSizeTextBox.TabIndex = 8;
+            this.headgearSizeTextBox.TabIndex = 13;
             // 
             // gasmaskSizeTextBox
             // 
             this.gasmaskSizeTextBox.Location = new System.Drawing.Point(145, 358);
             this.gasmaskSizeTextBox.Name = "gasmaskSizeTextBox";
             this.gasmaskSizeTextBox.Size = new System.Drawing.Size(146, 20);
-            this.gasmaskSizeTextBox.TabIndex = 7;
+            this.gasmaskSizeTextBox.TabIndex = 14;
             // 
             // clothingSizeTextBox
             // 
             this.clothingSizeTextBox.Location = new System.Drawing.Point(107, 280);
             this.clothingSizeTextBox.Name = "clothingSizeTextBox";
             this.clothingSizeTextBox.Size = new System.Drawing.Size(184, 20);
-            this.clothingSizeTextBox.TabIndex = 6;
+            this.clothingSizeTextBox.TabIndex = 11;
             // 
             // respiratorSizeTextBox
             // 
             this.respiratorSizeTextBox.Location = new System.Drawing.Point(145, 384);
             this.respiratorSizeTextBox.Name = "respiratorSizeTextBox";
             this.respiratorSizeTextBox.Size = new System.Drawing.Size(146, 20);
-            this.respiratorSizeTextBox.TabIndex = 5;
+            this.respiratorSizeTextBox.TabIndex = 15;
             // 
             // structuralUnitTextBox
             // 
             this.structuralUnitTextBox.Location = new System.Drawing.Point(163, 117);
             this.structuralUnitTextBox.Name = "structuralUnitTextBox";
             this.structuralUnitTextBox.Size = new System.Drawing.Size(128, 20);
-            this.structuralUnitTextBox.TabIndex = 4;
+            this.structuralUnitTextBox.TabIndex = 5;
             // 
             // personnelNumberTextBox
             // 
             this.personnelNumberTextBox.Location = new System.Drawing.Point(107, 91);
             this.personnelNumberTextBox.Name = "personnelNumberTextBox";
             this.personnelNumberTextBox.Size = new System.Drawing.Size(184, 20);
-            this.personnelNumberTextBox.TabIndex = 3;
+            this.personnelNumberTextBox.TabIndex = 4;
             // 
             // middleNameTextBox
             // 
             this.middleNameTextBox.Location = new System.Drawing.Point(107, 65);
             this.middleNameTextBox.Name = "middleNameTextBox";
             this.middleNameTextBox.Size = new System.Drawing.Size(184, 20);
-            this.middleNameTextBox.TabIndex = 2;
+            this.middleNameTextBox.TabIndex = 3;
             // 
             // nameTextBox
             // 
             this.nameTextBox.Location = new System.Drawing.Point(107, 39);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(184, 20);
-            this.nameTextBox.TabIndex = 1;
+            this.nameTextBox.TabIndex = 2;
             // 
             // surnameTextBox
             // 
             this.surnameTextBox.Location = new System.Drawing.Point(107, 13);
             this.surnameTextBox.Name = "surnameTextBox";
             this.surnameTextBox.Size = new System.Drawing.Size(184, 20);
-            this.surnameTextBox.TabIndex = 0;
+            this.surnameTextBox.TabIndex = 1;
             // 
             // StandartEmployeeControl
             // 

@@ -28,6 +28,7 @@ namespace SizView.Controls
             InitializeComponent();
             _employees = new List<IEmployee>();
         }
+
         [DefaultValue(null)]
         public IList<IEmployee> Employees
         {
@@ -51,6 +52,7 @@ namespace SizView.Controls
             }
         }
 
+        [DefaultValue(null)]
         public IEmployee CurrentEmployee
         {
             get

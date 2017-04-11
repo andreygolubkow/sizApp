@@ -282,7 +282,7 @@
             this.searchComboBox.Location = new System.Drawing.Point(6, 19);
             this.searchComboBox.Name = "searchComboBox";
             this.searchComboBox.Size = new System.Drawing.Size(188, 21);
-            this.searchComboBox.TabIndex = 0;
+            this.searchComboBox.TabIndex = 1;
             this.toolTip.SetToolTip(this.searchComboBox, "Начните вводить фамилию");
             // 
             // toolTip

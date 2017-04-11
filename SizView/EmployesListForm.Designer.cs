@@ -1,5 +1,9 @@
 ﻿namespace SizView
 {
+    using System.Collections.Generic;
+
+    using Model.Employee;
+
     partial class EmployesListForm
     {
         /// <summary>
@@ -34,7 +38,6 @@
             this.addMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.searchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employesListControl = new SizView.Controls.EmployesListControl();
             this.employeeMenuStrip.SuspendLayout();
@@ -43,7 +46,8 @@
             // employeeMenuStrip
             // 
             this.employeeMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listMenuItem});
+            this.listMenuItem,
+            this.searchMenuItem});
             this.employeeMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.employeeMenuStrip.Name = "employeeMenuStrip";
             this.employeeMenuStrip.Size = new System.Drawing.Size(747, 24);
@@ -55,12 +59,10 @@
             this.listMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addMenuItem,
             this.editMenuItem,
-            this.removeMenuItem,
-            this.toolStripSeparator1,
-            this.searchMenuItem});
+            this.removeMenuItem});
             this.listMenuItem.Name = "listMenuItem";
-            this.listMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.listMenuItem.Text = "Список";
+            this.listMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.listMenuItem.Text = "Действия";
             // 
             // addMenuItem
             // 
@@ -86,18 +88,12 @@
             this.removeMenuItem.Text = "Удалить";
             this.removeMenuItem.Click += new System.EventHandler(this.removeMenuItem_Click);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(165, 6);
-            // 
             // searchMenuItem
             // 
             this.searchMenuItem.Name = "searchMenuItem";
             this.searchMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.searchMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.searchMenuItem.Size = new System.Drawing.Size(54, 20);
             this.searchMenuItem.Text = "Поиск";
-            this.searchMenuItem.Click += new System.EventHandler(this.searchMenuItem_Click);
             // 
             // employesListControl
             // 
@@ -118,6 +114,8 @@
             this.ClientSize = new System.Drawing.Size(747, 483);
             this.Controls.Add(this.employesListControl);
             this.Controls.Add(this.employeeMenuStrip);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.employeeMenuStrip;
             this.Name = "EmployesListForm";
             this.Text = "Работники";
@@ -138,7 +136,6 @@
         private System.Windows.Forms.ToolStripMenuItem addMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem searchMenuItem;
     }
 }

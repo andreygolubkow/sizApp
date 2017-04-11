@@ -28,11 +28,6 @@ namespace SizView
 
         }
 
-        private void searchMenuItem_Click(object sender, EventArgs e)
-        {
-            employesListControl.SearchBox = !employesListControl.SearchBox;
-        }
-
         private void addMenuItem_Click(object sender, EventArgs e)
         {
             int id = employesListControl.Employees.Select(item => item.Id).Concat(new[]
