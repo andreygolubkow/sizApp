@@ -35,8 +35,8 @@
             this.showInfoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controlMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.информацияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -77,7 +77,7 @@
             // 
             this.controlMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.employesMenuItem,
-            this.информацияToolStripMenuItem});
+            this.informationMenuItem});
             this.controlMenuItem.Name = "controlMenuItem";
             this.controlMenuItem.Size = new System.Drawing.Size(85, 20);
             this.controlMenuItem.Text = "Управление";
@@ -89,6 +89,13 @@
             this.employesMenuItem.Text = "Работники";
             this.employesMenuItem.Click += new System.EventHandler(this.employesMenuItem_Click);
             // 
+            // informationMenuItem
+            // 
+            this.informationMenuItem.Name = "informationMenuItem";
+            this.informationMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.informationMenuItem.Text = "Информация";
+            this.informationMenuItem.Click += new System.EventHandler(this.informationMenuItem_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -99,12 +106,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(656, 283);
             this.dataGridView1.TabIndex = 1;
-            // 
-            // информацияToolStripMenuItem
-            // 
-            this.информацияToolStripMenuItem.Name = "информацияToolStripMenuItem";
-            this.информацияToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.информацияToolStripMenuItem.Text = "Информация";
             // 
             // MainForm
             // 
@@ -135,7 +136,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStripMenuItem controlMenuItem;
         private System.Windows.Forms.ToolStripMenuItem employesMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem информацияToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem informationMenuItem;
     }
 }
 

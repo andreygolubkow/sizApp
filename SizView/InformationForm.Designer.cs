@@ -41,22 +41,22 @@
             this.label4 = new System.Windows.Forms.Label();
             this.leaderFullNameTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.organisationShortNameTextBox = new System.Windows.Forms.TextBox();
+            this.organizationShortNameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.organisationFullNameTextBox = new System.Windows.Forms.TextBox();
+            this.organizationFullNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.additionalTextBox = new System.Windows.Forms.TextBox();
             this.zoneStringTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.zoneComboBox = new System.Windows.Forms.ComboBox();
+            this.iRegionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cityTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.iRegionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.additionalTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -68,9 +68,9 @@
             // 
             this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.organisationShortNameTextBox);
+            this.groupBox1.Controls.Add(this.organizationShortNameTextBox);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.organisationFullNameTextBox);
+            this.groupBox1.Controls.Add(this.organizationFullNameTextBox);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -118,6 +118,7 @@
             this.otherRadioButton.TabIndex = 6;
             this.otherRadioButton.Text = "Другой работник";
             this.otherRadioButton.UseVisualStyleBackColor = true;
+            this.otherRadioButton.CheckedChanged += new System.EventHandler(this.otherRadioButton_CheckedChanged);
             // 
             // leaderRadioButton
             // 
@@ -130,6 +131,7 @@
             this.leaderRadioButton.TabStop = true;
             this.leaderRadioButton.Text = "Руководитель организации";
             this.leaderRadioButton.UseVisualStyleBackColor = true;
+            this.leaderRadioButton.CheckedChanged += new System.EventHandler(this.leaderRadioButton_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -176,12 +178,12 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "ФИО руководителя организации";
             // 
-            // organisationShortNameTextBox
+            // organizationShortNameTextBox
             // 
-            this.organisationShortNameTextBox.Location = new System.Drawing.Point(44, 71);
-            this.organisationShortNameTextBox.Name = "organisationShortNameTextBox";
-            this.organisationShortNameTextBox.Size = new System.Drawing.Size(317, 20);
-            this.organisationShortNameTextBox.TabIndex = 2;
+            this.organizationShortNameTextBox.Location = new System.Drawing.Point(44, 71);
+            this.organizationShortNameTextBox.Name = "organizationShortNameTextBox";
+            this.organizationShortNameTextBox.Size = new System.Drawing.Size(317, 20);
+            this.organizationShortNameTextBox.TabIndex = 2;
             // 
             // label2
             // 
@@ -192,12 +194,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Краткое наименование организации";
             // 
-            // organisationFullNameTextBox
+            // organizationFullNameTextBox
             // 
-            this.organisationFullNameTextBox.Location = new System.Drawing.Point(44, 32);
-            this.organisationFullNameTextBox.Name = "organisationFullNameTextBox";
-            this.organisationFullNameTextBox.Size = new System.Drawing.Size(317, 20);
-            this.organisationFullNameTextBox.TabIndex = 1;
+            this.organizationFullNameTextBox.Location = new System.Drawing.Point(44, 32);
+            this.organizationFullNameTextBox.Name = "organizationFullNameTextBox";
+            this.organizationFullNameTextBox.Size = new System.Drawing.Size(317, 20);
+            this.organizationFullNameTextBox.TabIndex = 1;
             // 
             // label1
             // 
@@ -224,6 +226,14 @@
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Климатический пояс";
+            // 
+            // additionalTextBox
+            // 
+            this.additionalTextBox.Location = new System.Drawing.Point(90, 68);
+            this.additionalTextBox.Name = "additionalTextBox";
+            this.additionalTextBox.ReadOnly = true;
+            this.additionalTextBox.Size = new System.Drawing.Size(232, 20);
+            this.additionalTextBox.TabIndex = 12;
             // 
             // zoneStringTextBox
             // 
@@ -270,6 +280,10 @@
             this.zoneComboBox.Size = new System.Drawing.Size(232, 21);
             this.zoneComboBox.TabIndex = 9;
             // 
+            // iRegionBindingSource
+            // 
+            this.iRegionBindingSource.DataSource = typeof(Model.Regions.IRegion);
+            // 
             // cityTextBox
             // 
             this.cityTextBox.Location = new System.Drawing.Point(49, 13);
@@ -294,6 +308,7 @@
             this.saveButton.TabIndex = 12;
             this.saveButton.Text = "Сохранить";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // cancelButton
             // 
@@ -303,18 +318,6 @@
             this.cancelButton.TabIndex = 13;
             this.cancelButton.Text = "Отмена";
             this.cancelButton.UseVisualStyleBackColor = true;
-            // 
-            // iRegionBindingSource
-            // 
-            this.iRegionBindingSource.DataSource = typeof(Model.Regions.IRegion);
-            // 
-            // additionalTextBox
-            // 
-            this.additionalTextBox.Location = new System.Drawing.Point(90, 68);
-            this.additionalTextBox.Name = "additionalTextBox";
-            this.additionalTextBox.ReadOnly = true;
-            this.additionalTextBox.Size = new System.Drawing.Size(232, 20);
-            this.additionalTextBox.TabIndex = 12;
             // 
             // InformationForm
             // 
@@ -348,9 +351,9 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox organisationFullNameTextBox;
+        private System.Windows.Forms.TextBox organizationFullNameTextBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox organisationShortNameTextBox;
+        private System.Windows.Forms.TextBox organizationShortNameTextBox;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox otherTextBox;
         private System.Windows.Forms.Label label5;

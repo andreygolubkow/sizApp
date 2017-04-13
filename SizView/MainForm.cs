@@ -6,6 +6,7 @@ namespace SizView
 {
     using Model.Employee;
     using Model.Professions;
+    using Model.Project;
 
     using Tools;
 
@@ -15,6 +16,9 @@ namespace SizView
         private List<IEmployee> _employeesList;
 
         private List<IProfession> _professionsList;
+
+        private IProject _project;
+
         public MainForm()
         {
             InitializeComponent();
@@ -25,11 +29,13 @@ namespace SizView
         {
             LoadEmployes();
             LoadProfessions();
+            LoadProject();
         }
 
         public void SaveData()
         {
             SaveEmployes();
+            SaveProject();
         }
 
         private void LoadEmployes()
@@ -56,6 +62,30 @@ namespace SizView
             }
         }
 
+        private void LoadProject()
+        {
+            try
+            {
+                DataSerializer.DeserializeBin("Project.sdb", ref _project);
+            }
+            catch (Exception)
+            {
+                _project = new Project();
+            }
+        }
+
+
+        private void SaveProject()
+        {
+            try
+            {
+                DataSerializer.SerializeBin("Project.sdb", ref _project);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Ошибка при сохранении проекта:" + exception.Message);
+            }
+        }
 
         private void SaveEmployes()
         {
@@ -79,6 +109,20 @@ namespace SizView
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             SaveData();
+        }
+
+        private void informationMenuItem_Click(object sender, EventArgs e)
+        {
+            if ( _project is Project )
+            {
+                var infoForm = new InformationForm(((Project)_project).ProjectInformation);
+                if ( infoForm.ShowDialog() == DialogResult.OK )
+                {
+                    infoForm
+                }
+            }
+            
+
         }
     }
 }
