@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InformationForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -47,7 +48,6 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.zoneStringTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.additionalComboBox = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.zoneComboBox = new System.Windows.Forms.ComboBox();
@@ -55,10 +55,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.iRegionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.additionalTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iRegionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -207,9 +210,9 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.additionalTextBox);
             this.groupBox4.Controls.Add(this.zoneStringTextBox);
             this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.additionalComboBox);
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.zoneComboBox);
@@ -239,15 +242,6 @@
             this.label9.TabIndex = 6;
             this.label9.Text = "Климатический пояс";
             // 
-            // additionalComboBox
-            // 
-            this.additionalComboBox.Enabled = false;
-            this.additionalComboBox.FormattingEnabled = true;
-            this.additionalComboBox.Location = new System.Drawing.Point(90, 68);
-            this.additionalComboBox.Name = "additionalComboBox";
-            this.additionalComboBox.Size = new System.Drawing.Size(232, 21);
-            this.additionalComboBox.TabIndex = 10;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -268,6 +262,8 @@
             // 
             // zoneComboBox
             // 
+            this.zoneComboBox.DataSource = this.iRegionBindingSource;
+            this.zoneComboBox.DisplayMember = "Name";
             this.zoneComboBox.FormattingEnabled = true;
             this.zoneComboBox.Location = new System.Drawing.Point(90, 39);
             this.zoneComboBox.Name = "zoneComboBox";
@@ -308,6 +304,18 @@
             this.cancelButton.Text = "Отмена";
             this.cancelButton.UseVisualStyleBackColor = true;
             // 
+            // iRegionBindingSource
+            // 
+            this.iRegionBindingSource.DataSource = typeof(Model.Regions.IRegion);
+            // 
+            // additionalTextBox
+            // 
+            this.additionalTextBox.Location = new System.Drawing.Point(90, 68);
+            this.additionalTextBox.Name = "additionalTextBox";
+            this.additionalTextBox.ReadOnly = true;
+            this.additionalTextBox.Size = new System.Drawing.Size(232, 20);
+            this.additionalTextBox.TabIndex = 12;
+            // 
             // InformationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -331,6 +339,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iRegionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -355,7 +364,6 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox zoneStringTextBox;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox additionalComboBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox zoneComboBox;
@@ -363,5 +371,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.TextBox additionalTextBox;
+        private System.Windows.Forms.BindingSource iRegionBindingSource;
     }
 }

@@ -48,6 +48,8 @@
     <Compile Include="Employee\IEmployee.cs" />
     <Compile Include="Professions\IProfession.cs" />
     <Compile Include="Professions\StandartProfession.cs" />
+    <Compile Include="Project\IssueJournal.cs" />
+    <Compile Include="Project\Project.cs" />
     <Compile Include="Regions\IRegion.cs" />
     <Compile Include="Regions\NonStandartRegion.cs" />
     <Compile Include="Regions\StandartRegion.cs" />
