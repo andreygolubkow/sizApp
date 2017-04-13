@@ -61,5 +61,10 @@ namespace SizView
                 employesListControl.CurrentEmployee = addForm.Employee;
             }
         }
+
+        private void searchMenuItem_Click(object sender, EventArgs e)
+        {
+            employesListControl.SearchBox = !employesListControl.SearchBox;
+        }
     }
 }

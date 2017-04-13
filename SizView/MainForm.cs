@@ -7,6 +7,7 @@ namespace SizView
     using Model.Employee;
     using Model.Professions;
     using Model.Project;
+    using Model.Regions;
 
     using Tools;
 
@@ -19,6 +20,8 @@ namespace SizView
 
         private IProject _project;
 
+        private List<IRegion> _regionsList;
+
         public MainForm()
         {
             InitializeComponent();
@@ -30,9 +33,10 @@ namespace SizView
             LoadEmployes();
             LoadProfessions();
             LoadProject();
+            LoadRegions();
         }
 
-        public void SaveData()
+        private void SaveData()
         {
             SaveEmployes();
             SaveProject();
@@ -71,6 +75,18 @@ namespace SizView
             catch (Exception)
             {
                 _project = new Project();
+            }
+        }
+
+        private void LoadRegions()
+        {
+            try
+            {
+                DataSerializer.DeserializeBin("regionsList.sdb", ref _regionsList);
+            }
+            catch (Exception)
+            {
+                _regionsList = new List<IRegion>();
             }
         }
 
@@ -115,10 +131,10 @@ namespace SizView
         {
             if ( _project is Project )
             {
-                var infoForm = new InformationForm(((Project)_project).ProjectInformation);
+                var infoForm = new InformationForm(((Project)_project).ProjectInformation,_regionsList);
                 if ( infoForm.ShowDialog() == DialogResult.OK )
                 {
-                    infoForm
+                    ((Project)_project).ProjectInformation = infoForm.Information;
                 }
             }
             

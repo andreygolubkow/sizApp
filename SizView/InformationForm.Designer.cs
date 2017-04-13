@@ -279,10 +279,12 @@
             this.zoneComboBox.Name = "zoneComboBox";
             this.zoneComboBox.Size = new System.Drawing.Size(232, 21);
             this.zoneComboBox.TabIndex = 9;
+            this.zoneComboBox.SelectedIndexChanged += new System.EventHandler(this.zoneComboBox_SelectedIndexChanged);
             // 
             // iRegionBindingSource
             // 
             this.iRegionBindingSource.DataSource = typeof(Model.Regions.IRegion);
+            this.iRegionBindingSource.CurrentChanged += new System.EventHandler(this.iRegionBindingSource_CurrentChanged);
             // 
             // cityTextBox
             // 
@@ -318,6 +320,7 @@
             this.cancelButton.TabIndex = 13;
             this.cancelButton.Text = "Отмена";
             this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // InformationForm
             // 

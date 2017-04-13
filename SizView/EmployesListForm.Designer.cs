@@ -90,10 +90,15 @@
             // 
             // searchMenuItem
             // 
+            this.searchMenuItem.AutoToolTip = true;
+            this.searchMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.searchMenuItem.Name = "searchMenuItem";
+            this.searchMenuItem.ShortcutKeyDisplayString = "Ctrl+F";
             this.searchMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
             this.searchMenuItem.Size = new System.Drawing.Size(54, 20);
             this.searchMenuItem.Text = "Поиск";
+            this.searchMenuItem.ToolTipText = "Нажмите Ctrl + F";
+            this.searchMenuItem.Click += new System.EventHandler(this.searchMenuItem_Click);
             // 
             // employesListControl
             // 

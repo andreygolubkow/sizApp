@@ -1,5 +1,8 @@
 ﻿namespace Model.Project
 {
+    using System;
+
+    [Serializable]
     public class Project:IProject
     {
 
