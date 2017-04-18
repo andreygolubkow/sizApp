@@ -7,10 +7,10 @@
     using Model.Professions;
 
     [Serializable]
-    public class IssueJournal
+    public class IssueRecord
     {
 
-        public IssueJournal()
+        public IssueRecord()
         {
             
         }

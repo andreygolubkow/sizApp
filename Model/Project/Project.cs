@@ -9,12 +9,12 @@
         public Project()
         {
             ProjectInformation = new Information();
-            ProjectJournal = new IssueJournal();
+            ProjectJournal = new IssueRecord();
         }
 
         public Information ProjectInformation { get; set; }
 
-        public IssueJournal ProjectJournal { get; set; }
+        public IssueRecord ProjectJournal { get; set; }
 
         #region Implementation of IProject
 

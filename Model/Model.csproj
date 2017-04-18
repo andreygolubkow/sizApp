@@ -50,7 +50,7 @@
     <Compile Include="Professions\StandartProfession.cs" />
     <Compile Include="Project\Information.cs" />
     <Compile Include="Project\IProject.cs" />
-    <Compile Include="Project\IssueJournal.cs" />
+    <Compile Include="Project\IssueRecord.cs" />
     <Compile Include="Project\Project.cs" />
     <Compile Include="Project\Resource.cs" />
     <Compile Include="Regions\IRegion.cs" />

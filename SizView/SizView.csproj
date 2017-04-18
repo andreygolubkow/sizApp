@@ -55,6 +55,12 @@
     <Compile Include="Controls\EmployesListControl.Designer.cs">
       <DependentUpon>EmployesListControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SizListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\SizListControl.Designer.cs">
+      <DependentUpon>SizListControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\StandartEmployeeControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -116,6 +122,7 @@
     </Compile>
     <None Include="Properties\DataSources\Model.Employee.IEmployee.datasource" />
     <None Include="Properties\DataSources\Model.Professions.IProfession.datasource" />
+    <None Include="Properties\DataSources\Model.Project.IssueRecord.datasource" />
     <None Include="Properties\DataSources\Model.Regions.IRegion.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
