@@ -96,6 +96,9 @@
     <EmbeddedResource Include="Controls\EmployesListControl.resx">
       <DependentUpon>EmployesListControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\SizListControl.resx">
+      <DependentUpon>SizListControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\StandartEmployeeControl.resx">
       <DependentUpon>StandartEmployeeControl.cs</DependentUpon>
     </EmbeddedResource>
