@@ -29,38 +29,38 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.issueGridView = new System.Windows.Forms.DataGridView();
             this.issueRecordBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PersonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MiddleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Profession = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.issueGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.issueRecordBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // issueGridView
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.issueGridView.AutoGenerateColumns = false;
+            this.issueGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.issueGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.issueGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Surname,
-            this.Name,
+            this.PersonName,
             this.MiddleName,
             this.Profession,
             this.StartDate,
             this.EndDate});
-            this.dataGridView1.DataSource = this.issueRecordBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(572, 251);
-            this.dataGridView1.TabIndex = 0;
+            this.issueGridView.DataSource = this.issueRecordBindingSource;
+            this.issueGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.issueGridView.Location = new System.Drawing.Point(0, 0);
+            this.issueGridView.Name = "issueGridView";
+            this.issueGridView.RowHeadersVisible = false;
+            this.issueGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.issueGridView.Size = new System.Drawing.Size(572, 251);
+            this.issueGridView.TabIndex = 0;
             // 
             // issueRecordBindingSource
             // 
@@ -71,10 +71,10 @@
             this.Surname.HeaderText = "Фамилия";
             this.Surname.Name = "Surname";
             // 
-            // Name
+            // PersonName
             // 
-            this.Name.HeaderText = "Имя";
-            this.Name.Name = "Name";
+            this.PersonName.HeaderText = "Имя";
+            this.PersonName.Name = "PersonName";
             // 
             // MiddleName
             // 
@@ -100,10 +100,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.issueGridView);
             this.Name = "SizListControl";
             this.Size = new System.Drawing.Size(572, 251);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.issueGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.issueRecordBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -111,13 +111,13 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView issueGridView;
+        private System.Windows.Forms.BindingSource issueRecordBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn Surname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PersonName;
         private System.Windows.Forms.DataGridViewTextBoxColumn MiddleName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Profession;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn EndDate;
-        private System.Windows.Forms.BindingSource issueRecordBindingSource;
     }
 }
