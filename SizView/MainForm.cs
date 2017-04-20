@@ -26,6 +26,13 @@ namespace SizView
         {
             InitializeComponent();
             LoadData();
+            var list = new List<IssueRecord>();
+            var issue = new IssueRecord();
+            issue.Employee = new StandartEmployee();
+            issue.Employee.Id = 12;
+            issue.Employee.Name = "Ivan";
+            list.Add(issue);
+            sizListControl1.IssueRecords = list;
         }
 
         private void LoadData()

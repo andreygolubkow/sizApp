@@ -37,13 +37,9 @@
             this.controlMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.issueRecordBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.employeeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.professionsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resourcesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sizListControl1 = new SizView.Controls.SizListControl();
             this.mainMenuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.issueRecordBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,51 +98,26 @@
             this.informationMenuItem.Text = "Информация";
             this.informationMenuItem.Click += new System.EventHandler(this.informationMenuItem_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.employeeDataGridViewTextBoxColumn,
-            this.professionsDataGridViewTextBoxColumn,
-            this.resourcesDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.issueRecordBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 27);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(656, 283);
-            this.dataGridView1.TabIndex = 1;
-            // 
             // issueRecordBindingSource
             // 
             this.issueRecordBindingSource.DataSource = typeof(Model.Project.IssueRecord);
             // 
-            // employeeDataGridViewTextBoxColumn
+            // sizListControl1
             // 
-            this.employeeDataGridViewTextBoxColumn.DataPropertyName = "Employee";
-            this.employeeDataGridViewTextBoxColumn.HeaderText = "Employee";
-            this.employeeDataGridViewTextBoxColumn.Name = "employeeDataGridViewTextBoxColumn";
-            // 
-            // professionsDataGridViewTextBoxColumn
-            // 
-            this.professionsDataGridViewTextBoxColumn.DataPropertyName = "Professions";
-            this.professionsDataGridViewTextBoxColumn.HeaderText = "Professions";
-            this.professionsDataGridViewTextBoxColumn.Name = "professionsDataGridViewTextBoxColumn";
-            // 
-            // resourcesDataGridViewTextBoxColumn
-            // 
-            this.resourcesDataGridViewTextBoxColumn.DataPropertyName = "Resources";
-            this.resourcesDataGridViewTextBoxColumn.HeaderText = "Resources";
-            this.resourcesDataGridViewTextBoxColumn.Name = "resourcesDataGridViewTextBoxColumn";
+            this.sizListControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.sizListControl1.Location = new System.Drawing.Point(0, 27);
+            this.sizListControl1.Name = "sizListControl1";
+            this.sizListControl1.Size = new System.Drawing.Size(680, 296);
+            this.sizListControl1.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(680, 322);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.sizListControl1);
             this.Controls.Add(this.mainMenuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenuStrip;
@@ -155,7 +126,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.issueRecordBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -168,14 +138,11 @@
         private System.Windows.Forms.ToolStripMenuItem fileMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showInfoMenuItem;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ToolStripMenuItem controlMenuItem;
         private System.Windows.Forms.ToolStripMenuItem employesMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informationMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn employeeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn professionsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn resourcesDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource issueRecordBindingSource;
+        private Controls.SizListControl sizListControl1;
     }
 }
 

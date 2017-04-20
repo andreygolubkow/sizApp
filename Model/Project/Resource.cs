@@ -33,6 +33,11 @@
             }
         }
 
+        /// <summary>
+        /// Дата выдачи.
+        /// </summary>
+        public DateTime IssueDate { get; set; }
+
         public string Additional { get; set; }
     }
 }

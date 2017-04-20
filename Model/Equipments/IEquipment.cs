@@ -12,6 +12,9 @@
 
         string TermOfUse { get; }
 
+        /// <summary>
+        /// Единицы измерения.
+        /// </summary>
         string Units { get; set; }
     }
 }

@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.issueGridView = new System.Windows.Forms.DataGridView();
-            this.issueRecordBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PersonName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MiddleName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,12 +36,12 @@
             this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.issueGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.issueRecordBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // issueGridView
             // 
-            this.issueGridView.AutoGenerateColumns = false;
+            this.issueGridView.AllowUserToAddRows = false;
+            this.issueGridView.AllowUserToDeleteRows = false;
             this.issueGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.issueGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.issueGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -53,48 +51,50 @@
             this.Profession,
             this.StartDate,
             this.EndDate});
-            this.issueGridView.DataSource = this.issueRecordBindingSource;
             this.issueGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.issueGridView.Location = new System.Drawing.Point(0, 0);
             this.issueGridView.Name = "issueGridView";
+            this.issueGridView.ReadOnly = true;
             this.issueGridView.RowHeadersVisible = false;
             this.issueGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.issueGridView.Size = new System.Drawing.Size(572, 251);
             this.issueGridView.TabIndex = 0;
             // 
-            // issueRecordBindingSource
-            // 
-            this.issueRecordBindingSource.DataSource = typeof(Model.Project.IssueRecord);
-            // 
             // Surname
             // 
             this.Surname.HeaderText = "Фамилия";
             this.Surname.Name = "Surname";
+            this.Surname.ReadOnly = true;
             // 
             // PersonName
             // 
             this.PersonName.HeaderText = "Имя";
             this.PersonName.Name = "PersonName";
+            this.PersonName.ReadOnly = true;
             // 
             // MiddleName
             // 
             this.MiddleName.HeaderText = "Отчество";
             this.MiddleName.Name = "MiddleName";
+            this.MiddleName.ReadOnly = true;
             // 
             // Profession
             // 
             this.Profession.HeaderText = "Профессия";
             this.Profession.Name = "Profession";
+            this.Profession.ReadOnly = true;
             // 
             // StartDate
             // 
             this.StartDate.HeaderText = "Дата начала использования";
             this.StartDate.Name = "StartDate";
+            this.StartDate.ReadOnly = true;
             // 
             // EndDate
             // 
             this.EndDate.HeaderText = "Дата окончания срока";
             this.EndDate.Name = "EndDate";
+            this.EndDate.ReadOnly = true;
             // 
             // SizListControl
             // 
@@ -104,7 +104,6 @@
             this.Name = "SizListControl";
             this.Size = new System.Drawing.Size(572, 251);
             ((System.ComponentModel.ISupportInitialize)(this.issueGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.issueRecordBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -112,7 +111,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView issueGridView;
-        private System.Windows.Forms.BindingSource issueRecordBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn Surname;
         private System.Windows.Forms.DataGridViewTextBoxColumn PersonName;
         private System.Windows.Forms.DataGridViewTextBoxColumn MiddleName;
