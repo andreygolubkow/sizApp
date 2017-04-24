@@ -62,14 +62,14 @@
             this.sizCoutTextBox = new System.Windows.Forms.TextBox();
             this.addAdditionalSizButton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.additionsTextBox = new System.Windows.Forms.TextBox();
+            this.editSizGroupBox = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.editSizNameComboBox = new System.Windows.Forms.ComboBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.editAdditionComboBox = new System.Windows.Forms.ComboBox();
+            this.editApplySizButton = new System.Windows.Forms.Button();
+            this.editRemoveSizButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -85,7 +85,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.iEquipmentBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.completeSizGridView)).BeginInit();
             this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
+            this.editSizGroupBox.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -126,7 +126,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.groupBox6);
+            this.tabPage3.Controls.Add(this.editSizGroupBox);
             this.tabPage3.Controls.Add(this.groupBox5);
             this.tabPage3.Controls.Add(this.completeSizGridView);
             this.tabPage3.Controls.Add(this.label4);
@@ -329,7 +329,7 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.textBox2);
+            this.groupBox5.Controls.Add(this.additionsTextBox);
             this.groupBox5.Controls.Add(this.label6);
             this.groupBox5.Controls.Add(this.addAdditionalSizButton);
             this.groupBox5.Controls.Add(this.sizCoutTextBox);
@@ -394,26 +394,26 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Примечания";
             // 
-            // textBox2
+            // additionsTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(9, 72);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(553, 20);
-            this.textBox2.TabIndex = 6;
+            this.additionsTextBox.Location = new System.Drawing.Point(9, 72);
+            this.additionsTextBox.Name = "additionsTextBox";
+            this.additionsTextBox.Size = new System.Drawing.Size(553, 20);
+            this.additionsTextBox.TabIndex = 6;
             // 
-            // groupBox6
+            // editSizGroupBox
             // 
-            this.groupBox6.Controls.Add(this.button2);
-            this.groupBox6.Controls.Add(this.button1);
-            this.groupBox6.Controls.Add(this.groupBox7);
-            this.groupBox6.Controls.Add(this.comboBox2);
-            this.groupBox6.Controls.Add(this.label7);
-            this.groupBox6.Location = new System.Drawing.Point(361, 32);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(219, 182);
-            this.groupBox6.TabIndex = 5;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Редактирование СИЗ";
+            this.editSizGroupBox.Controls.Add(this.editRemoveSizButton);
+            this.editSizGroupBox.Controls.Add(this.editApplySizButton);
+            this.editSizGroupBox.Controls.Add(this.groupBox7);
+            this.editSizGroupBox.Controls.Add(this.editSizNameComboBox);
+            this.editSizGroupBox.Controls.Add(this.label7);
+            this.editSizGroupBox.Location = new System.Drawing.Point(361, 32);
+            this.editSizGroupBox.Name = "editSizGroupBox";
+            this.editSizGroupBox.Size = new System.Drawing.Size(219, 182);
+            this.editSizGroupBox.TabIndex = 5;
+            this.editSizGroupBox.TabStop = false;
+            this.editSizGroupBox.Text = "Редактирование СИЗ";
             // 
             // label7
             // 
@@ -424,17 +424,17 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Название СИЗ";
             // 
-            // comboBox2
+            // editSizNameComboBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(9, 32);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(204, 21);
-            this.comboBox2.TabIndex = 1;
+            this.editSizNameComboBox.FormattingEnabled = true;
+            this.editSizNameComboBox.Location = new System.Drawing.Point(9, 32);
+            this.editSizNameComboBox.Name = "editSizNameComboBox";
+            this.editSizNameComboBox.Size = new System.Drawing.Size(204, 21);
+            this.editSizNameComboBox.TabIndex = 1;
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.comboBox3);
+            this.groupBox7.Controls.Add(this.editAdditionComboBox);
             this.groupBox7.Location = new System.Drawing.Point(9, 59);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(204, 55);
@@ -442,31 +442,31 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Уточнение";
             // 
-            // comboBox3
+            // editAdditionComboBox
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(6, 19);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(192, 21);
-            this.comboBox3.TabIndex = 0;
+            this.editAdditionComboBox.FormattingEnabled = true;
+            this.editAdditionComboBox.Location = new System.Drawing.Point(6, 19);
+            this.editAdditionComboBox.Name = "editAdditionComboBox";
+            this.editAdditionComboBox.Size = new System.Drawing.Size(192, 21);
+            this.editAdditionComboBox.TabIndex = 0;
             // 
-            // button1
+            // editApplySizButton
             // 
-            this.button1.Location = new System.Drawing.Point(9, 120);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(204, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Применить";
-            this.button1.UseVisualStyleBackColor = true;
+            this.editApplySizButton.Location = new System.Drawing.Point(9, 120);
+            this.editApplySizButton.Name = "editApplySizButton";
+            this.editApplySizButton.Size = new System.Drawing.Size(204, 23);
+            this.editApplySizButton.TabIndex = 3;
+            this.editApplySizButton.Text = "Применить";
+            this.editApplySizButton.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // editRemoveSizButton
             // 
-            this.button2.Location = new System.Drawing.Point(9, 149);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(204, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Удалить";
-            this.button2.UseVisualStyleBackColor = true;
+            this.editRemoveSizButton.Location = new System.Drawing.Point(9, 149);
+            this.editRemoveSizButton.Name = "editRemoveSizButton";
+            this.editRemoveSizButton.Size = new System.Drawing.Size(204, 23);
+            this.editRemoveSizButton.TabIndex = 4;
+            this.editRemoveSizButton.Text = "Удалить";
+            this.editRemoveSizButton.UseVisualStyleBackColor = true;
             // 
             // IssueRecordAddForm
             // 
@@ -496,8 +496,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.completeSizGridView)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
+            this.editSizGroupBox.ResumeLayout(false);
+            this.editSizGroupBox.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -536,14 +536,14 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox additionalSizComboBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox additionsTextBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.GroupBox editSizGroupBox;
+        private System.Windows.Forms.Button editRemoveSizButton;
+        private System.Windows.Forms.Button editApplySizButton;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox editAdditionComboBox;
+        private System.Windows.Forms.ComboBox editSizNameComboBox;
         private System.Windows.Forms.Label label7;
     }
 }
