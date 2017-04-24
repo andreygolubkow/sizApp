@@ -133,6 +133,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="Properties\DataSources\Model.Employee.IEmployee.datasource" />
+    <None Include="Properties\DataSources\Model.Equipments.IEquipment.datasource" />
     <None Include="Properties\DataSources\Model.Professions.IProfession.datasource" />
     <None Include="Properties\DataSources\Model.Project.IssueRecord.datasource" />
     <None Include="Properties\DataSources\Model.Regions.IRegion.datasource" />

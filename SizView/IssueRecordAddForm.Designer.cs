@@ -40,6 +40,17 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.selectedProfessionsListBox = new System.Windows.Forms.ListBox();
             this.selectediProfessionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.addButton = new System.Windows.Forms.Button();
+            this.removeButton = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.professionComboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.professionEquipmentsGridView = new System.Windows.Forms.DataGridView();
+            this.iProfessionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.iEquipmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountString = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -47,6 +58,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.fullNameEmployeeAdapterBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectediProfessionBindingSource)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.professionEquipmentsGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iProfessionBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iEquipmentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -73,6 +89,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox4);
+            this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -143,6 +161,107 @@
             // 
             this.selectediProfessionBindingSource.DataSource = typeof(Model.Professions.IProfession);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.removeButton);
+            this.groupBox3.Controls.Add(this.addButton);
+            this.groupBox3.Location = new System.Drawing.Point(317, 6);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(260, 80);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Редактирование";
+            // 
+            // addButton
+            // 
+            this.addButton.Location = new System.Drawing.Point(6, 19);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(248, 23);
+            this.addButton.TabIndex = 0;
+            this.addButton.Text = "Добавить";
+            this.addButton.UseVisualStyleBackColor = true;
+            // 
+            // removeButton
+            // 
+            this.removeButton.Location = new System.Drawing.Point(6, 48);
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(248, 23);
+            this.removeButton.TabIndex = 1;
+            this.removeButton.Text = "Удалить";
+            this.removeButton.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.professionEquipmentsGridView);
+            this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Controls.Add(this.professionComboBox);
+            this.groupBox4.Location = new System.Drawing.Point(6, 204);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(571, 185);
+            this.groupBox4.TabIndex = 2;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Список СИЗ про профессиям";
+            // 
+            // professionComboBox
+            // 
+            this.professionComboBox.DataSource = this.iProfessionBindingSource;
+            this.professionComboBox.DisplayMember = "Name";
+            this.professionComboBox.FormattingEnabled = true;
+            this.professionComboBox.Location = new System.Drawing.Point(77, 19);
+            this.professionComboBox.Name = "professionComboBox";
+            this.professionComboBox.Size = new System.Drawing.Size(488, 21);
+            this.professionComboBox.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Профессия";
+            // 
+            // professionEquipmentsGridView
+            // 
+            this.professionEquipmentsGridView.AllowUserToAddRows = false;
+            this.professionEquipmentsGridView.AllowUserToDeleteRows = false;
+            this.professionEquipmentsGridView.AutoGenerateColumns = false;
+            this.professionEquipmentsGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.professionEquipmentsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.professionEquipmentsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn,
+            this.CountString});
+            this.professionEquipmentsGridView.DataSource = this.iEquipmentBindingSource;
+            this.professionEquipmentsGridView.Location = new System.Drawing.Point(6, 46);
+            this.professionEquipmentsGridView.MultiSelect = false;
+            this.professionEquipmentsGridView.Name = "professionEquipmentsGridView";
+            this.professionEquipmentsGridView.ReadOnly = true;
+            this.professionEquipmentsGridView.RowHeadersVisible = false;
+            this.professionEquipmentsGridView.Size = new System.Drawing.Size(559, 133);
+            this.professionEquipmentsGridView.TabIndex = 2;
+            // 
+            // iProfessionBindingSource
+            // 
+            this.iProfessionBindingSource.DataSource = typeof(Model.Professions.IProfession);
+            // 
+            // iEquipmentBindingSource
+            // 
+            this.iEquipmentBindingSource.DataSource = typeof(Model.Equipments.IEquipment);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Название";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // CountString
+            // 
+            this.CountString.DataPropertyName = "CountString";
+            this.CountString.HeaderText = "Количество";
+            this.CountString.Name = "CountString";
+            this.CountString.ReadOnly = true;
+            // 
             // IssueRecordAddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -160,6 +279,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.fullNameEmployeeAdapterBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.selectediProfessionBindingSource)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.professionEquipmentsGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iProfessionBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iEquipmentBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -176,5 +301,16 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ListBox selectedProfessionsListBox;
         private System.Windows.Forms.BindingSource selectediProfessionBindingSource;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DataGridView professionEquipmentsGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CountString;
+        private System.Windows.Forms.BindingSource iEquipmentBindingSource;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox professionComboBox;
+        private System.Windows.Forms.BindingSource iProfessionBindingSource;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button removeButton;
+        private System.Windows.Forms.Button addButton;
     }
 }
