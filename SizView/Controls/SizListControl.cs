@@ -5,6 +5,7 @@ namespace SizView.Controls
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Drawing;
     using System.Globalization;
 
     using Model.Equipments;
@@ -81,9 +82,14 @@ namespace SizView.Controls
                 row.Cells[2].Value = middleName;
                 row.Cells[3].Value = startDate;
                 row.Cells[4].Value = endDate;
-                if ( (Convert.ToDateTime(endDate).Date - DateTime.Today.Date).TotalDays < 7 )
+                if ((Convert.ToDateTime(endDate).Date - DateTime.Today.Date).TotalDays < 7)
                 {
-                    //Изменить цвет
+                    row.InheritedStyle.BackColor = Color.Salmon;
+                }
+                else
+                if ((Convert.ToDateTime(endDate).Date - DateTime.Today.Date).TotalDays < 30 )
+                {
+                    row.InheritedStyle.BackColor = Color.BurlyWood;
                 }
                 issueGridView.Rows.Add(row);
             }

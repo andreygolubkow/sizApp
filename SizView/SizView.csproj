@@ -85,6 +85,12 @@
     <Compile Include="InformationForm.Designer.cs">
       <DependentUpon>InformationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IssueRecordAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IssueRecordAddForm.Designer.cs">
+      <DependentUpon>IssueRecordAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     <EmbeddedResource Include="InformationForm.resx">
       <DependentUpon>InformationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IssueRecordAddForm.resx">
+      <DependentUpon>IssueRecordAddForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,6 +136,7 @@
     <None Include="Properties\DataSources\Model.Professions.IProfession.datasource" />
     <None Include="Properties\DataSources\Model.Project.IssueRecord.datasource" />
     <None Include="Properties\DataSources\Model.Regions.IRegion.datasource" />
+    <None Include="Properties\DataSources\Tools.FullNameEmployeeAdapter.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
