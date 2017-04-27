@@ -33,7 +33,7 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.employeeComboBox = new System.Windows.Forms.ComboBox();
             this.fullNameEmployeeAdapterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -51,6 +51,7 @@
             this.selectedProfessionsListBox = new System.Windows.Forms.ListBox();
             this.selectediProfessionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.generateIssueButton = new System.Windows.Forms.Button();
             this.editSizGroupBox = new System.Windows.Forms.GroupBox();
             this.editRemoveSizButton = new System.Windows.Forms.Button();
             this.editApplySizButton = new System.Windows.Forms.Button();
@@ -65,11 +66,16 @@
             this.sizCoutTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.additionalSizComboBox = new System.Windows.Forms.ComboBox();
+            this.correctEquipmentAdapterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.completeSizGridView = new System.Windows.Forms.DataGridView();
+            this.completeListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.employeeName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.correctDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -86,7 +92,9 @@
             this.editSizGroupBox.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.correctEquipmentAdapterBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.completeSizGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.completeListBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -113,7 +121,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.employeeComboBox);
             this.groupBox1.Location = new System.Drawing.Point(6, 27);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(571, 50);
@@ -121,18 +129,19 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Работник";
             // 
-            // comboBox1
+            // employeeComboBox
             // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.DataSource = this.fullNameEmployeeAdapterBindingSource;
-            this.comboBox1.DisplayMember = "FullName";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(559, 21);
-            this.comboBox1.TabIndex = 0;
-            this.comboBox1.ValueMember = "Employee";
+            this.employeeComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.employeeComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.employeeComboBox.DataSource = this.fullNameEmployeeAdapterBindingSource;
+            this.employeeComboBox.DisplayMember = "FullName";
+            this.employeeComboBox.FormattingEnabled = true;
+            this.employeeComboBox.Location = new System.Drawing.Point(6, 19);
+            this.employeeComboBox.Name = "employeeComboBox";
+            this.employeeComboBox.Size = new System.Drawing.Size(559, 21);
+            this.employeeComboBox.TabIndex = 0;
+            this.employeeComboBox.ValueMember = "Employee";
+            this.employeeComboBox.SelectedIndexChanged += new System.EventHandler(this.employeeComboBox_SelectedIndexChanged);
             // 
             // fullNameEmployeeAdapterBindingSource
             // 
@@ -185,7 +194,7 @@
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Название";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Наименование";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -218,6 +227,7 @@
             this.professionComboBox.Name = "professionComboBox";
             this.professionComboBox.Size = new System.Drawing.Size(488, 21);
             this.professionComboBox.TabIndex = 0;
+            this.professionComboBox.SelectedIndexChanged += new System.EventHandler(this.professionComboBox_SelectedIndexChanged);
             // 
             // iProfessionBindingSource
             // 
@@ -242,6 +252,7 @@
             this.removeButton.TabIndex = 1;
             this.removeButton.Text = "Удалить";
             this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
             // addButton
             // 
@@ -251,6 +262,7 @@
             this.addButton.TabIndex = 0;
             this.addButton.Text = "Добавить";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // groupBox2
             // 
@@ -278,6 +290,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.generateIssueButton);
             this.tabPage3.Controls.Add(this.editSizGroupBox);
             this.tabPage3.Controls.Add(this.groupBox5);
             this.tabPage3.Controls.Add(this.completeSizGridView);
@@ -291,6 +304,16 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Проверка";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // generateIssueButton
+            // 
+            this.generateIssueButton.Location = new System.Drawing.Point(364, 254);
+            this.generateIssueButton.Name = "generateIssueButton";
+            this.generateIssueButton.Size = new System.Drawing.Size(204, 23);
+            this.generateIssueButton.TabIndex = 6;
+            this.generateIssueButton.Text = "Создать список";
+            this.generateIssueButton.UseVisualStyleBackColor = true;
+            this.generateIssueButton.Click += new System.EventHandler(this.generateIssueButton_Click);
             // 
             // editSizGroupBox
             // 
@@ -418,11 +441,17 @@
             // 
             // additionalSizComboBox
             // 
+            this.additionalSizComboBox.DataSource = this.correctEquipmentAdapterBindingSource;
+            this.additionalSizComboBox.DisplayMember = "Name";
             this.additionalSizComboBox.FormattingEnabled = true;
             this.additionalSizComboBox.Location = new System.Drawing.Point(9, 32);
             this.additionalSizComboBox.Name = "additionalSizComboBox";
             this.additionalSizComboBox.Size = new System.Drawing.Size(334, 21);
             this.additionalSizComboBox.TabIndex = 1;
+            // 
+            // correctEquipmentAdapterBindingSource
+            // 
+            this.correctEquipmentAdapterBindingSource.DataSource = typeof(Tools.CorrectEquipmentAdapter);
             // 
             // label3
             // 
@@ -435,11 +464,24 @@
             // 
             // completeSizGridView
             // 
+            this.completeSizGridView.AllowUserToAddRows = false;
+            this.completeSizGridView.AllowUserToDeleteRows = false;
+            this.completeSizGridView.AutoGenerateColumns = false;
             this.completeSizGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.completeSizGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn1,
+            this.countDataGridViewTextBoxColumn,
+            this.correctDataGridViewCheckBoxColumn});
+            this.completeSizGridView.DataSource = this.completeListBindingSource;
             this.completeSizGridView.Location = new System.Drawing.Point(12, 32);
             this.completeSizGridView.Name = "completeSizGridView";
+            this.completeSizGridView.ReadOnly = true;
             this.completeSizGridView.Size = new System.Drawing.Size(343, 245);
             this.completeSizGridView.TabIndex = 3;
+            // 
+            // completeListBindingSource
+            // 
+            this.completeListBindingSource.DataSource = typeof(Tools.CorrectEquipmentAdapter);
             // 
             // label4
             // 
@@ -467,6 +509,29 @@
             this.label2.Size = new System.Drawing.Size(103, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Выдать работнику ";
+            // 
+            // nameDataGridViewTextBoxColumn1
+            // 
+            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn1.HeaderText = "Наименование";
+            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
+            this.nameDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // countDataGridViewTextBoxColumn
+            // 
+            this.countDataGridViewTextBoxColumn.DataPropertyName = "Count";
+            this.countDataGridViewTextBoxColumn.HeaderText = "Количество";
+            this.countDataGridViewTextBoxColumn.Name = "countDataGridViewTextBoxColumn";
+            this.countDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // correctDataGridViewCheckBoxColumn
+            // 
+            this.correctDataGridViewCheckBoxColumn.DataPropertyName = "CorrectString";
+            this.correctDataGridViewCheckBoxColumn.HeaderText = "Состояние";
+            this.correctDataGridViewCheckBoxColumn.Name = "correctDataGridViewCheckBoxColumn";
+            this.correctDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.correctDataGridViewCheckBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.correctDataGridViewCheckBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // IssueRecordAddForm
             // 
@@ -498,7 +563,9 @@
             this.groupBox7.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.correctEquipmentAdapterBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.completeSizGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.completeListBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -509,7 +576,7 @@
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox employeeComboBox;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.BindingSource fullNameEmployeeAdapterBindingSource;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -517,9 +584,6 @@
         private System.Windows.Forms.BindingSource selectediProfessionBindingSource;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView professionEquipmentsGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CountString;
-        private System.Windows.Forms.BindingSource iEquipmentBindingSource;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox professionComboBox;
         private System.Windows.Forms.BindingSource iProfessionBindingSource;
@@ -545,5 +609,14 @@
         private System.Windows.Forms.ComboBox editAdditionComboBox;
         private System.Windows.Forms.ComboBox editSizNameComboBox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.BindingSource correctEquipmentAdapterBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CountString;
+        private System.Windows.Forms.BindingSource iEquipmentBindingSource;
+        private System.Windows.Forms.Button generateIssueButton;
+        private System.Windows.Forms.BindingSource completeListBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn correctDataGridViewCheckBoxColumn;
     }
 }

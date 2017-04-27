@@ -22,14 +22,10 @@ namespace Tools
 
         public static List<FullNameEmployeeAdapter> AdaptEmployeesList(List<IEmployee> list)
         {
-            var adaptList = new List<FullNameEmployeeAdapter>();
-            foreach (var emp in list)
-            {
-                var adapter = new FullNameEmployeeAdapter();
-                adapter.Employee = emp;
-                adaptList.Add(adapter);                
-            }
-            return adaptList;
+            return list.Select(emp => new FullNameEmployeeAdapter
+                                          {
+                                              Employee = emp
+                                          }).ToList();
         }
 
     }

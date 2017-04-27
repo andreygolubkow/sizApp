@@ -137,6 +137,7 @@
     <None Include="Properties\DataSources\Model.Professions.IProfession.datasource" />
     <None Include="Properties\DataSources\Model.Project.IssueRecord.datasource" />
     <None Include="Properties\DataSources\Model.Regions.IRegion.datasource" />
+    <None Include="Properties\DataSources\Tools.CorrectEquipmentAdapter.datasource" />
     <None Include="Properties\DataSources\Tools.FullNameEmployeeAdapter.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

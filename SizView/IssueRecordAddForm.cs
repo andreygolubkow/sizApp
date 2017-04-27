@@ -38,7 +38,7 @@ namespace SizView
             set
             {
                 List<CorrectEquipmentAdapter> newList = CorrectEquipmentAdapter.AdaptEquipmentList(value,Zone);
-                iEquipmentBindingSource.DataSource = newList;
+                correctEquipmentAdapterBindingSource.DataSource = newList;
             }
         }
 
@@ -50,6 +50,42 @@ namespace SizView
             {
                 iProfessionBindingSource.DataSource = value;
             }
+        }
+
+        private void employeeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectediProfessionBindingSource.Clear();
+            var employee = (FullNameEmployeeAdapter)fullNameEmployeeAdapterBindingSource.Current;
+            selectediProfessionBindingSource.Add(employee.Employee.Profession);
+        }
+
+        private void professionComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var profession = (IProfession)iProfessionBindingSource.Current;
+            iEquipmentBindingSource.DataSource = profession.Equipments;
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            selectediProfessionBindingSource.Add(iProfessionBindingSource.Current);
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            selectediProfessionBindingSource.RemoveCurrent();
+        }
+
+        private void generateIssueButton_Click(object sender, EventArgs e)
+        {
+            var list = new List<CorrectEquipmentAdapter>();
+            foreach (IProfession profession in selectediProfessionBindingSource)
+            {
+                foreach (IEquipment item in profession.Equipments)
+                {
+                    list.Add(new CorrectEquipmentAdapter(item,Zone));
+                }
+            }
+            completeListBindingSource.DataSource = list;
         }
     }
 }

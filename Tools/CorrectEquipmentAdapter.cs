@@ -20,9 +20,12 @@ namespace Tools
         public CorrectEquipmentAdapter(IEquipment equipment, IZone zone)
         {
             _equipment = equipment;
+            _zone = zone;
         }
 
         public bool Correct => !(_equipment is CompositeEquipment);
+
+        public string CorrectString => Correct ? "Готово" : "Требует настройки";
 
         public string Name => _equipment.Name;
 
@@ -52,7 +55,7 @@ namespace Tools
             var correctList = new List<CorrectEquipmentAdapter>();
             foreach (IEquipment equipment in equipments)
             {
-                correctList.Add(new CorrectEquipmentAdapter(equipment,zone));
+                correctList.Add(new CorrectEquipmentAdapter(equipment, zone));
             }
             return correctList;
         }
