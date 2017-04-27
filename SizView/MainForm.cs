@@ -5,9 +5,11 @@ using System.Windows.Forms;
 namespace SizView
 {
     using Model.Employee;
+    using Model.Equipments;
     using Model.Professions;
     using Model.Project;
     using Model.Regions;
+    using Model.Zones;
 
     using Tools;
 
@@ -22,17 +24,19 @@ namespace SizView
 
         private List<IRegion> _regionsList;
 
+        private List<IEquipment> _equipments;
+
         public MainForm()
         {
             InitializeComponent();
             LoadData();
             var list = new List<IssueRecord>();
-            var issue = new IssueRecord();
+            /*var issue = new IssueRecord();
             issue.Employee = new StandartEmployee();
             issue.Employee.Id = 12;
             issue.Employee.Name = "Ivan";
             list.Add(issue);
-            sizListControl1.IssueRecords = list;
+            sizListControl.IssueRecords = list;*/
         }
 
         private void LoadData()
@@ -41,6 +45,7 @@ namespace SizView
             LoadProfessions();
             LoadProject();
             LoadRegions();
+            LoadEquipments();
         }
 
         private void SaveData()
@@ -49,6 +54,17 @@ namespace SizView
             SaveProject();
         }
 
+        private void LoadEquipments()
+        {
+            try
+            {
+                DataSerializer.DeserializeBin("equipmentsList.sdb", ref _equipments);
+            }
+            catch (Exception)
+            {
+                _equipments = new List<IEquipment>();
+            }
+        }
         private void LoadEmployes()
         {
             try
@@ -81,7 +97,11 @@ namespace SizView
             }
             catch (Exception)
             {
+                var project = new Project();
+                project.ProjectInformation = null;
                 _project = new Project();
+
+
             }
         }
 
@@ -136,16 +156,24 @@ namespace SizView
 
         private void informationMenuItem_Click(object sender, EventArgs e)
         {
-            if ( _project is Project )
+            InformationForm infoForm;
+            infoForm = (_project as Project).ProjectInformation.Region == null ? new InformationForm(null, _regionsList) : new InformationForm(((Project)_project).ProjectInformation, _regionsList);
+            if ( infoForm.ShowDialog() == DialogResult.OK )
             {
-                var infoForm = new InformationForm(((Project)_project).ProjectInformation,_regionsList);
-                if ( infoForm.ShowDialog() == DialogResult.OK )
-                {
-                    ((Project)_project).ProjectInformation = infoForm.Information;
-                }
+                ((Project)_project).ProjectInformation = infoForm.Information;
             }
             
 
+        }
+
+        private void newIssueMenuItem_Click(object sender, EventArgs e)
+        {
+            var issueForm = new IssueRecordAddForm();
+            issueForm.Employees = _employeesList;
+            issueForm.Zone = (_project as Project).ProjectInformation.Region.Zone;
+            issueForm.Equipments = _equipments;
+            issueForm.Professions = _professionsList;
+            issueForm.ShowDialog();
         }
     }
 }

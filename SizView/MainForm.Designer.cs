@@ -38,7 +38,9 @@
             this.employesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.issueRecordBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sizListControl1 = new SizView.Controls.SizListControl();
+            this.sizListControl = new SizView.Controls.SizListControl();
+            this.sizToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newIssueMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.issueRecordBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -79,7 +81,8 @@
             // 
             this.controlMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.employesMenuItem,
-            this.informationMenuItem});
+            this.informationMenuItem,
+            this.sizToolStripMenuItem});
             this.controlMenuItem.Name = "controlMenuItem";
             this.controlMenuItem.Size = new System.Drawing.Size(85, 20);
             this.controlMenuItem.Text = "Управление";
@@ -87,14 +90,14 @@
             // employesMenuItem
             // 
             this.employesMenuItem.Name = "employesMenuItem";
-            this.employesMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.employesMenuItem.Size = new System.Drawing.Size(152, 22);
             this.employesMenuItem.Text = "Работники";
             this.employesMenuItem.Click += new System.EventHandler(this.employesMenuItem_Click);
             // 
             // informationMenuItem
             // 
             this.informationMenuItem.Name = "informationMenuItem";
-            this.informationMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.informationMenuItem.Size = new System.Drawing.Size(152, 22);
             this.informationMenuItem.Text = "Информация";
             this.informationMenuItem.Click += new System.EventHandler(this.informationMenuItem_Click);
             // 
@@ -102,22 +105,38 @@
             // 
             this.issueRecordBindingSource.DataSource = typeof(Model.Project.IssueRecord);
             // 
-            // sizListControl1
+            // sizListControl
             // 
-            this.sizListControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.sizListControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.sizListControl1.Location = new System.Drawing.Point(0, 27);
-            this.sizListControl1.Name = "sizListControl1";
-            this.sizListControl1.Size = new System.Drawing.Size(680, 296);
-            this.sizListControl1.TabIndex = 1;
+            this.sizListControl.Location = new System.Drawing.Point(0, 27);
+            this.sizListControl.Name = "sizListControl";
+            this.sizListControl.Size = new System.Drawing.Size(680, 296);
+            this.sizListControl.TabIndex = 1;
+            this.sizListControl.Zone = null;
+            // 
+            // sizToolStripMenuItem
+            // 
+            this.sizToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newIssueMenuItem});
+            this.sizToolStripMenuItem.Name = "sizToolStripMenuItem";
+            this.sizToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sizToolStripMenuItem.Text = "СИЗ";
+            // 
+            // newIssueMenuItem
+            // 
+            this.newIssueMenuItem.Name = "newIssueMenuItem";
+            this.newIssueMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newIssueMenuItem.Text = "Выдать";
+            this.newIssueMenuItem.Click += new System.EventHandler(this.newIssueMenuItem_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(680, 322);
-            this.Controls.Add(this.sizListControl1);
+            this.Controls.Add(this.sizListControl);
             this.Controls.Add(this.mainMenuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenuStrip;
@@ -142,7 +161,9 @@
         private System.Windows.Forms.ToolStripMenuItem employesMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informationMenuItem;
         private System.Windows.Forms.BindingSource issueRecordBindingSource;
-        private Controls.SizListControl sizListControl1;
+        private Controls.SizListControl sizListControl;
+        private System.Windows.Forms.ToolStripMenuItem sizToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newIssueMenuItem;
     }
 }
 
