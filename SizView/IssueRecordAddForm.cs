@@ -87,5 +87,10 @@ namespace SizView
             }
             completeListBindingSource.DataSource = list;
         }
+
+        private void addAdditionalSizButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

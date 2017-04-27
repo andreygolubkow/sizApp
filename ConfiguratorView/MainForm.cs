@@ -1,74 +1,91 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Windows.Forms;
-using Model.Equipments;
-using Model.Professions;
-using Model.Regions;
-using Model.Zones;
-using Tools;
-
-namespace ConfiguratorView
+﻿namespace ConfiguratorView
 {
+    #region
 
+    using System;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using System.Linq;
+    using System.Windows.Forms;
+
+    using Model.Equipments;
+    using Model.Professions;
+    using Model.Regions;
+    using Model.Zones;
+
+    using Tools;
+
+    #endregion
 
     public partial class MainForm : Form
     {
         //Управление поясами
         private List<IZone> _zonesList;
+
         private int _zoneSelectedId;
+
         /////////////////////////////////
 
         //Управление регионами
         private List<IRegion> _regionsList;
+
         private int _regionSelectedId;
+
         /////////////////////////////////
 
         //Управление сизами
         private List<IEquipment> _equipmentsList;
+
         private int _equipmentSelectedId;
-            //Список СИЗ для нескольких СИЗ
+
+        //Список СИЗ для нескольких СИЗ
         private List<IEquipment> _sizEquipmentsList;
+
         //Словарь для сизов и поясов
-  //      private IDictionary<IZone, double> _sizByZoneDictionary;
+        //      private IDictionary<IZone, double> _sizByZoneDictionary;
         ///////////////////////////
-        
+
         //Управление профессиями
         private List<IProfession> _professionsList;
+
         private List<IEquipment> _professionEquipmentsList;
+
         private int _professionSelectedId;
 
         private int MaxZoneId()
         {
-            return _zonesList.Select(item => item.Id).Concat(new[]
-                                                             {
-                                                                 0
-                                                             }).Max();
+            return _zonesList.Select(item => item.Id).Concat(
+                                                             new[]
+                                                                 {
+                                                                     0
+                                                                 }).Max();
         }
 
         private int MaxRegionId()
         {
-            return _regionsList.Select(item => item.Id).Concat(new[]
-                                                               {
-                                                                   0
-                                                               }).Max();
+            return _regionsList.Select(item => item.Id).Concat(
+                                                               new[]
+                                                                   {
+                                                                       0
+                                                                   }).Max();
         }
 
         private int MaxEquipmentId()
         {
-            return _equipmentsList.Select(item => item.Id).Concat(new[]
-                                                                  {
-                                                                      0
-                                                                  }).Max();
+            return _equipmentsList.Select(item => item.Id).Concat(
+                                                                  new[]
+                                                                      {
+                                                                          0
+                                                                      }).Max();
         }
 
         private int MaxProfessionId()
         {
-            return _professionsList.Select(item => item.Id).Concat(new[]
-                                                                  {
-                                                                      0
-                                                                  }).Max();
+            return _professionsList.Select(item => item.Id).Concat(
+                                                                   new[]
+                                                                       {
+                                                                           0
+                                                                       }).Max();
         }
 
         private void LoadZone()
@@ -128,7 +145,6 @@ namespace ConfiguratorView
             _professionSelectedId = -1;
             _professionEquipmentsList = new List<IEquipment>();
             professionEquipmentBindingSource.DataSource = _professionEquipmentsList;
-
         }
 
         public MainForm()
@@ -142,7 +158,6 @@ namespace ConfiguratorView
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
         }
 
         private void AddZoneButtonClick(object sender, EventArgs e)
@@ -191,13 +206,11 @@ namespace ConfiguratorView
 
         private void iZoneBindingSource_CurrentChanged(object sender, EventArgs e)
         {
-           
         }
-        
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DataSerializer.SerializeBin("zonesList.sdb",ref _zonesList);
+            DataSerializer.SerializeBin("zonesList.sdb", ref _zonesList);
             DataSerializer.SerializeBin("regionsList.sdb", ref _regionsList);
             DataSerializer.SerializeBin("equipmentsList.sdb", ref _equipmentsList);
             DataSerializer.SerializeBin("professionsList.sdb", ref _professionsList);
@@ -212,22 +225,27 @@ namespace ConfiguratorView
         {
             try
             {
-                int id = MaxRegionId()+1;
+                int id = MaxRegionId() + 1;
                 if ( additionalRegionCheckBox.Checked )
                 {
-                    iRegionBindingSource.Add(new NonStandartRegion(id, regionNameTextBox.Text,regionAdditionTextBox.Text
-                        ,(IZone)regionZoneComboBox.SelectedItem));
+                    iRegionBindingSource.Add(
+                                             new NonStandartRegion(
+                                                                   id,
+                                                                   regionNameTextBox.Text,
+                                                                   regionAdditionTextBox.Text,
+                                                                   (IZone)regionZoneComboBox.SelectedItem));
                 }
                 else
                 {
-                    iRegionBindingSource.Add(new StandartRegion(id, regionNameTextBox.Text, (IZone)regionZoneComboBox.SelectedItem));
+                    iRegionBindingSource.Add(
+                                             new StandartRegion(id, regionNameTextBox.Text, (IZone)regionZoneComboBox.SelectedItem));
                 }
                 regionNameTextBox.Clear();
                 regionAdditionTextBox.Clear();
                 regionZoneComboBox.SelectedIndex = -1;
                 _regionSelectedId = -1;
             }
-            catch (Exception exception)
+            catch ( Exception exception )
             {
                 MessageBox.Show(exception.Message);
             }
@@ -243,7 +261,7 @@ namespace ConfiguratorView
                 regionZoneComboBox.SelectedIndex = -1;
                 _regionSelectedId = -1;
             }
-            catch (Exception exception)
+            catch ( Exception exception )
             {
                 MessageBox.Show(exception.Message);
             }
@@ -255,10 +273,10 @@ namespace ConfiguratorView
             {
                 _regionSelectedId = ((IRegion)iRegionBindingSource.Current).Id;
                 regionNameTextBox.Text = ((IRegion)iRegionBindingSource.Current).Name;
-                var zone = _zonesList.FirstOrDefault(a => a.Id == ((IRegion)iRegionBindingSource.Current).Zone.Id);
+                IZone zone = _zonesList.FirstOrDefault(a => a.Id == ((IRegion)iRegionBindingSource.Current).Zone.Id);
                 regionZoneComboBox.SelectedIndex = iZoneBindingSource.IndexOf(zone);
 
-                if (iRegionBindingSource.Current is NonStandartRegion)
+                if ( iRegionBindingSource.Current is NonStandartRegion )
                 {
                     additionalRegionCheckBox.Checked = true;
                     regionAdditionTextBox.Text = ((NonStandartRegion)iRegionBindingSource.Current).Addition;
@@ -273,7 +291,6 @@ namespace ConfiguratorView
             {
                 MessageBox.Show(exception.Message);
             }
-            
         }
 
         private void ZonesGridViewCellClick(object sender, DataGridViewCellEventArgs e)
@@ -285,7 +302,7 @@ namespace ConfiguratorView
 
         private void ApplyRegionButtonClick(object sender, EventArgs e)
         {
-            if (_regionSelectedId <= -1)
+            if ( _regionSelectedId <= -1 )
             {
                 MessageBox.Show("Выберите элемент для правки");
                 return;
@@ -293,11 +310,18 @@ namespace ConfiguratorView
             int index = _regionsList.IndexOf((IRegion)iRegionBindingSource.Current);
             if ( additionalRegionCheckBox.Checked )
             {
-                _regionsList[index] = new NonStandartRegion(_regionSelectedId,regionNameTextBox.Text,regionAdditionTextBox.Text,(IZone)regionZoneComboBox.SelectedItem);
+                _regionsList[index] = new NonStandartRegion(
+                                                            _regionSelectedId,
+                                                            regionNameTextBox.Text,
+                                                            regionAdditionTextBox.Text,
+                                                            (IZone)regionZoneComboBox.SelectedItem);
             }
             else
             {
-                _regionsList[index] = new StandartRegion(_regionSelectedId, regionNameTextBox.Text, (IZone)regionZoneComboBox.SelectedItem);
+                _regionsList[index] = new StandartRegion(
+                                                         _regionSelectedId,
+                                                         regionNameTextBox.Text,
+                                                         (IZone)regionZoneComboBox.SelectedItem);
             }
             iRegionBindingSource[iRegionBindingSource.Position] = _regionsList[index];
         }
@@ -308,22 +332,41 @@ namespace ConfiguratorView
             switch ( sizTypeComboBox.SelectedIndex )
             {
                 case 0:
-                    iEquipmentBindingSource.Add(new PerYearEquipment(id,
+                    iEquipmentBindingSource.Add(
+                                                new PerYearEquipment(
+                                                                     id,
                                                                      sizPerYearNameTextBox.Text,
-                                                                     Convert.ToDouble(sizPerYearCountTextBox.Text), sizPerYearUnitsTextBox.Text));
+                                                                     Convert.ToDouble(sizPerYearCountTextBox.Text),
+                                                                     sizPerYearUnitsTextBox.Text));
                     break;
                 case 1:
-                    iEquipmentBindingSource.Add(new StringCountEquipment(id,sizStringCountNameTextBox.Text,sizStringCountCountTextBox.Text,sizStringUnitsTextBox.Text));
+                    iEquipmentBindingSource.Add(
+                                                new StringCountEquipment(
+                                                                         id,
+                                                                         sizStringCountNameTextBox.Text,
+                                                                         sizStringCountCountTextBox.Text,
+                                                                         sizStringUnitsTextBox.Text));
                     break;
                 case 2:
-                    iEquipmentBindingSource.Add(new CompositeEquipment(id,
+                    iEquipmentBindingSource.Add(
+                                                new CompositeEquipment(
+                                                                       id,
                                                                        sizCompositeEquipmentNameTextBox.Text,
-                                                                       _sizEquipmentsList,""));
+                                                                       _sizEquipmentsList,
+                                                                       ""));
                     break;
                 case 3:
                     //Конвертируем лист в дикшинари
-                    var zonesDictionary =new Dictionary<IZone, double>(((List<ZonesWithItems>)zonesWithItemsBindingSource.DataSource).ToDictionary(zone => zone.GetZone(), zone => zone.Count));
-                    iEquipmentBindingSource.Add(new ByZoneEquipment(id, sizByZoneNameTextBox.Text, zonesDictionary,sizByZoneUnitsTextBox.Text));
+                    var zonesDictionary =
+                            new Dictionary<IZone, double>(
+                                                          ((List<ZonesWithItems>)zonesWithItemsBindingSource.DataSource)
+                                                          .ToDictionary(zone => zone.GetZone(), zone => zone.Count));
+                    iEquipmentBindingSource.Add(
+                                                new ByZoneEquipment(
+                                                                    id,
+                                                                    sizByZoneNameTextBox.Text,
+                                                                    zonesDictionary,
+                                                                    sizByZoneUnitsTextBox.Text));
                     break;
             }
         }
@@ -343,11 +386,6 @@ namespace ConfiguratorView
                 sizCompositeEquipmentComboBox.DisplayMember = "Name";
                 sizCompositeEquipmentComboBox.DataSource = equipments;
                 sizCompositeEquipmentListBox.Items.Clear();
-
-                
-
-
-
             }
         }
 
@@ -361,7 +399,7 @@ namespace ConfiguratorView
                 sizStringCountCountTextBox.Clear();
                 sizStringCountNameTextBox.Clear();
             }
-            catch (Exception exception)
+            catch ( Exception exception )
             {
                 MessageBox.Show(exception.Message);
             }
@@ -377,14 +415,18 @@ namespace ConfiguratorView
                 sizStringCountCountTextBox.Text = ((StringCountEquipment)iEquipmentBindingSource.Current).Count;
                 sizStringUnitsTextBox.Text = ((StringCountEquipment)iEquipmentBindingSource.Current).Units;
                 sizTypeComboBox.SelectedIndex = 1;
-            } else if (iEquipmentBindingSource.Current is PerYearEquipment)
+            }
+            else if ( iEquipmentBindingSource.Current is PerYearEquipment )
             {
                 _equipmentSelectedId = ((PerYearEquipment)iEquipmentBindingSource.Current).Id;
                 sizPerYearNameTextBox.Text = ((PerYearEquipment)iEquipmentBindingSource.Current).Name;
-                sizPerYearCountTextBox.Text = Convert.ToString(((PerYearEquipment)iEquipmentBindingSource.Current).CountPerYear, CultureInfo.InvariantCulture);
+                sizPerYearCountTextBox.Text = Convert.ToString(
+                                                               ((PerYearEquipment)iEquipmentBindingSource.Current).CountPerYear,
+                                                               CultureInfo.InvariantCulture);
                 sizTypeComboBox.SelectedIndex = 0;
                 sizPerYearUnitsTextBox.Text = ((PerYearEquipment)iEquipmentBindingSource.Current).Units;
-            } else if ( iEquipmentBindingSource.Current is CompositeEquipment )
+            }
+            else if ( iEquipmentBindingSource.Current is CompositeEquipment )
             {
                 _equipmentSelectedId = ((CompositeEquipment)iEquipmentBindingSource.Current).Id;
                 sizTypeComboBox.SelectedIndex = 2;
@@ -395,7 +437,8 @@ namespace ConfiguratorView
                 {
                     sizCompositeEquipmentListBox.Items.Add(eq.Name);
                 }
-            } else if ( iEquipmentBindingSource.Current is ByZoneEquipment )
+            }
+            else if ( iEquipmentBindingSource.Current is ByZoneEquipment )
             {
                 _equipmentSelectedId = ((ByZoneEquipment)iEquipmentBindingSource.Current).Id;
                 sizTypeComboBox.SelectedIndex = 3;
@@ -405,44 +448,59 @@ namespace ConfiguratorView
                 foreach (KeyValuePair<IZone, double> item in ((ByZoneEquipment)iEquipmentBindingSource.Current).CountByZone)
                 {
                     var zone = new ZonesWithItems
-                               {
-                                   Count = item.Value
-                               };
+                                   {
+                                       Count = item.Value
+                                   };
                     zone.SetZone(item.Key);
                     zonesList.Add(zone);
                 }
                 zonesWithItemsBindingSource.DataSource = zonesList;
             }
-
         }
 
         private void SizApplyButtonClick(object sender, EventArgs e)
         {
-
-            if (_equipmentSelectedId <= -1)
+            if ( _equipmentSelectedId <= -1 )
             {
                 MessageBox.Show("Выберите элемент для правки");
                 return;
             }
 
             int index = _equipmentsList.IndexOf((IEquipment)iEquipmentBindingSource.Current);
-            
-            switch (sizTypeComboBox.SelectedIndex)
+
+            switch ( sizTypeComboBox.SelectedIndex )
             {
                 case 0:
-                    _equipmentsList[index] = new PerYearEquipment(_equipmentSelectedId,
+                    _equipmentsList[index] = new PerYearEquipment(
+                                                                  _equipmentSelectedId,
                                                                   sizPerYearNameTextBox.Text,
-                                                                  Convert.ToDouble(sizPerYearCountTextBox.Text),sizPerYearUnitsTextBox.Text);
-                    break;   
+                                                                  Convert.ToDouble(sizPerYearCountTextBox.Text),
+                                                                  sizPerYearUnitsTextBox.Text);
+                    break;
                 case 1:
-                    _equipmentsList[index] = new StringCountEquipment(_equipmentSelectedId, sizStringCountNameTextBox.Text, sizStringCountCountTextBox.Text,sizStringUnitsTextBox.Text);       
+                    _equipmentsList[index] = new StringCountEquipment(
+                                                                      _equipmentSelectedId,
+                                                                      sizStringCountNameTextBox.Text,
+                                                                      sizStringCountCountTextBox.Text,
+                                                                      sizStringUnitsTextBox.Text);
                     break;
                 case 2:
-                    _equipmentsList[index] = new CompositeEquipment(_equipmentSelectedId, sizCompositeEquipmentNameTextBox.Text, _sizEquipmentsList,"");
+                    _equipmentsList[index] = new CompositeEquipment(
+                                                                    _equipmentSelectedId,
+                                                                    sizCompositeEquipmentNameTextBox.Text,
+                                                                    _sizEquipmentsList,
+                                                                    "");
                     break;
                 case 3:
-                    var zonesDictionary = new Dictionary<IZone, double>(((List<ZonesWithItems>)zonesWithItemsBindingSource.DataSource).ToDictionary(zone => zone.GetZone(), zone => zone.Count));
-                    _equipmentsList[index] = new ByZoneEquipment(_equipmentSelectedId, sizByZoneNameTextBox.Text, zonesDictionary,sizByZoneUnitsTextBox.Text);                    
+                    var zonesDictionary =
+                            new Dictionary<IZone, double>(
+                                                          ((List<ZonesWithItems>)zonesWithItemsBindingSource.DataSource)
+                                                          .ToDictionary(zone => zone.GetZone(), zone => zone.Count));
+                    _equipmentsList[index] = new ByZoneEquipment(
+                                                                 _equipmentSelectedId,
+                                                                 sizByZoneNameTextBox.Text,
+                                                                 zonesDictionary,
+                                                                 sizByZoneUnitsTextBox.Text);
                     break;
             }
             iEquipmentBindingSource[iEquipmentBindingSource.Position] = _equipmentsList[index];
@@ -464,7 +522,6 @@ namespace ConfiguratorView
             {
                 sizCompositeEquipmentListBox.Items.Add(eq.Name);
             }
-
         }
 
         private void SizCompositeEquipmentComboBoxSelectedIndexChanged(object sender, EventArgs e)
@@ -493,9 +550,9 @@ namespace ConfiguratorView
                 foreach (IZone item in _zonesList)
                 {
                     var zone = new ZonesWithItems
-                               {
-                                   Count = 0
-                               };
+                                   {
+                                       Count = 0
+                                   };
                     zone.SetZone(item);
                     zones.Add(zone);
                 }
@@ -523,7 +580,12 @@ namespace ConfiguratorView
         {
             try
             {
-                iProfessionBindingSource.Add(new StandartProfession(MaxProfessionId(), professionNameTextBox.Text, new List<IEquipment>(_professionEquipmentsList), professionOrderTextBox.Text));
+                iProfessionBindingSource.Add(
+                                             new StandartProfession(
+                                                                    MaxProfessionId(),
+                                                                    professionNameTextBox.Text,
+                                                                    new List<IEquipment>(_professionEquipmentsList),
+                                                                    professionOrderTextBox.Text));
                 professionNameTextBox.Clear();
                 professionOrderTextBox.Clear();
                 _professionEquipmentsList = new List<IEquipment>();
@@ -533,7 +595,6 @@ namespace ConfiguratorView
             {
                 MessageBox.Show(exception.Message);
             }
-            
         }
 
         private void ProfessionRemoveButtonClick(object sender, EventArgs e)
@@ -550,13 +611,17 @@ namespace ConfiguratorView
 
         private void ProfessionApplyButtonClick(object sender, EventArgs e)
         {
-            if (_professionSelectedId<= -1)
+            if ( _professionSelectedId <= -1 )
             {
                 MessageBox.Show("Выберите элемент для правки");
                 return;
             }
-            int index = _professionsList.IndexOf((IProfession)iEquipmentBindingSource.Current);
-            _professionsList[index] = new StandartProfession(_professionSelectedId, professionNameTextBox.Text, new List<IEquipment>(_professionEquipmentsList), professionOrderTextBox.Text);
+            int index = _professionsList.IndexOf((IProfession)iProfessionBindingSource.Current);
+            _professionsList[index] = new StandartProfession(
+                                                             _professionSelectedId,
+                                                             professionNameTextBox.Text,
+                                                             new List<IEquipment>(_professionEquipmentsList),
+                                                             professionOrderTextBox.Text);
             iProfessionBindingSource[iProfessionBindingSource.Position] = _professionsList[index];
         }
 

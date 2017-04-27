@@ -422,6 +422,7 @@
             this.addAdditionalSizButton.TabIndex = 4;
             this.addAdditionalSizButton.Text = "Добавить";
             this.addAdditionalSizButton.UseVisualStyleBackColor = true;
+            this.addAdditionalSizButton.Click += new System.EventHandler(this.addAdditionalSizButton_Click);
             // 
             // sizCoutTextBox
             // 
