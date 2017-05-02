@@ -174,6 +174,19 @@ namespace SizView
             issueForm.Equipments = _equipments;
             issueForm.Professions = _professionsList;
             issueForm.ShowDialog();
+            if ( issueForm.DialogResult != DialogResult.OK )
+            {
+                return;
+            }
+
+            List<IssueRecord> list = sizListControl.IssueRecords;
+            list.Add(issueForm.Issue);
+            sizListControl.IssueRecords = list;
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

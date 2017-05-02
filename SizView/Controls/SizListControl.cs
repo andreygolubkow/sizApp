@@ -27,14 +27,7 @@ namespace SizView.Controls
         {
             set
             {
-                if ( value == null )
-                {
-                    _issueRecords = new List<IssueRecord>();
-                }
-                else
-                {
-                    _issueRecords = value;
-                }
+                _issueRecords = value ?? new List<IssueRecord>();
                 InitGridView();
             }
             get

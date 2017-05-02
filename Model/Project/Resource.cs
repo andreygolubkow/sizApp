@@ -10,11 +10,11 @@
     /// </summary>
     public class Resource
     {
-        private double _count;
+        private string _count;
 
         public IEquipment Equipment { get; set; }
 
-        public double Count
+        public string Count
         {
             get
             {
@@ -22,14 +22,7 @@
             }
             set
             {
-                if ( value > 0 )
-                {
-                    _count = value;
-                }
-                else
-                {
-                    throw new ArgumentException("Количество должно быть больше нуля.");
-                }
+                _count = value;
             }
         }
 

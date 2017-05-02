@@ -50,6 +50,15 @@ namespace Tools
             }
         }
 
+        public IEquipment GetEquipment()
+        {
+            return _equipment;
+        }
+        /// <summary>
+        /// Примечания для СИЗ
+        /// </summary>
+        public string Notes { get; set; }
+
         public static List<CorrectEquipmentAdapter> AdaptEquipmentList(List<IEquipment> equipments, IZone zone)
         {
             var correctList = new List<CorrectEquipmentAdapter>();

@@ -37,10 +37,10 @@
             this.controlMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employesMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.issueRecordBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sizListControl = new SizView.Controls.SizListControl();
             this.sizToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newIssueMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.issueRecordBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sizListControl = new SizView.Controls.SizListControl();
             this.mainMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.issueRecordBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -90,16 +90,31 @@
             // employesMenuItem
             // 
             this.employesMenuItem.Name = "employesMenuItem";
-            this.employesMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.employesMenuItem.Size = new System.Drawing.Size(148, 22);
             this.employesMenuItem.Text = "Работники";
             this.employesMenuItem.Click += new System.EventHandler(this.employesMenuItem_Click);
             // 
             // informationMenuItem
             // 
             this.informationMenuItem.Name = "informationMenuItem";
-            this.informationMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.informationMenuItem.Size = new System.Drawing.Size(148, 22);
             this.informationMenuItem.Text = "Информация";
             this.informationMenuItem.Click += new System.EventHandler(this.informationMenuItem_Click);
+            // 
+            // sizToolStripMenuItem
+            // 
+            this.sizToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newIssueMenuItem});
+            this.sizToolStripMenuItem.Name = "sizToolStripMenuItem";
+            this.sizToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.sizToolStripMenuItem.Text = "СИЗ";
+            // 
+            // newIssueMenuItem
+            // 
+            this.newIssueMenuItem.Name = "newIssueMenuItem";
+            this.newIssueMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.newIssueMenuItem.Text = "Выдать";
+            this.newIssueMenuItem.Click += new System.EventHandler(this.newIssueMenuItem_Click);
             // 
             // issueRecordBindingSource
             // 
@@ -116,21 +131,6 @@
             this.sizListControl.TabIndex = 1;
             this.sizListControl.Zone = null;
             // 
-            // sizToolStripMenuItem
-            // 
-            this.sizToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newIssueMenuItem});
-            this.sizToolStripMenuItem.Name = "sizToolStripMenuItem";
-            this.sizToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.sizToolStripMenuItem.Text = "СИЗ";
-            // 
-            // newIssueMenuItem
-            // 
-            this.newIssueMenuItem.Name = "newIssueMenuItem";
-            this.newIssueMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.newIssueMenuItem.Text = "Выдать";
-            this.newIssueMenuItem.Click += new System.EventHandler(this.newIssueMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -143,6 +143,7 @@
             this.Name = "MainForm";
             this.Text = "СИЗ Контроль";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.issueRecordBindingSource)).EndInit();
