@@ -1,6 +1,7 @@
 ﻿namespace Model.Project
 {
     using System;
+    using System.Collections.Generic;
 
     [Serializable]
     public class Project:IProject
@@ -9,12 +10,12 @@
         public Project()
         {
             ProjectInformation = new Information();
-            ProjectJournal = new IssueRecord();
+            ProjectJournal = new List<IssueRecord>();
         }
 
         public Information ProjectInformation { get; set; }
 
-        public IssueRecord ProjectJournal { get; set; }
+        public List<IssueRecord> ProjectJournal { get; set; }
 
         #region Implementation of IProject
 

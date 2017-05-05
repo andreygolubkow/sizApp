@@ -7,6 +7,7 @@ namespace SizView.Controls
     using System.ComponentModel;
     using System.Drawing;
     using System.Globalization;
+    using System.Linq;
 
     using Model.Equipments;
     using Model.Project;
@@ -19,20 +20,21 @@ namespace SizView.Controls
         public SizListControl()
         {
             InitializeComponent();
-
+            _issueRecords = new List<IssueRecord>();
         }
 
         [DefaultValue(null)]
         public List<IssueRecord> IssueRecords
         {
+            get
+            {
+                return _issueRecords;
+            }
+
             set
             {
                 _issueRecords = value ?? new List<IssueRecord>();
                 InitGridView();
-            }
-            get
-            {
-                return _issueRecords;
             }
         }
 
@@ -45,36 +47,53 @@ namespace SizView.Controls
                 string surname = Convert.ToString(record.Employee.Surname);
                 string name = Convert.ToString(record.Employee.Name);
                 string middleName = Convert.ToString(record.Employee.MiddleName);
+                string professionName = record.Professions.FirstOrDefault()?.Name;
                 string startDate;
                 {
                     DateTime issueDateTime = record.Resources[0].IssueDate;
-                    foreach (var resource in record.Resources)
+                    foreach (Resource resource in record.Resources)
                     {
                         if ( resource.IssueDate < issueDateTime )
                         {
                             issueDateTime = resource.IssueDate;
                         }
                     }
+
                     startDate = Convert.ToString(issueDateTime.Date, CultureInfo.InvariantCulture);
                 }
+
                 string endDate;
                 {
                     DateTime minEndDateTime = GetEndDateTime(record.Resources[0].Equipment, startDate);
-                    foreach (var resource in record.Resources)
+                    foreach (Resource resource in record.Resources)
                     {
                         if ( minEndDateTime > GetEndDateTime(resource.Equipment, startDate) )
                         {
                             minEndDateTime = GetEndDateTime(resource.Equipment, startDate);
                         }
                     }
+
                     endDate = Convert.ToString(minEndDateTime, CultureInfo.InvariantCulture);
                 }
+
                 DataGridViewRow row = new DataGridViewRow();
+                row.Cells.Add(issueGridView.Columns[0].CellTemplate);
+                row.Cells.Add(issueGridView.Columns[1].CellTemplate);
+                row.Cells.Add(issueGridView.Columns[2].CellTemplate);
+                row.Cells.Add(issueGridView.Columns[3].CellTemplate);
+                row.Cells.Add(issueGridView.Columns[4].CellTemplate);
+                row.Cells.Add(issueGridView.Columns[5].CellTemplate);
+
                 row.Cells[0].Value = surname;
                 row.Cells[1].Value = name;
                 row.Cells[2].Value = middleName;
-                row.Cells[3].Value = startDate;
-                row.Cells[4].Value = endDate;
+                row.Cells[3].Value = professionName;
+                row.Cells[4].Value = startDate;
+                if ( endDate.Length < 1 )
+                {
+                    endDate = "Дежурный";
+                }
+                row.Cells[5].Value = endDate;
                 if ((Convert.ToDateTime(endDate).Date - DateTime.Today.Date).TotalDays < 7)
                 {
                     row.InheritedStyle.BackColor = Color.Salmon;
@@ -84,6 +103,7 @@ namespace SizView.Controls
                 {
                     row.InheritedStyle.BackColor = Color.BurlyWood;
                 }
+
                 issueGridView.Rows.Add(row);
             }
         }
@@ -101,11 +121,13 @@ namespace SizView.Controls
                         count = zone.Value;
                     }
                 }
+
                 double days = 365 / count;
                 DateTime startDateTime = Convert.ToDateTime(startDate);
                 DateTime endDateTime = startDateTime.AddDays(days);
                 return endDateTime;
             }
+
             if (equipmentObject is PerYearEquipment)
             {
                 var equipment = (PerYearEquipment)equipmentObject;
@@ -116,6 +138,7 @@ namespace SizView.Controls
                 DateTime endDateTime = startDateTime.AddDays(days);
                 return endDateTime;
             }
+
             return (Convert.ToDateTime(startDate)).AddYears(1000);
         }
     }

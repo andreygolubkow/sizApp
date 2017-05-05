@@ -8,6 +8,7 @@
     /// <summary>
     /// Вещь которая выдается.
     /// </summary>
+    [Serializable]
     public class Resource
     {
         private string _count;

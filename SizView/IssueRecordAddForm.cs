@@ -135,9 +135,9 @@
         {
             var record = new IssueRecord
                              {
-                                 Employee = ((FullNameEmployeeAdapter)fullNameEmployeeAdapterBindingSource.Current).Employee,
-                                 Professions = (List<IProfession>)selectediProfessionBindingSource.DataSource
-                             };
+                                 Employee = ((FullNameEmployeeAdapter)fullNameEmployeeAdapterBindingSource.Current).Employee
+            };
+            List<IProfession> professions = selectediProfessionBindingSource.List.Cast<IProfession>().ToList();
             List<Resource> resourcesList = (from eq in (List<CorrectEquipmentAdapter>)completeListBindingSource.DataSource
                                     select new Resource
                                                {
@@ -146,6 +146,8 @@
                                                    Equipment = eq.GetEquipment(),
                                                    IssueDate = DateTime.Now
                                                }).ToList();
+            record.Resources = resourcesList;
+            record.Professions = professions;
             _issue = record;
             DialogResult = DialogResult.OK;
             Close();

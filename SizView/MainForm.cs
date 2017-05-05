@@ -31,12 +31,6 @@ namespace SizView
             InitializeComponent();
             LoadData();
             var list = new List<IssueRecord>();
-            /*var issue = new IssueRecord();
-            issue.Employee = new StandartEmployee();
-            issue.Employee.Id = 12;
-            issue.Employee.Name = "Ivan";
-            list.Add(issue);
-            sizListControl.IssueRecords = list;*/
         }
 
         private void LoadData()
@@ -94,6 +88,8 @@ namespace SizView
             try
             {
                 DataSerializer.DeserializeBin("Project.sdb", ref _project);
+                var proj = (Project)_project;
+                sizListControl.IssueRecords = proj.ProjectJournal;
             }
             catch (Exception)
             {
@@ -122,6 +118,8 @@ namespace SizView
         {
             try
             {
+                var proj = (Project)_project;
+                proj.ProjectJournal = sizListControl.IssueRecords;
                 DataSerializer.SerializeBin("Project.sdb", ref _project);
             }
             catch (Exception exception)
