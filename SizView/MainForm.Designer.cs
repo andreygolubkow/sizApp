@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,10 +38,8 @@
             this.informationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sizToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newIssueMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.issueRecordBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sizListControl = new SizView.Controls.SizListControl();
             this.mainMenuStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.issueRecordBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // mainMenuStrip
@@ -116,15 +113,12 @@
             this.newIssueMenuItem.Text = "Выдать";
             this.newIssueMenuItem.Click += new System.EventHandler(this.newIssueMenuItem_Click);
             // 
-            // issueRecordBindingSource
-            // 
-            this.issueRecordBindingSource.DataSource = typeof(Model.Project.IssueRecord);
-            // 
             // sizListControl
             // 
             this.sizListControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.sizListControl.IssueRecords = ((System.Collections.Generic.List<Model.Project.IssueRecord>)(resources.GetObject("sizListControl.IssueRecords")));
             this.sizListControl.Location = new System.Drawing.Point(0, 27);
             this.sizListControl.Name = "sizListControl";
             this.sizListControl.Size = new System.Drawing.Size(680, 296);
@@ -146,7 +140,6 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.mainMenuStrip.ResumeLayout(false);
             this.mainMenuStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.issueRecordBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,7 +154,6 @@
         private System.Windows.Forms.ToolStripMenuItem controlMenuItem;
         private System.Windows.Forms.ToolStripMenuItem employesMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informationMenuItem;
-        private System.Windows.Forms.BindingSource issueRecordBindingSource;
         private Controls.SizListControl sizListControl;
         private System.Windows.Forms.ToolStripMenuItem sizToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newIssueMenuItem;

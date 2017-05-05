@@ -168,7 +168,7 @@ namespace SizView
         {
             var issueForm = new IssueRecordAddForm();
             issueForm.Employees = _employeesList;
-            issueForm.Zone = (_project as Project).ProjectInformation.Region.Zone;
+            issueForm.Zone = ((Project)_project).ProjectInformation.Region.Zone;
             issueForm.Equipments = _equipments;
             issueForm.Professions = _professionsList;
             issueForm.ShowDialog();
