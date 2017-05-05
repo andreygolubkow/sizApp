@@ -31,6 +31,7 @@ namespace SizView
             InitializeComponent();
             LoadData();
             var list = new List<IssueRecord>();
+            sizListControl.IssueRecords = list;
         }
 
         private void LoadData()
@@ -90,14 +91,15 @@ namespace SizView
                 DataSerializer.DeserializeBin("Project.sdb", ref _project);
                 var proj = (Project)_project;
                 sizListControl.IssueRecords = proj.ProjectJournal;
+                sizListControl.Zone = proj.ProjectInformation.Region.Zone;
             }
             catch (Exception)
             {
-                var project = new Project();
-                project.ProjectInformation = null;
+                var project = new Project
+                                  {
+                                      ProjectInformation = null
+                                  };
                 _project = new Project();
-
-
             }
         }
 
@@ -166,11 +168,13 @@ namespace SizView
 
         private void newIssueMenuItem_Click(object sender, EventArgs e)
         {
-            var issueForm = new IssueRecordAddForm();
-            issueForm.Employees = _employeesList;
-            issueForm.Zone = ((Project)_project).ProjectInformation.Region.Zone;
-            issueForm.Equipments = _equipments;
-            issueForm.Professions = _professionsList;
+            var issueForm = new IssueRecordAddForm
+                                {
+                                    Employees = _employeesList,
+                                    Zone = ((Project)_project).ProjectInformation.Region.Zone,
+                                    Equipments = _equipments,
+                                    Professions = _professionsList
+                                };
             issueForm.ShowDialog();
             if ( issueForm.DialogResult != DialogResult.OK )
             {

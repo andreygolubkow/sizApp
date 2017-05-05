@@ -15,17 +15,20 @@ namespace Tools
         public static void DeserializeBin<T>(string fileName, ref T container)
         {
             var formatter = new BinaryFormatter();
-            var deserializeFile = new FileStream(fileName, FileMode.OpenOrCreate);
-            if ( deserializeFile.Length > 0 )
+            using (var deserializeFile = new FileStream(fileName, FileMode.OpenOrCreate))
             {
-                container = (T)formatter.Deserialize(deserializeFile);
-                deserializeFile.Close();
+                if (deserializeFile.Length > 0)
+                {
+                    container = (T)formatter.Deserialize(deserializeFile);
+                    deserializeFile.Close();
+                }
+                else
+                {
+                    deserializeFile.Close();
+                    throw new ArgumentException("Файл пустой");
+                }
             }
-            else
-            {
-                deserializeFile.Close();
-                throw new ArgumentException("Файл пустой");
-            }
+                
         }
 
         /// <summary>
@@ -37,9 +40,11 @@ namespace Tools
         public static void SerializeBin<T>(string fileName, ref T container)
         {
             var formatter = new BinaryFormatter();
-            var serializeFileStream = new FileStream(fileName, FileMode.OpenOrCreate);
-            formatter.Serialize(serializeFileStream, container);
-            serializeFileStream.Close();
+            using (var serializeFileStream = new FileStream(fileName, FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(serializeFileStream, container);
+                serializeFileStream.Close();
+            }
         }
     }
 }

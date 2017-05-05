@@ -38,6 +38,7 @@
             this.informationMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sizToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newIssueMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.actualMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sizListControl = new SizView.Controls.SizListControl();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -101,7 +102,8 @@
             // sizToolStripMenuItem
             // 
             this.sizToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newIssueMenuItem});
+            this.newIssueMenuItem,
+            this.actualMenuItem});
             this.sizToolStripMenuItem.Name = "sizToolStripMenuItem";
             this.sizToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.sizToolStripMenuItem.Text = "СИЗ";
@@ -109,9 +111,17 @@
             // newIssueMenuItem
             // 
             this.newIssueMenuItem.Name = "newIssueMenuItem";
-            this.newIssueMenuItem.Size = new System.Drawing.Size(113, 22);
+            this.newIssueMenuItem.Size = new System.Drawing.Size(149, 22);
             this.newIssueMenuItem.Text = "Выдать";
             this.newIssueMenuItem.Click += new System.EventHandler(this.newIssueMenuItem_Click);
+            // 
+            // actualMenuItem
+            // 
+            this.actualMenuItem.CheckOnClick = true;
+            this.actualMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.actualMenuItem.Name = "actualMenuItem";
+            this.actualMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.actualMenuItem.Text = "Актуальность";
             // 
             // sizListControl
             // 
@@ -157,6 +167,7 @@
         private Controls.SizListControl sizListControl;
         private System.Windows.Forms.ToolStripMenuItem sizToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newIssueMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem actualMenuItem;
     }
 }
 

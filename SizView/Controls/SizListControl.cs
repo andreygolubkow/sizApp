@@ -23,7 +23,7 @@ namespace SizView.Controls
             _issueRecords = new List<IssueRecord>();
         }
 
-        [DefaultValue(typeof(List<IssueRecord>))]
+        [DefaultValue(null)]
         public List<IssueRecord> IssueRecords
         {
             get
@@ -76,14 +76,8 @@ namespace SizView.Controls
                     endDate = Convert.ToString(minEndDateTime, CultureInfo.InvariantCulture);
                 }
 
-                DataGridViewRow row = new DataGridViewRow();
-                row.Cells.Add(issueGridView.Columns[0].CellTemplate);
-                row.Cells.Add(issueGridView.Columns[1].CellTemplate);
-                row.Cells.Add(issueGridView.Columns[2].CellTemplate);
-                row.Cells.Add(issueGridView.Columns[3].CellTemplate);
-                row.Cells.Add(issueGridView.Columns[4].CellTemplate);
-                row.Cells.Add(issueGridView.Columns[5].CellTemplate);
-
+                DataGridViewRow row = issueGridView.RowTemplate;
+                
                 row.Cells[0].Value = surname;
                 row.Cells[1].Value = name;
                 row.Cells[2].Value = middleName;
