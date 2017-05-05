@@ -23,7 +23,7 @@ namespace SizView.Controls
             _issueRecords = new List<IssueRecord>();
         }
 
-        [DefaultValue(null)]
+        [DefaultValue(typeof(List<IssueRecord>))]
         public List<IssueRecord> IssueRecords
         {
             get

@@ -51,6 +51,7 @@
             this.selectedProfessionsListBox = new System.Windows.Forms.ListBox();
             this.selectediProfessionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.newIssueRecordButton = new System.Windows.Forms.Button();
             this.generateIssueButton = new System.Windows.Forms.Button();
             this.editSizGroupBox = new System.Windows.Forms.GroupBox();
             this.editSizNameTextBox = new System.Windows.Forms.TextBox();
@@ -75,7 +76,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.employeeName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.newIssueRecordButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -307,6 +307,18 @@
             this.tabPage3.Text = "Проверка";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // newIssueRecordButton
+            // 
+            this.newIssueRecordButton.Enabled = false;
+            this.newIssueRecordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.newIssueRecordButton.Location = new System.Drawing.Point(370, 254);
+            this.newIssueRecordButton.Name = "newIssueRecordButton";
+            this.newIssueRecordButton.Size = new System.Drawing.Size(204, 23);
+            this.newIssueRecordButton.TabIndex = 7;
+            this.newIssueRecordButton.Text = "Выдать СИЗ";
+            this.newIssueRecordButton.UseVisualStyleBackColor = true;
+            this.newIssueRecordButton.Click += new System.EventHandler(this.newIssueRecordButton_Click);
+            // 
             // generateIssueButton
             // 
             this.generateIssueButton.Location = new System.Drawing.Point(370, 225);
@@ -528,17 +540,6 @@
             this.label2.Size = new System.Drawing.Size(103, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Выдать работнику ";
-            // 
-            // newIssueRecordButton
-            // 
-            this.newIssueRecordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.newIssueRecordButton.Location = new System.Drawing.Point(370, 254);
-            this.newIssueRecordButton.Name = "newIssueRecordButton";
-            this.newIssueRecordButton.Size = new System.Drawing.Size(204, 23);
-            this.newIssueRecordButton.TabIndex = 7;
-            this.newIssueRecordButton.Text = "Выдать СИЗ";
-            this.newIssueRecordButton.UseVisualStyleBackColor = true;
-            this.newIssueRecordButton.Click += new System.EventHandler(this.newIssueRecordButton_Click);
             // 
             // IssueRecordAddForm
             // 

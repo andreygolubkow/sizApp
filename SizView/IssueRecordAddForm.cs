@@ -87,6 +87,7 @@
             }
 
             completeListBindingSource.DataSource = list;
+            newIssueRecordButton.Enabled = completeListBindingSource.Count > 0;
         }
 
         private void addAdditionalSizButton_Click(object sender, EventArgs e)
@@ -155,7 +156,7 @@
 
         private void IssueRecordAddForm_Load(object sender, EventArgs e)
         {
-
+            employeeComboBox.SelectedIndex = 0;
         }
     }
 }

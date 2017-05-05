@@ -117,22 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="mainMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="sizListControl.IssueRecords" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAIsBTW9kZWwsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVyZT1uZXV0
-        cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsXV0sIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1
-        cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OQwDAAAAPE1vZGVsLCBWZXJz
-        aW9uPTEuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAUBAAAAPFN5c3Rl
-        bS5Db2xsZWN0aW9ucy5HZW5lcmljLkxpc3RgMVtbTW9kZWwuUHJvamVjdC5Jc3N1ZVJlY29yZAMAAAAG
-        X2l0ZW1zBV9zaXplCF92ZXJzaW9uBAAAG01vZGVsLlByb2plY3QuSXNzdWVSZWNvcmRbXQMAAAAICAIA
-        AAAJBAAAAAAAAAAAAAAABwQAAAAAAQAAAAAAAAAEGU1vZGVsLlByb2plY3QuSXNzdWVSZWNvcmQDAAAA
-        Cw==
-</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="mainMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing">
+    <value>17, 17</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAcHEAAAEAIAD4zAAAFgAAACgAAABwAAAA4gAAAAEAIAAAAAAAwMUAABMLAAATCwAAAAAAAAAA
