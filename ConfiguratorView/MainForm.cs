@@ -210,10 +210,10 @@
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DataSerializer.SerializeBin("zonesList.sdb", ref _zonesList);
-            DataSerializer.SerializeBin("regionsList.sdb", ref _regionsList);
-            DataSerializer.SerializeBin("equipmentsList.sdb", ref _equipmentsList);
-            DataSerializer.SerializeBin("professionsList.sdb", ref _professionsList);
+            DataSerializer.SerializeBin("zonesList.sdb", _zonesList);
+            DataSerializer.SerializeBin("regionsList.sdb",_regionsList);
+            DataSerializer.SerializeBin("equipmentsList.sdb", _equipmentsList);
+            DataSerializer.SerializeBin("professionsList.sdb",  _professionsList);
         }
 
         private void AdditionalRegionCheckBoxCheckedChanged(object sender, EventArgs e)

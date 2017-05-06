@@ -42,15 +42,17 @@ namespace SizView.Controls
 
         private void InitGridView()
         {
-            foreach (var record in _issueRecords)
+            issueGridView.Rows.Clear();
+            foreach (IssueRecord record in _issueRecords)
             {
                 string surname = Convert.ToString(record.Employee.Surname);
                 string name = Convert.ToString(record.Employee.Name);
                 string middleName = Convert.ToString(record.Employee.MiddleName);
                 string professionName = record.Professions.FirstOrDefault()?.Name;
                 string startDate;
+                DateTime issueDateTime = record.Resources.FirstOrDefault().IssueDate;
                 {
-                    DateTime issueDateTime = record.Resources[0].IssueDate;
+                    
                     foreach (Resource resource in record.Resources)
                     {
                         if ( resource.IssueDate < issueDateTime )
@@ -59,50 +61,40 @@ namespace SizView.Controls
                         }
                     }
 
-                    startDate = Convert.ToString(issueDateTime.Date, CultureInfo.InvariantCulture);
+                    startDate = Convert.ToString(issueDateTime.Date, CultureInfo.CurrentCulture);
                 }
 
-                string endDate;
+                string endDateS;
+                DateTime minEndDateTime = GetEndDateTime(record.Resources[0].Equipment, issueDateTime);
                 {
-                    DateTime minEndDateTime = GetEndDateTime(record.Resources[0].Equipment, startDate);
+                    
                     foreach (Resource resource in record.Resources)
                     {
-                        if ( minEndDateTime > GetEndDateTime(resource.Equipment, startDate) )
+                        if ( minEndDateTime > GetEndDateTime(resource.Equipment, issueDateTime) )
                         {
-                            minEndDateTime = GetEndDateTime(resource.Equipment, startDate);
+                            minEndDateTime = GetEndDateTime(resource.Equipment, issueDateTime);
                         }
                     }
 
-                    endDate = Convert.ToString(minEndDateTime, CultureInfo.InvariantCulture);
+                    endDateS = Convert.ToString(minEndDateTime, CultureInfo.CurrentCulture);
                 }
-
-                DataGridViewRow row = issueGridView.RowTemplate;
-                
-                row.Cells[0].Value = surname;
-                row.Cells[1].Value = name;
-                row.Cells[2].Value = middleName;
-                row.Cells[3].Value = professionName;
-                row.Cells[4].Value = startDate;
-                if ( endDate.Length < 1 )
+                var row = new DataGridViewRow();
+                row.CreateCells(issueGridView);
+                row.SetValues(surname, name, middleName, professionName, startDate, endDateS);
+                if ((minEndDateTime - DateTime.Today).TotalDays < 7)
                 {
-                    endDate = "Дежурный";
-                }
-                row.Cells[5].Value = endDate;
-                if ((Convert.ToDateTime(endDate).Date - DateTime.Today.Date).TotalDays < 7)
-                {
-                    row.InheritedStyle.BackColor = Color.Salmon;
+                    row.DefaultCellStyle.BackColor = Color.Salmon;
                 }
                 else
-                if ((Convert.ToDateTime(endDate).Date - DateTime.Today.Date).TotalDays < 30 )
+               if ((minEndDateTime - DateTime.Today).TotalDays < 30)
                 {
-                    row.InheritedStyle.BackColor = Color.BurlyWood;
+                    row.DefaultCellStyle.BackColor = Color.BurlyWood;
                 }
-
                 issueGridView.Rows.Add(row);
             }
         }
 
-        private DateTime GetEndDateTime(IEquipment equipmentObject,string startDate)
+        private DateTime GetEndDateTime(IEquipment equipmentObject,DateTime startDate)
         {
             if (equipmentObject is ByZoneEquipment)
             {
@@ -113,6 +105,7 @@ namespace SizView.Controls
                     if (zone.Key.Id == Zone.Id)
                     {
                         count = zone.Value;
+                        break;
                     }
                 }
 

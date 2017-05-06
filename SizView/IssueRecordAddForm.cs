@@ -28,6 +28,7 @@
             {
                 List<FullNameEmployeeAdapter> listAdapt = FullNameEmployeeAdapter.AdaptEmployeesList(value);
                 fullNameEmployeeAdapterBindingSource.DataSource = listAdapt;
+                employeeComboBox.SelectedIndex = 0;
             }
         }
 
@@ -156,7 +157,7 @@
 
         private void IssueRecordAddForm_Load(object sender, EventArgs e)
         {
-            employeeComboBox.SelectedIndex = 0;
+            
         }
     }
 }

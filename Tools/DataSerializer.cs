@@ -37,7 +37,7 @@ namespace Tools
         /// <typeparam name="T">Тип данных</typeparam>
         /// <param name="fileName">Название файла</param>
         /// <param name="container">Контейнер</param>
-        public static void SerializeBin<T>(string fileName, ref T container)
+        public static void SerializeBin<T>(string fileName, T container)
         {
             var formatter = new BinaryFormatter();
             using (var serializeFileStream = new FileStream(fileName, FileMode.OpenOrCreate))

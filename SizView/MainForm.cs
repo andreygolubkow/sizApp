@@ -29,9 +29,9 @@ namespace SizView
         public MainForm()
         {
             InitializeComponent();
+
             LoadData();
-            var list = new List<IssueRecord>();
-            sizListControl.IssueRecords = list;
+
         }
 
         private void LoadData()
@@ -90,8 +90,15 @@ namespace SizView
             {
                 DataSerializer.DeserializeBin("Project.sdb", ref _project);
                 var proj = (Project)_project;
+                if ( proj.ProjectInformation.Region.Zone != null )
+                {
+                    sizListControl.Zone = proj.ProjectInformation.Region.Zone;
+                }
+                else
+                {
+                    sizListControl.Zone = new StandartZone(0,0,"");
+                }
                 sizListControl.IssueRecords = proj.ProjectJournal;
-                sizListControl.Zone = proj.ProjectInformation.Region.Zone;
             }
             catch (Exception)
             {
@@ -122,7 +129,7 @@ namespace SizView
             {
                 var proj = (Project)_project;
                 proj.ProjectJournal = sizListControl.IssueRecords;
-                DataSerializer.SerializeBin("Project.sdb", ref _project);
+                DataSerializer.SerializeBin("Project.sdb", _project);
             }
             catch (Exception exception)
             {
@@ -134,7 +141,7 @@ namespace SizView
         {
             try
             {
-                DataSerializer.SerializeBin("employesList.sdb", ref _employeesList);
+                DataSerializer.SerializeBin("employesList.sdb",  _employeesList);
             }
             catch (Exception exception)
             {
@@ -156,14 +163,11 @@ namespace SizView
 
         private void informationMenuItem_Click(object sender, EventArgs e)
         {
-            InformationForm infoForm;
-            infoForm = (_project as Project).ProjectInformation.Region == null ? new InformationForm(null, _regionsList) : new InformationForm(((Project)_project).ProjectInformation, _regionsList);
+            InformationForm infoForm = (_project as Project).ProjectInformation.Region == null ? new InformationForm(null, _regionsList) : new InformationForm(((Project)_project).ProjectInformation, _regionsList);
             if ( infoForm.ShowDialog() == DialogResult.OK )
             {
                 ((Project)_project).ProjectInformation = infoForm.Information;
             }
-            
-
         }
 
         private void newIssueMenuItem_Click(object sender, EventArgs e)
@@ -183,6 +187,7 @@ namespace SizView
 
             List<IssueRecord> list = sizListControl.IssueRecords;
             list.Add(issueForm.Issue);
+            sizListControl.Zone = ((Project)_project).ProjectInformation.Region.Zone;
             sizListControl.IssueRecords = list;
         }
 
