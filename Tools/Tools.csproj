@@ -45,6 +45,7 @@
     <Compile Include="DataSerializer.cs" />
     <Compile Include="FullNameEmployeeAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceAdapter.cs" />
     <Compile Include="Validators.cs" />
     <Compile Include="ZonesWithItems.cs" />
   </ItemGroup>

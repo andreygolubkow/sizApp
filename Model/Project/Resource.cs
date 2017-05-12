@@ -17,14 +17,8 @@
 
         public string Count
         {
-            get
-            {
-                return _count;
-            }
-            set
-            {
-                _count = value;
-            }
+            get => _count;
+            set => _count = value;
         }
 
         /// <summary>

@@ -97,7 +97,7 @@
             this.informationMenuItem.Name = "informationMenuItem";
             this.informationMenuItem.Size = new System.Drawing.Size(148, 22);
             this.informationMenuItem.Text = "Информация";
-            this.informationMenuItem.Click += new System.EventHandler(this.informationMenuItem_Click);
+            this.informationMenuItem.Click += new System.EventHandler(this.InformationMenuItemClick);
             // 
             // sizToolStripMenuItem
             // 

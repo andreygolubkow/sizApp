@@ -55,6 +55,12 @@
     <Compile Include="Controls\EmployesListControl.Designer.cs">
       <DependentUpon>EmployesListControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ResourceView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ResourceView.Designer.cs">
+      <DependentUpon>ResourceView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SizListControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -99,8 +105,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SizViewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SizViewForm.Designer.cs">
+      <DependentUpon>SizViewForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Controls\EmployesListControl.resx">
       <DependentUpon>EmployesListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ResourceView.resx">
+      <DependentUpon>ResourceView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\SizListControl.resx">
       <DependentUpon>SizListControl.cs</DependentUpon>
@@ -132,6 +147,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SizViewForm.resx">
+      <DependentUpon>SizViewForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\DataSources\Model.Employee.IEmployee.datasource" />
     <None Include="Properties\DataSources\Model.Equipments.IEquipment.datasource" />
     <None Include="Properties\DataSources\Model.Professions.IProfession.datasource" />
@@ -139,6 +157,7 @@
     <None Include="Properties\DataSources\Model.Regions.IRegion.datasource" />
     <None Include="Properties\DataSources\Tools.CorrectEquipmentAdapter.datasource" />
     <None Include="Properties\DataSources\Tools.FullNameEmployeeAdapter.datasource" />
+    <None Include="Properties\DataSources\Tools.ResourceAdapter.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

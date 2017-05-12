@@ -90,14 +90,7 @@ namespace SizView
             {
                 DataSerializer.DeserializeBin("Project.sdb", ref _project);
                 var proj = (Project)_project;
-                if ( proj.ProjectInformation.Region.Zone != null )
-                {
-                    sizListControl.Zone = proj.ProjectInformation.Region.Zone;
-                }
-                else
-                {
-                    sizListControl.Zone = new StandartZone(0,0,"");
-                }
+                sizListControl.Zone = proj.ProjectInformation.Region.Zone ?? new StandartZone(0,0,"");
                 sizListControl.IssueRecords = proj.ProjectJournal;
             }
             catch (Exception)
@@ -161,7 +154,7 @@ namespace SizView
             SaveData();
         }
 
-        private void informationMenuItem_Click(object sender, EventArgs e)
+        private void InformationMenuItemClick(object sender, EventArgs e)
         {
             InformationForm infoForm = (_project as Project).ProjectInformation.Region == null ? new InformationForm(null, _regionsList) : new InformationForm(((Project)_project).ProjectInformation, _regionsList);
             if ( infoForm.ShowDialog() == DialogResult.OK )
