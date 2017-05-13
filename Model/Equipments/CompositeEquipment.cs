@@ -29,7 +29,7 @@ namespace Model.Equipments
             {
                 if ( value < 0 )
                 {
-                    throw new ArgumentOutOfRangeException("Ошибка при вводе ID");
+                    throw new ArgumentOutOfRangeException($"Ошибка при вводе ID");
                 }
                 _id = value;
             }
@@ -76,11 +76,11 @@ namespace Model.Equipments
         {
             if ( index < 0 )
             {
-                throw new ArgumentOutOfRangeException("Неверный индекс для удаления");
+                throw new ArgumentOutOfRangeException("index");
             }
             if ( index > _equipmentsList.Count-1 )
             {
-                throw new ArgumentOutOfRangeException("Нет такого элемента");
+                throw new ArgumentOutOfRangeException("index");
             }
         }
 

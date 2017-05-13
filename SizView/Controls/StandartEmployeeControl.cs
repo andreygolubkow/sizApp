@@ -95,7 +95,7 @@
                     personnelNumberTextBox.Text = _employee.PersonnelNumber;
                     structuralUnitTextBox.Text = _employee.StructuralUnit;
                     professionComboBox.SelectedIndex =
-                            _professions.IndexOf(_professions.Where(p => p.Id == _employee.Profession.Id).FirstOrDefault());
+                            _professions.IndexOf(_professions.FirstOrDefault(p => p.Name == _employee.Profession.Name));
                     dateOfEmploymentPicker.Value = _employee.DateOfEmployment;
                     if ( _employee.DateChangePosition == null )
                     {

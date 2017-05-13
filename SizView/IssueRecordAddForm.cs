@@ -55,9 +55,7 @@
 
         private void employeeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectediProfessionBindingSource.Clear();
-            var employee = (FullNameEmployeeAdapter)fullNameEmployeeAdapterBindingSource.Current;
-            selectediProfessionBindingSource.Add(employee.Employee.Profession);
+
         }
 
         private void professionComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -158,6 +156,18 @@
         private void IssueRecordAddForm_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void employeeComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fullNameEmployeeAdapterBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+            selectediProfessionBindingSource.Clear();
+            var employee = (FullNameEmployeeAdapter)fullNameEmployeeAdapterBindingSource.Current;
+            selectediProfessionBindingSource.Add(employee.Employee.Profession);
         }
     }
 }

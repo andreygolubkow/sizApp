@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace SizView
 {
@@ -26,12 +27,14 @@ namespace SizView
 
         private List<IEquipment> _equipments;
 
+        private SizViewForm _sizViewForm;
+
         public MainForm()
         {
             InitializeComponent();
 
             LoadData();
-
+            _sizViewForm = new SizViewForm(((Project)_project).ProjectInformation.Region.Zone);
         }
 
         private void LoadData()
@@ -187,6 +190,23 @@ namespace SizView
         private void MainForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void showInfoMenuItem_Click(object sender, EventArgs e)
+        {
+            _sizViewForm.Show();
+            if (sizListControl.CurrentRecord != null)
+            {
+                _sizViewForm.LoadIsuue(sizListControl.CurrentRecord);
+            }
+        }
+
+        private void SizListControlCurrentChanged(object sender, EventArgs e)
+        {
+            if ( sizListControl.CurrentRecord != null )
+            {
+                _sizViewForm.LoadIsuue(sizListControl.CurrentRecord);
+            }
         }
     }
 }

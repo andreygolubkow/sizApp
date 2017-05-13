@@ -74,6 +74,7 @@
             this.showInfoMenuItem.Name = "showInfoMenuItem";
             this.showInfoMenuItem.Size = new System.Drawing.Size(203, 22);
             this.showInfoMenuItem.Text = "Показать информацию";
+            this.showInfoMenuItem.Click += new System.EventHandler(this.showInfoMenuItem_Click);
             // 
             // controlMenuItem
             // 
@@ -134,6 +135,7 @@
             this.sizListControl.Size = new System.Drawing.Size(680, 296);
             this.sizListControl.TabIndex = 1;
             this.sizListControl.Zone = null;
+            this.sizListControl.CurrentChanged += new System.EventHandler(this.SizListControlCurrentChanged);
             // 
             // MainForm
             // 

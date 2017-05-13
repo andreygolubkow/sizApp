@@ -15,13 +15,18 @@ namespace SizView.Controls
 
     public partial class SizListControl : UserControl
     {
+        public event EventHandler CurrentChanged;
+
         private List<IssueRecord> _issueRecords;
 
         public SizListControl()
         {
             InitializeComponent();
             _issueRecords = new List<IssueRecord>();
+            CurrentRecord = null;
         }
+
+        public IssueRecord CurrentRecord { get; private set; }
 
         [DefaultValue(null)]
         public List<IssueRecord> IssueRecords
@@ -127,6 +132,21 @@ namespace SizView.Controls
             }
 
             return (Convert.ToDateTime(startDate)).AddYears(1000);
+        }
+
+        protected virtual void OnCurrentChanged()
+        {
+            CurrentChanged?.Invoke(this,new EventArgs());
+        }
+
+        private void IssueGridViewCellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if ( issueGridView.SelectedRows.Count <= 0 )
+            {
+                return;
+            }
+            CurrentRecord = _issueRecords[issueGridView.SelectedRows[0].Index];
+            OnCurrentChanged();
         }
     }
 }

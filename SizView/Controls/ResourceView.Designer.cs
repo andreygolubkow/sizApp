@@ -29,70 +29,70 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.resourcesGridView = new System.Windows.Forms.DataGridView();
             this.resourceAdapterBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.startDateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.endDateTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.resourcesGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.resourceAdapterBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // resourcesGridView
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nameDataGridViewTextBoxColumn,
-            this.startDateTimeDataGridViewTextBoxColumn,
-            this.endDateTimeDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.resourceAdapterBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(530, 238);
-            this.dataGridView1.TabIndex = 0;
+            this.resourcesGridView.AllowUserToAddRows = false;
+            this.resourcesGridView.AllowUserToDeleteRows = false;
+            this.resourcesGridView.AutoGenerateColumns = false;
+            this.resourcesGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.resourcesGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.resourcesGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3});
+            this.resourcesGridView.DataSource = this.resourceAdapterBindingSource;
+            this.resourcesGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.resourcesGridView.Location = new System.Drawing.Point(0, 0);
+            this.resourcesGridView.Name = "resourcesGridView";
+            this.resourcesGridView.ReadOnly = true;
+            this.resourcesGridView.RowHeadersVisible = false;
+            this.resourcesGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.resourcesGridView.Size = new System.Drawing.Size(530, 238);
+            this.resourcesGridView.TabIndex = 0;
             // 
             // resourceAdapterBindingSource
             // 
             this.resourceAdapterBindingSource.DataSource = typeof(Tools.ResourceAdapter);
             // 
-            // nameDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn1
             // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Наимнование";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // startDateTimeDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn2
             // 
-            this.startDateTimeDataGridViewTextBoxColumn.DataPropertyName = "StartDateTime";
-            this.startDateTimeDataGridViewTextBoxColumn.HeaderText = "Начало использования";
-            this.startDateTimeDataGridViewTextBoxColumn.Name = "startDateTimeDataGridViewTextBoxColumn";
-            this.startDateTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "StartDateTime";
+            this.dataGridViewTextBoxColumn2.HeaderText = "StartDateTime";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
-            // endDateTimeDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn3
             // 
-            this.endDateTimeDataGridViewTextBoxColumn.DataPropertyName = "EndDateTime";
-            this.endDateTimeDataGridViewTextBoxColumn.HeaderText = "Окончание использования";
-            this.endDateTimeDataGridViewTextBoxColumn.Name = "endDateTimeDataGridViewTextBoxColumn";
-            this.endDateTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "EndDateTime";
+            this.dataGridViewTextBoxColumn3.HeaderText = "EndDateTime";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // ResourceView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.resourcesGridView);
             this.Name = "ResourceView";
             this.Size = new System.Drawing.Size(530, 238);
             this.Load += new System.EventHandler(this.ResourceView_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resourcesGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.resourceAdapterBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -100,10 +100,13 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView resourcesGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn startDateTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn endDateTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource resourceAdapterBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
     }
 }

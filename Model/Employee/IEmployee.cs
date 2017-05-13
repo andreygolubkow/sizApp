@@ -2,7 +2,7 @@
 {
     using System;
 
-    using Model.Professions;
+    using Professions;
 
     public interface IEmployee
     {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Tools
 {
@@ -43,7 +44,7 @@ namespace Tools
                             count = kp.Value;
                         }
                     }
-                    return Convert.ToString(count);
+                    return Convert.ToString(count, CultureInfo.InvariantCulture);
                 }
 
                     return _equipment.CountString;

@@ -2,7 +2,7 @@
 {
     using System;
 
-    using Model.Professions;
+    using Professions;
     [Serializable]
     public class StandartEmployee : IEmployee
     {
@@ -37,7 +37,7 @@
             {
                 if ( value < 0 )
                 {
-                    throw new ArgumentOutOfRangeException("Ошибка в идентификаторе.");
+                    throw new ArgumentOutOfRangeException($"Ошибка в идентификаторе.");
                 }
                 _id = value;
             }

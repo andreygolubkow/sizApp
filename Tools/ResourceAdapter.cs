@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
 
 using Model.Equipments;
 using Model.Project;
@@ -15,6 +11,11 @@ namespace Tools
     {
         private Resource _resource;
         private IZone _zone;
+
+        public ResourceAdapter()
+        {
+            
+        }
 
         public ResourceAdapter(Resource resource, IZone zone)
         {
@@ -56,18 +57,18 @@ namespace Tools
                 }
 
                 var yearEquipment = _resource.Equipment as PerYearEquipment;
-                if (yearEquipment != null)
+                if ( yearEquipment == null )
+                {
+                    return (Convert.ToDateTime(StartDateTime)).AddYears(1000);
+                }
                 {
                     var equipment = yearEquipment;
-                    double count = 0;
-                    count = equipment.CountPerYear;
+                    double count = equipment.CountPerYear;
                     double days = 365 / count;
                     DateTime startDateTime = Convert.ToDateTime(StartDateTime);
                     DateTime endDateTime = startDateTime.AddDays(days);
                     return endDateTime;
                 }
-
-                return (Convert.ToDateTime(StartDateTime)).AddYears(1000);
             }
         }
 

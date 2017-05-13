@@ -196,7 +196,7 @@
         {
             if ( _zoneSelectedId <= -1 )
             {
-                MessageBox.Show("Выберите элемент для правки");
+                MessageBox.Show(@"Выберите элемент для правки");
                 return;
             }
             int index = _zonesList.IndexOf((IZone)iZoneBindingSource.Current);
@@ -304,7 +304,7 @@
         {
             if ( _regionSelectedId <= -1 )
             {
-                MessageBox.Show("Выберите элемент для правки");
+                MessageBox.Show(@"Выберите элемент для правки");
                 return;
             }
             int index = _regionsList.IndexOf((IRegion)iRegionBindingSource.Current);
@@ -462,7 +462,7 @@
         {
             if ( _equipmentSelectedId <= -1 )
             {
-                MessageBox.Show("Выберите элемент для правки");
+                MessageBox.Show(@"Выберите элемент для правки");
                 return;
             }
 
@@ -613,7 +613,7 @@
         {
             if ( _professionSelectedId <= -1 )
             {
-                MessageBox.Show("Выберите элемент для правки");
+                MessageBox.Show(@"Выберите элемент для правки");
                 return;
             }
             int index = _professionsList.IndexOf((IProfession)iProfessionBindingSource.Current);

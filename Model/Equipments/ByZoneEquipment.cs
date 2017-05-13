@@ -33,7 +33,7 @@ namespace Model.Equipments
             {
                 if ( value < 0 )
                 {
-                    throw new ArgumentOutOfRangeException("Ошибка при вводе ID");
+                    throw new ArgumentOutOfRangeException($"Ошибка при вводе ID");
                 }
                 _id = value;
             }

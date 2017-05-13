@@ -143,10 +143,12 @@
             this.employeeComboBox.TabIndex = 0;
             this.employeeComboBox.ValueMember = "Employee";
             this.employeeComboBox.SelectedIndexChanged += new System.EventHandler(this.employeeComboBox_SelectedIndexChanged);
+            this.employeeComboBox.SelectionChangeCommitted += new System.EventHandler(this.employeeComboBox_SelectionChangeCommitted);
             // 
             // fullNameEmployeeAdapterBindingSource
             // 
             this.fullNameEmployeeAdapterBindingSource.DataSource = typeof(Tools.FullNameEmployeeAdapter);
+            this.fullNameEmployeeAdapterBindingSource.CurrentChanged += new System.EventHandler(this.fullNameEmployeeAdapterBindingSource_CurrentChanged);
             // 
             // tabPage2
             // 

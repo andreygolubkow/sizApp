@@ -59,6 +59,7 @@
             this.issueGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.issueGridView.Size = new System.Drawing.Size(572, 251);
             this.issueGridView.TabIndex = 0;
+            this.issueGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.IssueGridViewCellClick);
             // 
             // Surname
             // 
