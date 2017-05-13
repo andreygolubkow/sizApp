@@ -36,6 +36,9 @@
     <ApplicationIcon>sizApp.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml, Version=0.0.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.1\lib\net45\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,6 +50,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\EmployesListControl.cs">
@@ -150,6 +154,7 @@
     <EmbeddedResource Include="SizViewForm.resx">
       <DependentUpon>SizViewForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\Model.Employee.IEmployee.datasource" />
     <None Include="Properties\DataSources\Model.Equipments.IEquipment.datasource" />
     <None Include="Properties\DataSources\Model.Professions.IProfession.datasource" />

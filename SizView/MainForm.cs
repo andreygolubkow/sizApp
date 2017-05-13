@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using DocumentFormat.OpenXml;
 
 namespace SizView
 {
@@ -213,6 +214,11 @@ namespace SizView
         private void actualMenuItem_Click(object sender, EventArgs e)
         {
             sizListControl.IssueActive = actualMenuItem.Checked;
+        }
+
+        private void fileMenuItem_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
