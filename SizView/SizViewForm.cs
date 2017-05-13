@@ -21,6 +21,7 @@ namespace SizView
             numLabel.Text = record.Employee.PersonnelNumber;
             structuralUnit.Text = record.Employee.StructuralUnit;
             professionLabel.Text = record.Employee.Profession.Name;
+            Text = record.Employee.Surname+" "+record.Employee.Name+ " - Информация";
         }
 
         private void closeButton_Click(object sender, System.EventArgs e)
