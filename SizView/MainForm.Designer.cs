@@ -89,14 +89,14 @@
             // employesMenuItem
             // 
             this.employesMenuItem.Name = "employesMenuItem";
-            this.employesMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.employesMenuItem.Size = new System.Drawing.Size(152, 22);
             this.employesMenuItem.Text = "Работники";
             this.employesMenuItem.Click += new System.EventHandler(this.employesMenuItem_Click);
             // 
             // informationMenuItem
             // 
             this.informationMenuItem.Name = "informationMenuItem";
-            this.informationMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.informationMenuItem.Size = new System.Drawing.Size(152, 22);
             this.informationMenuItem.Text = "Информация";
             this.informationMenuItem.Click += new System.EventHandler(this.InformationMenuItemClick);
             // 
@@ -106,13 +106,13 @@
             this.newIssueMenuItem,
             this.actualMenuItem});
             this.sizToolStripMenuItem.Name = "sizToolStripMenuItem";
-            this.sizToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.sizToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.sizToolStripMenuItem.Text = "СИЗ";
             // 
             // newIssueMenuItem
             // 
             this.newIssueMenuItem.Name = "newIssueMenuItem";
-            this.newIssueMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.newIssueMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newIssueMenuItem.Text = "Выдать";
             this.newIssueMenuItem.Click += new System.EventHandler(this.newIssueMenuItem_Click);
             // 
@@ -121,8 +121,9 @@
             this.actualMenuItem.CheckOnClick = true;
             this.actualMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.actualMenuItem.Name = "actualMenuItem";
-            this.actualMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.actualMenuItem.Size = new System.Drawing.Size(152, 22);
             this.actualMenuItem.Text = "Актуальность";
+            this.actualMenuItem.Click += new System.EventHandler(this.actualMenuItem_Click);
             // 
             // sizListControl
             // 
@@ -134,7 +135,6 @@
             this.sizListControl.Name = "sizListControl";
             this.sizListControl.Size = new System.Drawing.Size(680, 296);
             this.sizListControl.TabIndex = 1;
-            this.sizListControl.Zone = null;
             this.sizListControl.CurrentChanged += new System.EventHandler(this.SizListControlCurrentChanged);
             // 
             // MainForm

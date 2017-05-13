@@ -206,7 +206,13 @@ namespace SizView
             if ( sizListControl.CurrentRecord != null )
             {
                 _sizViewForm.LoadIsuue(sizListControl.CurrentRecord);
+                actualMenuItem.Checked = sizListControl.IssueActive;
             }
+        }
+
+        private void actualMenuItem_Click(object sender, EventArgs e)
+        {
+            sizListControl.IssueActive = actualMenuItem.Checked;
         }
     }
 }

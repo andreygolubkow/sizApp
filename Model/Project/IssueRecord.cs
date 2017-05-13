@@ -3,8 +3,8 @@
     using System;
     using System.Collections.Generic;
 
-    using Model.Employee;
-    using Model.Professions;
+    using Employee;
+    using Professions;
 
     [Serializable]
     public class IssueRecord
@@ -21,6 +21,6 @@
 
         public IList<Resource> Resources { get; set; }
 
-
+        public bool Active { get; set; }
     }
 }

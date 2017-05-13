@@ -148,6 +148,7 @@
                                                }).ToList();
             record.Resources = resourcesList;
             record.Professions = professions;
+            record.Active = true;
             _issue = record;
             DialogResult = DialogResult.OK;
             Close();

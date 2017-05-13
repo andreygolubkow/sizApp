@@ -28,13 +28,31 @@ namespace SizView.Controls
 
         public IssueRecord CurrentRecord { get; private set; }
 
-        [DefaultValue(null)]
-        public List<IssueRecord> IssueRecords
+        [DefaultValue(false)]
+        public bool IssueActive
         {
             get
             {
-                return _issueRecords;
+                if ( CurrentRecord != null )
+                {
+                    return CurrentRecord.Active;
+                }
+                return false;
             }
+            set
+            {
+                if (issueGridView.SelectedRows.Count <= 0)
+                {
+                    return;
+                }
+                _issueRecords[issueGridView.SelectedRows[0].Index].Active = value;
+            }
+        }
+
+        [DefaultValue(null)]
+        public List<IssueRecord> IssueRecords
+        {
+            get => _issueRecords;
 
             set
             {
@@ -43,6 +61,7 @@ namespace SizView.Controls
             }
         }
 
+        [DefaultValue(null)]
         public IZone Zone { get; set; }
 
         private void InitGridView()
@@ -86,14 +105,16 @@ namespace SizView.Controls
                 var row = new DataGridViewRow();
                 row.CreateCells(issueGridView);
                 row.SetValues(surname, name, middleName, professionName, startDate, endDateS);
-                if ((minEndDateTime - DateTime.Today).TotalDays < 7)
+                if ( record.Active )
                 {
-                    row.DefaultCellStyle.BackColor = Color.Salmon;
-                }
-                else
-               if ((minEndDateTime - DateTime.Today).TotalDays < 30)
-                {
-                    row.DefaultCellStyle.BackColor = Color.BurlyWood;
+                    if ( (minEndDateTime - DateTime.Today).TotalDays < 7 )
+                    {
+                        row.DefaultCellStyle.BackColor = Color.Salmon;
+                    }
+                    else if ( (minEndDateTime - DateTime.Today).TotalDays < 30 )
+                    {
+                        row.DefaultCellStyle.BackColor = Color.BurlyWood;
+                    }
                 }
                 issueGridView.Rows.Add(row);
             }
