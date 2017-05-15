@@ -40,6 +40,7 @@
             this.newIssueMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actualMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sizListControl = new SizView.Controls.SizListControl();
+            this.DocumentTestDEBUGButton = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +49,8 @@
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenuItem,
             this.viewMenuItem,
-            this.controlMenuItem});
+            this.controlMenuItem,
+            this.DocumentTestDEBUGButton});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
             this.mainMenuStrip.Size = new System.Drawing.Size(680, 24);
@@ -138,6 +140,13 @@
             this.sizListControl.TabIndex = 1;
             this.sizListControl.CurrentChanged += new System.EventHandler(this.SizListControlCurrentChanged);
             // 
+            // DocumentTestDEBUGButton
+            // 
+            this.DocumentTestDEBUGButton.Name = "DocumentTestDEBUGButton";
+            this.DocumentTestDEBUGButton.Size = new System.Drawing.Size(104, 20);
+            this.DocumentTestDEBUGButton.Text = "Документ ТЕСТ";
+            this.DocumentTestDEBUGButton.Click += new System.EventHandler(this.DocumentTestDEBUGButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,6 +180,7 @@
         private System.Windows.Forms.ToolStripMenuItem sizToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newIssueMenuItem;
         private System.Windows.Forms.ToolStripMenuItem actualMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DocumentTestDEBUGButton;
     }
 }
 

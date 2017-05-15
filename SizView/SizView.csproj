@@ -180,6 +180,10 @@
     <Content Include="sizApp.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DocumentWorker\DocumentWorker.csproj">
+      <Project>{6b8baf3e-1ba3-4bfc-9bf0-840f5199ffc1}</Project>
+      <Name>DocumentWorker</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{4fc05933-50ae-485d-812e-13cc2fbf54da}</Project>
       <Name>Model</Name>

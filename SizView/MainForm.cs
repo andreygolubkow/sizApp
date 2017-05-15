@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-using DocumentFormat.OpenXml;
+using DocumentWorker;
 
 namespace SizView
 {
@@ -36,6 +35,7 @@ namespace SizView
 
             LoadData();
             _sizViewForm = new SizViewForm(((Project)_project).ProjectInformation.Region.Zone);
+
         }
 
         private void LoadData()
@@ -218,6 +218,12 @@ namespace SizView
 
         private void fileMenuItem_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void DocumentTestDEBUGButton_Click(object sender, EventArgs e)
+        {
+            var doc = new SizListBlankDocument();
             
         }
     }
