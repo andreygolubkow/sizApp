@@ -39,8 +39,8 @@
             this.sizToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newIssueMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actualMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sizListControl = new SizView.Controls.SizListControl();
             this.DocumentTestDEBUGButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.sizListControl = new SizView.Controls.SizListControl();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -128,6 +128,13 @@
             this.actualMenuItem.Text = "Актуальность";
             this.actualMenuItem.Click += new System.EventHandler(this.actualMenuItem_Click);
             // 
+            // DocumentTestDEBUGButton
+            // 
+            this.DocumentTestDEBUGButton.Name = "DocumentTestDEBUGButton";
+            this.DocumentTestDEBUGButton.Size = new System.Drawing.Size(104, 20);
+            this.DocumentTestDEBUGButton.Text = "Документ ТЕСТ";
+            this.DocumentTestDEBUGButton.Click += new System.EventHandler(this.DocumentTestDEBUGButton_Click);
+            // 
             // sizListControl
             // 
             this.sizListControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -140,13 +147,6 @@
             this.sizListControl.TabIndex = 1;
             this.sizListControl.CurrentChanged += new System.EventHandler(this.SizListControlCurrentChanged);
             // 
-            // DocumentTestDEBUGButton
-            // 
-            this.DocumentTestDEBUGButton.Name = "DocumentTestDEBUGButton";
-            this.DocumentTestDEBUGButton.Size = new System.Drawing.Size(104, 20);
-            this.DocumentTestDEBUGButton.Text = "Документ ТЕСТ";
-            this.DocumentTestDEBUGButton.Click += new System.EventHandler(this.DocumentTestDEBUGButton_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,7 +157,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenuStrip;
             this.Name = "MainForm";
-            this.Text = "СИЗ Контроль";
+            this.Text = "СИЗ: нормы и контроль";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.mainMenuStrip.ResumeLayout(false);
