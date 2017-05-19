@@ -39,8 +39,6 @@
             this.resourceView = new SizView.Controls.ResourceView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.closeButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -136,18 +134,16 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.closeButton);
-            this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.Location = new System.Drawing.Point(369, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(123, 114);
+            this.groupBox3.Size = new System.Drawing.Size(123, 54);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Действия";
             // 
             // closeButton
             // 
-            this.closeButton.Location = new System.Drawing.Point(6, 78);
+            this.closeButton.Location = new System.Drawing.Point(6, 19);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(111, 23);
             this.closeButton.TabIndex = 2;
@@ -155,29 +151,11 @@
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(6, 49);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Печать положения";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(6, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 24);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Печать перечня";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // SizViewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(504, 292);
+            this.ClientSize = new System.Drawing.Size(499, 292);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -205,8 +183,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button closeButton;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
         private Controls.ResourceView resourceView;
     }
 }

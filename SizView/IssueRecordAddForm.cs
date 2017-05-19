@@ -81,7 +81,7 @@
             {
                 foreach (IEquipment item in profession.Equipments)
                 {
-                    list.Add(new CorrectEquipmentAdapter(item, Zone));
+                    list.Add(new CorrectEquipmentAdapter(item, Zone,profession));
                 }
             }
 
@@ -92,7 +92,7 @@
         private void addAdditionalSizButton_Click(object sender, EventArgs e)
         {
             IEquipment inAdapterEquipment = ((CorrectEquipmentAdapter)correctEquipmentAdapterBindingSource.Current).GetEquipment();
-            var equipment = new CorrectEquipmentAdapter(inAdapterEquipment, Zone)
+            var equipment = new CorrectEquipmentAdapter(inAdapterEquipment, Zone, null)
                                 {
                                     Notes = additionsTextBox.Text
                                 };
@@ -125,8 +125,9 @@
 
         private void editApplySizButton_Click(object sender, EventArgs e)
         {
+            CorrectEquipmentAdapter correct = (CorrectEquipmentAdapter)completeListBindingSource.Current;
             var equipment = (IEquipment)editEquipmentBindingSource.Current;
-            var adaptedEquipment = new CorrectEquipmentAdapter(equipment,Zone);
+            var adaptedEquipment = new CorrectEquipmentAdapter(equipment,Zone, correct.Profession);
             completeListBindingSource.RemoveCurrent();
             completeListBindingSource.Add(adaptedEquipment);
         }
@@ -143,6 +144,7 @@
                                                {
                                                    Additional = eq.Notes,
                                                    Count = eq.Count,
+                                                   Profession = eq.Profession,
                                                    Equipment = eq.GetEquipment(),
                                                    IssueDate = DateTime.Now
                                                }).ToList();

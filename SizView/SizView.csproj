@@ -50,6 +50,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="TemplateEngine.Docx, Version=1.0.0.0, Culture=neutral, PublicKeyToken=04d12e71ab4342c2" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +160,7 @@
     <None Include="Properties\DataSources\Model.Equipments.IEquipment.datasource" />
     <None Include="Properties\DataSources\Model.Professions.IProfession.datasource" />
     <None Include="Properties\DataSources\Model.Project.IssueRecord.datasource" />
+    <None Include="Properties\DataSources\Model.Project.Resource.datasource" />
     <None Include="Properties\DataSources\Model.Regions.IRegion.datasource" />
     <None Include="Properties\DataSources\Tools.CorrectEquipmentAdapter.datasource" />
     <None Include="Properties\DataSources\Tools.FullNameEmployeeAdapter.datasource" />

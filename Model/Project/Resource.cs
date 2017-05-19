@@ -1,4 +1,6 @@
-﻿namespace Model.Project
+﻿using Model.Professions;
+
+namespace Model.Project
 {
     using System;
 
@@ -14,6 +16,8 @@
         private string _count;
 
         public IEquipment Equipment { get; set; }
+
+        public IProfession Profession { get; set; }
 
         public string Count
         {

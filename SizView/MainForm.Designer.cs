@@ -41,6 +41,9 @@
             this.actualMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DocumentTestDEBUGButton = new System.Windows.Forms.ToolStripMenuItem();
             this.sizListControl = new SizView.Controls.SizListControl();
+            this.documentsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.createBlankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveDocumentDialog = new System.Windows.Forms.SaveFileDialog();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +53,8 @@
             this.fileMenuItem,
             this.viewMenuItem,
             this.controlMenuItem,
-            this.DocumentTestDEBUGButton});
+            this.DocumentTestDEBUGButton,
+            this.documentsMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
             this.mainMenuStrip.Size = new System.Drawing.Size(680, 24);
@@ -92,14 +96,14 @@
             // employesMenuItem
             // 
             this.employesMenuItem.Name = "employesMenuItem";
-            this.employesMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.employesMenuItem.Size = new System.Drawing.Size(152, 22);
             this.employesMenuItem.Text = "Работники";
             this.employesMenuItem.Click += new System.EventHandler(this.employesMenuItem_Click);
             // 
             // informationMenuItem
             // 
             this.informationMenuItem.Name = "informationMenuItem";
-            this.informationMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.informationMenuItem.Size = new System.Drawing.Size(152, 22);
             this.informationMenuItem.Text = "Информация";
             this.informationMenuItem.Click += new System.EventHandler(this.InformationMenuItemClick);
             // 
@@ -109,7 +113,7 @@
             this.newIssueMenuItem,
             this.actualMenuItem});
             this.sizToolStripMenuItem.Name = "sizToolStripMenuItem";
-            this.sizToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.sizToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.sizToolStripMenuItem.Text = "СИЗ";
             // 
             // newIssueMenuItem
@@ -147,6 +151,27 @@
             this.sizListControl.TabIndex = 1;
             this.sizListControl.CurrentChanged += new System.EventHandler(this.SizListControlCurrentChanged);
             // 
+            // documentsMenuItem
+            // 
+            this.documentsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.createBlankToolStripMenuItem});
+            this.documentsMenuItem.Name = "documentsMenuItem";
+            this.documentsMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.documentsMenuItem.Text = "Документы";
+            // 
+            // createBlankToolStripMenuItem
+            // 
+            this.createBlankToolStripMenuItem.Name = "createBlankToolStripMenuItem";
+            this.createBlankToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.createBlankToolStripMenuItem.Text = "Создать бланк";
+            this.createBlankToolStripMenuItem.Click += new System.EventHandler(this.CreateBlankToolStripMenuItemClick);
+            // 
+            // saveDocumentDialog
+            // 
+            this.saveDocumentDialog.DefaultExt = "docx";
+            this.saveDocumentDialog.Filter = "Документ Word|*.docx";
+            this.saveDocumentDialog.Title = "Сохранение документа";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -181,6 +206,9 @@
         private System.Windows.Forms.ToolStripMenuItem newIssueMenuItem;
         private System.Windows.Forms.ToolStripMenuItem actualMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DocumentTestDEBUGButton;
+        private System.Windows.Forms.ToolStripMenuItem documentsMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem createBlankToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveDocumentDialog;
     }
 }
 

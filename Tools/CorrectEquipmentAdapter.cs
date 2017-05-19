@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Windows.Forms;
+
+using Model.Professions;
 
 namespace Tools
 {
@@ -18,15 +21,18 @@ namespace Tools
             _equipment = new StringCountEquipment(0,string.Empty,"",string.Empty);
         }
 
-        public CorrectEquipmentAdapter(IEquipment equipment, IZone zone)
+        public CorrectEquipmentAdapter(IEquipment equipment, IZone zone, IProfession profession)
         {
             _equipment = equipment;
             _zone = zone;
+            Profession = profession;
         }
 
         public bool Correct => !(_equipment is CompositeEquipment);
 
         public string CorrectString => Correct ? "Готово" : "Требует настройки";
+
+        public IProfession Profession { get; set; }
 
         public string Name => _equipment.Name;
 
@@ -65,7 +71,7 @@ namespace Tools
             var correctList = new List<CorrectEquipmentAdapter>();
             foreach (IEquipment equipment in equipments)
             {
-                correctList.Add(new CorrectEquipmentAdapter(equipment, zone));
+                correctList.Add(new CorrectEquipmentAdapter(equipment, zone, null));
             }
             return correctList;
         }

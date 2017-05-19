@@ -42,7 +42,7 @@ namespace Model.Regions
         {
             get
             {
-                return _name;
+                return _name+":"+_addition;
             }
             set
             {

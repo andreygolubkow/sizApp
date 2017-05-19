@@ -74,8 +74,14 @@
             this.correctDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.completeListBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
-            this.employeeName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.resourceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.equipmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.countDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.issueDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.additionalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -96,6 +102,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.correctEquipmentAdapterBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.completeSizGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.completeListBindingSource)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resourceBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -103,6 +112,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -299,7 +309,6 @@
             this.tabPage3.Controls.Add(this.groupBox5);
             this.tabPage3.Controls.Add(this.completeSizGridView);
             this.tabPage3.Controls.Add(this.label4);
-            this.tabPage3.Controls.Add(this.employeeName);
             this.tabPage3.Controls.Add(this.label2);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -525,15 +534,6 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "Следующие СИЗ:";
             // 
-            // employeeName
-            // 
-            this.employeeName.AutoSize = true;
-            this.employeeName.Location = new System.Drawing.Point(115, 3);
-            this.employeeName.Name = "employeeName";
-            this.employeeName.Size = new System.Drawing.Size(34, 13);
-            this.employeeName.TabIndex = 1;
-            this.employeeName.Text = "ФИО";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -542,6 +542,60 @@
             this.label2.Size = new System.Drawing.Size(103, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Выдать работнику ";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.dataGridView1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(590, 392);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Результат";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.equipmentDataGridViewTextBoxColumn,
+            this.countDataGridViewTextBoxColumn1,
+            this.issueDateDataGridViewTextBoxColumn,
+            this.additionalDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.resourceBindingSource;
+            this.dataGridView1.Location = new System.Drawing.Point(44, 46);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(448, 150);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // resourceBindingSource
+            // 
+            this.resourceBindingSource.DataSource = typeof(Model.Project.Resource);
+            // 
+            // equipmentDataGridViewTextBoxColumn
+            // 
+            this.equipmentDataGridViewTextBoxColumn.DataPropertyName = "Equipment";
+            this.equipmentDataGridViewTextBoxColumn.HeaderText = "Equipment";
+            this.equipmentDataGridViewTextBoxColumn.Name = "equipmentDataGridViewTextBoxColumn";
+            // 
+            // countDataGridViewTextBoxColumn1
+            // 
+            this.countDataGridViewTextBoxColumn1.DataPropertyName = "Count";
+            this.countDataGridViewTextBoxColumn1.HeaderText = "Count";
+            this.countDataGridViewTextBoxColumn1.Name = "countDataGridViewTextBoxColumn1";
+            // 
+            // issueDateDataGridViewTextBoxColumn
+            // 
+            this.issueDateDataGridViewTextBoxColumn.DataPropertyName = "IssueDate";
+            this.issueDateDataGridViewTextBoxColumn.HeaderText = "IssueDate";
+            this.issueDateDataGridViewTextBoxColumn.Name = "issueDateDataGridViewTextBoxColumn";
+            // 
+            // additionalDataGridViewTextBoxColumn
+            // 
+            this.additionalDataGridViewTextBoxColumn.DataPropertyName = "Additional";
+            this.additionalDataGridViewTextBoxColumn.HeaderText = "Additional";
+            this.additionalDataGridViewTextBoxColumn.Name = "additionalDataGridViewTextBoxColumn";
             // 
             // IssueRecordAddForm
             // 
@@ -578,6 +632,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.correctEquipmentAdapterBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.completeSizGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.completeListBindingSource)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.resourceBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -604,7 +661,6 @@
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.DataGridView completeSizGridView;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label employeeName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button addAdditionalSizButton;
@@ -630,5 +686,12 @@
         private System.Windows.Forms.TextBox editSizNameTextBox;
         private System.Windows.Forms.BindingSource editEquipmentBindingSource;
         private System.Windows.Forms.Button newIssueRecordButton;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn equipmentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn issueDateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn additionalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource resourceBindingSource;
     }
 }

@@ -223,8 +223,18 @@ namespace SizView
 
         private void DocumentTestDEBUGButton_Click(object sender, EventArgs e)
         {
-            var doc = new SizListBlankDocument();
             
+            
+        }
+
+        private void CreateBlankToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            if ( saveDocumentDialog.ShowDialog() == DialogResult.OK )
+            {
+                DocumentBuilder.PrepareDocument("BlankTemplate.docx",saveDocumentDialog.FileName);
+                var document = DocumentBuilder.BuildBlank(sizListControl.CurrentRecord, ((Project)_project).ProjectInformation);
+                DocumentBuilder.WriteDocument(document, saveDocumentDialog.FileName);
+            }
         }
     }
 }
