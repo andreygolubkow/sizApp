@@ -236,5 +236,25 @@ namespace SizView
                 DocumentBuilder.WriteDocument(document, saveDocumentDialog.FileName);
             }
         }
+
+        private void createProvisionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveDocumentDialog.ShowDialog() == DialogResult.OK)
+            {
+                DocumentBuilder.PrepareDocument("ProvisionTemplate.docx", saveDocumentDialog.FileName);
+                var document = DocumentBuilder.BuildProvision(((Project)_project).ProjectInformation);
+                DocumentBuilder.WriteDocument(document, saveDocumentDialog.FileName);
+            }
+        }
+
+        private void createOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveDocumentDialog.ShowDialog() == DialogResult.OK)
+            {
+                DocumentBuilder.PrepareDocument("OrderBlank.docx", saveDocumentDialog.FileName);
+                var document = DocumentBuilder.BuildOrder(((Project)_project).ProjectInformation);
+                DocumentBuilder.WriteDocument(document, saveDocumentDialog.FileName);
+            }
+        }
     }
 }

@@ -17,13 +17,19 @@ namespace DocumentWorker
 {
     public class DocumentBuilder
     {
-        public static Content BuildBlank(IssueRecord record, Information Information)
+        /// <summary>
+        /// Построение бланка.
+        /// </summary>
+        /// <param name="record"></param>
+        /// <param name="information"></param>
+        /// <returns></returns>
+        public static Content BuildBlank(IssueRecord record, Information information)
         {
             
             var content = new Content(new FieldContent("Header","Бланк"),
-                                            new FieldContent("CompanyShortName",Information.OrganizaionShortName),
-                                            new FieldContent("CompanyHeadPosition",Information.LeaderPosition),
-                                            new FieldContent("CompanyHeadName", Information.LeaderFullName));
+                                            new FieldContent("CompanyShortName",information.OrganizaionShortName),
+                                            new FieldContent("CompanyHeadPosition",information.LeaderPosition),
+                                            new FieldContent("CompanyHeadName", information.LeaderFullName));
 
             var professionCounter = 0;
             var lastProfession = "";
@@ -52,6 +58,34 @@ namespace DocumentWorker
                 }
             }
             content.Tables.Add(table);
+            return content;
+        }
+
+        /// <summary>
+        /// Построение положения.
+        /// </summary>
+        /// <param name="information"></param>
+        /// <returns></returns>
+        public static Content BuildProvision(Information information)
+        {
+
+            var content = new Content(new FieldContent("Header", "Положение"),
+                                      new FieldContent("CompanyShortName", information.OrganizaionShortName),
+                                      new FieldContent("HeadPosition", information.LeaderPosition),
+                                      new FieldContent("CompanyFullName", information.OrganizationFullName),
+                                      new FieldContent("HeadName", information.LeaderFullName));
+            return content;
+        }
+
+        public static Content BuildOrder(Information information)
+        {
+
+            var content = new Content(new FieldContent("CompanyShortName", information.OrganizaionShortName),
+                                      new FieldContent("HeadPeopleThis", information.LeaderFullName == information.HeadPerson ? "собой" : information.HeadPerson),
+                                      new FieldContent("HeadPosition", information.LeaderPosition),
+                                      new FieldContent("CompanyFullName", information.OrganizationFullName),
+                                      new FieldContent("CompanyCity",information.City),
+                                      new FieldContent("HeadName", information.LeaderFullName));
             return content;
         }
 
