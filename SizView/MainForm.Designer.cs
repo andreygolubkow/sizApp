@@ -39,13 +39,12 @@
             this.sizToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newIssueMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actualMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DocumentTestDEBUGButton = new System.Windows.Forms.ToolStripMenuItem();
             this.documentsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createBlankToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sizListControl = new SizView.Controls.SizListControl();
-            this.saveDocumentDialog = new System.Windows.Forms.SaveFileDialog();
             this.createProvisionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sizListControl = new SizView.Controls.SizListControl();
+            this.saveDocumentDialog = new System.Windows.Forms.SaveFileDialog();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +54,6 @@
             this.fileMenuItem,
             this.viewMenuItem,
             this.controlMenuItem,
-            this.DocumentTestDEBUGButton,
             this.documentsMenuItem});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
@@ -134,13 +132,6 @@
             this.actualMenuItem.Text = "Актуальность";
             this.actualMenuItem.Click += new System.EventHandler(this.actualMenuItem_Click);
             // 
-            // DocumentTestDEBUGButton
-            // 
-            this.DocumentTestDEBUGButton.Name = "DocumentTestDEBUGButton";
-            this.DocumentTestDEBUGButton.Size = new System.Drawing.Size(104, 20);
-            this.DocumentTestDEBUGButton.Text = "Документ ТЕСТ";
-            this.DocumentTestDEBUGButton.Click += new System.EventHandler(this.DocumentTestDEBUGButton_Click);
-            // 
             // documentsMenuItem
             // 
             this.documentsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -157,6 +148,20 @@
             this.createBlankToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.createBlankToolStripMenuItem.Text = "Сформировать бланк";
             this.createBlankToolStripMenuItem.Click += new System.EventHandler(this.CreateBlankToolStripMenuItemClick);
+            // 
+            // createProvisionToolStripMenuItem
+            // 
+            this.createProvisionToolStripMenuItem.Name = "createProvisionToolStripMenuItem";
+            this.createProvisionToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.createProvisionToolStripMenuItem.Text = "Сформировать положение";
+            this.createProvisionToolStripMenuItem.Click += new System.EventHandler(this.createProvisionToolStripMenuItem_Click);
+            // 
+            // createOrderToolStripMenuItem
+            // 
+            this.createOrderToolStripMenuItem.Name = "createOrderToolStripMenuItem";
+            this.createOrderToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.createOrderToolStripMenuItem.Text = "Сформировать приказ";
+            this.createOrderToolStripMenuItem.Click += new System.EventHandler(this.createOrderToolStripMenuItem_Click);
             // 
             // sizListControl
             // 
@@ -175,20 +180,6 @@
             this.saveDocumentDialog.DefaultExt = "docx";
             this.saveDocumentDialog.Filter = "Документ Word|*.docx";
             this.saveDocumentDialog.Title = "Сохранение документа";
-            // 
-            // createProvisionToolStripMenuItem
-            // 
-            this.createProvisionToolStripMenuItem.Name = "createProvisionToolStripMenuItem";
-            this.createProvisionToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
-            this.createProvisionToolStripMenuItem.Text = "Сформировать положение";
-            this.createProvisionToolStripMenuItem.Click += new System.EventHandler(this.createProvisionToolStripMenuItem_Click);
-            // 
-            // createOrderToolStripMenuItem
-            // 
-            this.createOrderToolStripMenuItem.Name = "createOrderToolStripMenuItem";
-            this.createOrderToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
-            this.createOrderToolStripMenuItem.Text = "Сформировать приказ";
-            this.createOrderToolStripMenuItem.Click += new System.EventHandler(this.createOrderToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -223,7 +214,6 @@
         private System.Windows.Forms.ToolStripMenuItem sizToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newIssueMenuItem;
         private System.Windows.Forms.ToolStripMenuItem actualMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem DocumentTestDEBUGButton;
         private System.Windows.Forms.ToolStripMenuItem documentsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createBlankToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveDocumentDialog;
