@@ -256,5 +256,26 @@ namespace SizView
                 DocumentBuilder.WriteDocument(document, saveDocumentDialog.FileName);
             }
         }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveData();
+        }
+
+        private void reloadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if ( MessageBox.Show("Все несохраненные изменения будут потеряны, в хотите продолжить ?",
+                                 "Перезагрузка базы",
+                                 MessageBoxButtons.YesNo) == DialogResult.OK )
+            {
+                LoadData();
+                _sizViewForm = new SizViewForm(((Project)_project).ProjectInformation.Region.Zone);
+            }
+        }
+
+        private void refreshSizListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            sizListControl.UpdateList();
+        }
     }
 }

@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainMenuStrip = new System.Windows.Forms.MenuStrip();
-            this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showInfoMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controlMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,13 +44,17 @@
             this.createOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sizListControl = new SizView.Controls.SizListControl();
             this.saveDocumentDialog = new System.Windows.Forms.SaveFileDialog();
+            this.refreshSizListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.базаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainMenuStrip
             // 
             this.mainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileMenuItem,
+            this.базаToolStripMenuItem,
             this.viewMenuItem,
             this.controlMenuItem,
             this.documentsMenuItem});
@@ -61,17 +64,11 @@
             this.mainMenuStrip.TabIndex = 0;
             this.mainMenuStrip.Text = "menuStrip1";
             // 
-            // fileMenuItem
-            // 
-            this.fileMenuItem.Name = "fileMenuItem";
-            this.fileMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.fileMenuItem.Text = "Файл";
-            this.fileMenuItem.Click += new System.EventHandler(this.fileMenuItem_Click);
-            // 
             // viewMenuItem
             // 
             this.viewMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showInfoMenuItem});
+            this.showInfoMenuItem,
+            this.refreshSizListToolStripMenuItem});
             this.viewMenuItem.Name = "viewMenuItem";
             this.viewMenuItem.Size = new System.Drawing.Size(39, 20);
             this.viewMenuItem.Text = "Вид";
@@ -79,7 +76,8 @@
             // showInfoMenuItem
             // 
             this.showInfoMenuItem.Name = "showInfoMenuItem";
-            this.showInfoMenuItem.Size = new System.Drawing.Size(203, 22);
+            this.showInfoMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.showInfoMenuItem.Size = new System.Drawing.Size(243, 22);
             this.showInfoMenuItem.Text = "Показать информацию";
             this.showInfoMenuItem.Click += new System.EventHandler(this.showInfoMenuItem_Click);
             // 
@@ -96,14 +94,15 @@
             // employesMenuItem
             // 
             this.employesMenuItem.Name = "employesMenuItem";
-            this.employesMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.employesMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.E)));
+            this.employesMenuItem.Size = new System.Drawing.Size(169, 22);
             this.employesMenuItem.Text = "Работники";
             this.employesMenuItem.Click += new System.EventHandler(this.employesMenuItem_Click);
             // 
             // informationMenuItem
             // 
             this.informationMenuItem.Name = "informationMenuItem";
-            this.informationMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.informationMenuItem.Size = new System.Drawing.Size(169, 22);
             this.informationMenuItem.Text = "Информация";
             this.informationMenuItem.Click += new System.EventHandler(this.InformationMenuItemClick);
             // 
@@ -113,13 +112,14 @@
             this.newIssueMenuItem,
             this.actualMenuItem});
             this.sizToolStripMenuItem.Name = "sizToolStripMenuItem";
-            this.sizToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.sizToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.sizToolStripMenuItem.Text = "СИЗ";
             // 
             // newIssueMenuItem
             // 
             this.newIssueMenuItem.Name = "newIssueMenuItem";
-            this.newIssueMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.newIssueMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.V)));
+            this.newIssueMenuItem.Size = new System.Drawing.Size(192, 22);
             this.newIssueMenuItem.Text = "Выдать";
             this.newIssueMenuItem.Click += new System.EventHandler(this.newIssueMenuItem_Click);
             // 
@@ -128,7 +128,8 @@
             this.actualMenuItem.CheckOnClick = true;
             this.actualMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.actualMenuItem.Name = "actualMenuItem";
-            this.actualMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.actualMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
+            this.actualMenuItem.Size = new System.Drawing.Size(192, 22);
             this.actualMenuItem.Text = "Актуальность";
             this.actualMenuItem.Click += new System.EventHandler(this.actualMenuItem_Click);
             // 
@@ -181,6 +182,37 @@
             this.saveDocumentDialog.Filter = "Документ Word|*.docx";
             this.saveDocumentDialog.Title = "Сохранение документа";
             // 
+            // refreshSizListToolStripMenuItem
+            // 
+            this.refreshSizListToolStripMenuItem.Name = "refreshSizListToolStripMenuItem";
+            this.refreshSizListToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.refreshSizListToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.refreshSizListToolStripMenuItem.Text = "Обновить список";
+            this.refreshSizListToolStripMenuItem.Click += new System.EventHandler(this.refreshSizListToolStripMenuItem_Click);
+            // 
+            // базаToolStripMenuItem
+            // 
+            this.базаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem,
+            this.reloadToolStripMenuItem});
+            this.базаToolStripMenuItem.Name = "базаToolStripMenuItem";
+            this.базаToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.базаToolStripMenuItem.Text = "База";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.saveToolStripMenuItem.Text = "Сохранить";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // reloadToolStripMenuItem
+            // 
+            this.reloadToolStripMenuItem.Name = "reloadToolStripMenuItem";
+            this.reloadToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.reloadToolStripMenuItem.Text = "Перезагрузить";
+            this.reloadToolStripMenuItem.Click += new System.EventHandler(this.reloadToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -204,7 +236,6 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip mainMenuStrip;
-        private System.Windows.Forms.ToolStripMenuItem fileMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showInfoMenuItem;
         private System.Windows.Forms.ToolStripMenuItem controlMenuItem;
@@ -219,6 +250,10 @@
         private System.Windows.Forms.SaveFileDialog saveDocumentDialog;
         private System.Windows.Forms.ToolStripMenuItem createProvisionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createOrderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem базаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reloadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem refreshSizListToolStripMenuItem;
     }
 }
 

@@ -34,6 +34,8 @@ namespace Tools
 
         public IProfession Profession { get; set; }
 
+        public DateTime IssueDateTime { get; set; }
+
         public string Name => _equipment.Name;
 
         public string Count

@@ -79,10 +79,10 @@
             var list = new List<CorrectEquipmentAdapter>();
             foreach (IProfession profession in selectediProfessionBindingSource)
             {
-                foreach (IEquipment item in profession.Equipments)
-                {
-                    list.Add(new CorrectEquipmentAdapter(item, Zone,profession));
-                }
+                list.AddRange(profession.Equipments.Select(item => new CorrectEquipmentAdapter(item, Zone, profession)
+                                                                   {
+                                                                       IssueDateTime = DateTime.Now
+                                                                   }));
             }
 
             completeListBindingSource.DataSource = list;
@@ -101,20 +101,7 @@
 
         private void completeSizGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            IEquipment equipment = ((CorrectEquipmentAdapter)completeListBindingSource.Current).GetEquipment();
-            editSizNameTextBox.Text = equipment.Name;
-            if (!(equipment is CompositeEquipment))
-            {
-                editAdditionComboBox.Enabled = false;
-                editApplySizButton.Enabled = false;
-                return;
-            }
-
-            editAdditionComboBox.Enabled = true;
-            editApplySizButton.Enabled = true;
-            var compositeEquipment = equipment as CompositeEquipment;
-            editEquipmentBindingSource.DataSource = new List<IEquipment>(compositeEquipment.EquipmentsList);
-
+            
 
         }
 
@@ -126,10 +113,23 @@
         private void editApplySizButton_Click(object sender, EventArgs e)
         {
             CorrectEquipmentAdapter correct = (CorrectEquipmentAdapter)completeListBindingSource.Current;
-            var equipment = (IEquipment)editEquipmentBindingSource.Current;
-            var adaptedEquipment = new CorrectEquipmentAdapter(equipment,Zone, correct.Profession);
-            completeListBindingSource.RemoveCurrent();
-            completeListBindingSource.Add(adaptedEquipment);
+            if (!correct.Correct)
+            {
+                var equipment = (IEquipment)editEquipmentBindingSource.Current;
+                var adaptedEquipment = new CorrectEquipmentAdapter(equipment, Zone, correct.Profession)
+                                       {
+                                           IssueDateTime =
+                                                   issueDateTimePicker
+                                                           .Value
+                                       };
+                completeListBindingSource.RemoveCurrent();
+                completeListBindingSource.Add(adaptedEquipment);
+            }
+            else
+            {
+                ((CorrectEquipmentAdapter)completeListBindingSource.Current).IssueDateTime = issueDateTimePicker.Value;
+            }
+            
         }
 
         private void newIssueRecordButton_Click(object sender, EventArgs e)
@@ -146,7 +146,7 @@
                                                    Count = eq.Count,
                                                    Profession = eq.Profession,
                                                    Equipment = eq.GetEquipment(),
-                                                   IssueDate = DateTime.Now
+                                                   IssueDate = eq.IssueDateTime
                                                }).ToList();
             record.Resources = resourcesList;
             record.Professions = professions;
@@ -171,6 +171,23 @@
             selectediProfessionBindingSource.Clear();
             var employee = (FullNameEmployeeAdapter)fullNameEmployeeAdapterBindingSource.Current;
             selectediProfessionBindingSource.Add(employee.Employee.Profession);
+        }
+
+        private void completeListBindingSource_CurrentItemChanged(object sender, EventArgs e)
+        {
+            IEquipment equipment = ((CorrectEquipmentAdapter)completeListBindingSource.Current).GetEquipment();
+            editSizNameTextBox.Text = equipment.Name;
+            issueDateTimePicker.Value = ((CorrectEquipmentAdapter)completeListBindingSource.Current).IssueDateTime;
+            editAdditionComboBox.Enabled = false;
+            if ((equipment is CompositeEquipment))
+            {
+                editAdditionComboBox.Enabled = true;
+                var compositeEquipment = equipment as CompositeEquipment;
+                editEquipmentBindingSource.DataSource = new List<IEquipment>(compositeEquipment.EquipmentsList);
+            }
+            editRemoveSizButton.Enabled = true;
+            editApplySizButton.Enabled = true;
+
         }
     }
 }

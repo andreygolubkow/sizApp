@@ -28,6 +28,11 @@ namespace SizView.Controls
 
         public IssueRecord CurrentRecord { get; private set; }
 
+        public void UpdateList()
+        {
+            InitGridView();
+        }
+
         [DefaultValue(false)]
         public bool IssueActive
         {

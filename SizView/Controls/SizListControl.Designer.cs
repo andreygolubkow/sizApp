@@ -42,6 +42,7 @@
             // 
             this.issueGridView.AllowUserToAddRows = false;
             this.issueGridView.AllowUserToDeleteRows = false;
+            this.issueGridView.AllowUserToResizeRows = false;
             this.issueGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.issueGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.issueGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -53,9 +54,12 @@
             this.EndDate});
             this.issueGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.issueGridView.Location = new System.Drawing.Point(0, 0);
+            this.issueGridView.MultiSelect = false;
             this.issueGridView.Name = "issueGridView";
             this.issueGridView.ReadOnly = true;
             this.issueGridView.RowHeadersVisible = false;
+            this.issueGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.issueGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.issueGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.issueGridView.Size = new System.Drawing.Size(572, 251);
             this.issueGridView.TabIndex = 0;
