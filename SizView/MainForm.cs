@@ -34,7 +34,7 @@ namespace SizView
             InitializeComponent();
 
             LoadData();
-            _sizViewForm = new SizViewForm(((Project)_project).ProjectInformation.Region.Zone);
+            
 
         }
 
@@ -96,6 +96,7 @@ namespace SizView
                 var proj = (Project)_project;
                 sizListControl.Zone = proj.ProjectInformation.Region.Zone ?? new StandartZone(0,0,"");
                 sizListControl.IssueRecords = proj.ProjectJournal;
+                _sizViewForm = new SizViewForm(((Project)_project).ProjectInformation.Region.Zone);
             }
             catch (Exception)
             {
@@ -104,6 +105,7 @@ namespace SizView
                                       ProjectInformation = null
                                   };
                 _project = new Project();
+                MessageBox.Show("Выполните первую настройку программы и перезапустите её.");
             }
         }
 
@@ -229,11 +231,20 @@ namespace SizView
 
         private void CreateBlankToolStripMenuItemClick(object sender, EventArgs e)
         {
-            if ( saveDocumentDialog.ShowDialog() == DialogResult.OK )
+            if ( sizListControl.CurrentRecord != null )
             {
-                DocumentBuilder.PrepareDocument("BlankTemplate.docx",saveDocumentDialog.FileName);
-                var document = DocumentBuilder.BuildBlank(sizListControl.CurrentRecord, ((Project)_project).ProjectInformation);
-                DocumentBuilder.WriteDocument(document, saveDocumentDialog.FileName);
+                if ( saveDocumentDialog.ShowDialog() == DialogResult.OK )
+                {
+                    DocumentBuilder.PrepareDocument("BlankTemplate.docx", saveDocumentDialog.FileName);
+                    var document = DocumentBuilder.BuildBlank(sizListControl.CurrentRecord,
+                                                              ((Project)_project).ProjectInformation);
+                    DocumentBuilder.WriteDocument(document, saveDocumentDialog.FileName);
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Пожалуйста, выберите позицию для генерации документа.");
             }
         }
 
