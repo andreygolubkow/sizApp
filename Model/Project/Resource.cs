@@ -4,8 +4,7 @@ namespace Model.Project
 {
     using System;
 
-    using Model.Employee;
-    using Model.Equipments;
+    using Equipments;
 
     /// <summary>
     /// Вещь которая выдается.

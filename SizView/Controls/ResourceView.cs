@@ -7,8 +7,6 @@ using System.Windows.Forms;
 using Model.Project;
 using Model.Zones;
 
-using Tools;
-
 namespace SizView.Controls
 {
     public partial class ResourceView : UserControl
@@ -20,12 +18,18 @@ namespace SizView.Controls
             InitializeComponent();
         }
 
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         [DefaultValue(null)]
         public IZone Zone
         {
             set => _zone = value;
         }
-            
+
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         [DefaultValue(null)]
         public IList<Resource> Resources
         {

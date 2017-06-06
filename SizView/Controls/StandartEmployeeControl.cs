@@ -29,6 +29,10 @@
 
         }
 
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DefaultValue(null)]
         public int Id
         {
             get
@@ -41,6 +45,9 @@
             }
         }
 
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         [DefaultValue(null)]
         public StandartEmployee Employee
         {
@@ -122,6 +129,10 @@
                 }
             }
         }
+
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         [DefaultValue(null)]
         public IList<IProfession> Professions
         {

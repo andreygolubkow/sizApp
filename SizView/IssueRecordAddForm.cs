@@ -94,7 +94,9 @@
             IEquipment inAdapterEquipment = ((CorrectEquipmentAdapter)correctEquipmentAdapterBindingSource.Current).GetEquipment();
             var equipment = new CorrectEquipmentAdapter(inAdapterEquipment, Zone, null)
                                 {
-                                    Notes = additionsTextBox.Text
+                                    Notes = additionsTextBox.Text,
+                                    IssueDateTime = DateTime.Now
+                                    
                                 };
             completeListBindingSource.Add(equipment);
         }

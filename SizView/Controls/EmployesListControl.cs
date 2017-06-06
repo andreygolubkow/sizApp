@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SizView.Controls
@@ -29,6 +23,9 @@ namespace SizView.Controls
             _employees = new List<IEmployee>();
         }
 
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         [DefaultValue(null)]
         public IList<IEmployee> Employees
         {
@@ -52,6 +49,9 @@ namespace SizView.Controls
             }
         }
 
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         [DefaultValue(null)]
         public IEmployee CurrentEmployee
         {
@@ -82,6 +82,7 @@ namespace SizView.Controls
                 iEmployeeBindingSource.RemoveCurrent();
             }
         }
+
 
         public bool SearchBox
         {

@@ -1,10 +1,8 @@
 ﻿namespace Model.Project
 {
     using System;
-    using System.Runtime.InteropServices;
 
-    using Model.Regions;
-    using Model.Zones;
+    using Regions;
 
     [Serializable]
     public class Information

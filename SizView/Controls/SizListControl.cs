@@ -26,6 +26,10 @@ namespace SizView.Controls
             CurrentRecord = null;
         }
 
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DefaultValue(null)]
         public IssueRecord CurrentRecord { get; private set; }
 
         public void UpdateList()
@@ -33,7 +37,11 @@ namespace SizView.Controls
             InitGridView();
         }
 
-        [DefaultValue(false)]
+
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        [DefaultValue(null)]
         public bool IssueActive
         {
             get
@@ -54,6 +62,9 @@ namespace SizView.Controls
             }
         }
 
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         [DefaultValue(null)]
         public List<IssueRecord> IssueRecords
         {
@@ -66,6 +77,9 @@ namespace SizView.Controls
             }
         }
 
+        [Browsable(false)]
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
         [DefaultValue(null)]
         public IZone Zone { get; set; }
 

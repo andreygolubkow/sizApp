@@ -9,12 +9,6 @@
     [Serializable]
     public class IssueRecord
     {
-
-        public IssueRecord()
-        {
-            
-        }
-
         public IEmployee Employee { get; set; }
 
         public IList<IProfession> Professions { get; set; }

@@ -10,6 +10,9 @@
 
         string CountString { get; }
 
+        /// <summary>
+        /// Срок использования
+        /// </summary>
         string TermOfUse { get; }
 
         /// <summary>

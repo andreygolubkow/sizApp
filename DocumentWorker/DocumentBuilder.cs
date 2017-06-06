@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Reflection;
-
-using DocumentFormat.OpenXml.Office2010.Excel;
 
 using Model.Project;
 
@@ -36,7 +28,7 @@ namespace DocumentWorker
             var table = new TableContent("IssueTable");
             foreach (Resource res in record.Resources)
             {
-                if ( lastProfession!=res.Profession.Name )
+                if (res.Profession != null && lastProfession !=res.Profession.Name )
                 {
                     professionCounter++;
                     table.AddRow(new FieldContent("IssueNum", Convert.ToString(professionCounter)),
