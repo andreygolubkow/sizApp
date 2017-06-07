@@ -288,5 +288,11 @@ namespace SizView
         {
             sizListControl.UpdateList();
         }
+
+        private void aboutBoxButton_Click(object sender, EventArgs e)
+        {
+            var about = new AboutBox();
+            about.ShowDialog();
+        }
     }
 }

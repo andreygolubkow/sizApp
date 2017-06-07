@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Управление общими сведениями о сборке осуществляется с помощью 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("СИЗ Контроль")]
+[assembly: AssemblyTitle("СИЗ: Нормы и контроль")]
 [assembly: AssemblyDescription("Контроль выдачи СИЗ.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("СИЗКонтроль")]
+[assembly: AssemblyProduct("СИЗ: Нормы и контроль")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

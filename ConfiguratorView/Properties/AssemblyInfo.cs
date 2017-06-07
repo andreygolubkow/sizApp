@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 // Управление общими сведениями о сборке осуществляется с помощью 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("ConfiguratorView")]
+[assembly: AssemblyTitle("Конфигуратор")]
 [assembly: AssemblyDescription("Конфигуратор для учета СИЗ")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Учет СИЗ")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCompany("Приложение для создания базы СИЗ.")]
+[assembly: AssemblyProduct("СИЗ: Нормы и контроль")]
+[assembly: AssemblyCopyright("")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

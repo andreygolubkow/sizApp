@@ -48,6 +48,7 @@
             this.createOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sizListControl = new SizView.Controls.SizListControl();
             this.saveDocumentDialog = new System.Windows.Forms.SaveFileDialog();
+            this.aboutBoxButton = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +58,8 @@
             this.базаToolStripMenuItem,
             this.viewMenuItem,
             this.controlMenuItem,
-            this.documentsMenuItem});
+            this.documentsMenuItem,
+            this.aboutBoxButton});
             this.mainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.mainMenuStrip.Name = "mainMenuStrip";
             this.mainMenuStrip.Size = new System.Drawing.Size(680, 24);
@@ -200,7 +202,6 @@
             this.sizListControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.sizListControl.IssueRecords = ((System.Collections.Generic.List<Model.Project.IssueRecord>)(resources.GetObject("sizListControl.IssueRecords")));
             this.sizListControl.Location = new System.Drawing.Point(0, 27);
             this.sizListControl.Name = "sizListControl";
             this.sizListControl.Size = new System.Drawing.Size(680, 296);
@@ -212,6 +213,13 @@
             this.saveDocumentDialog.DefaultExt = "docx";
             this.saveDocumentDialog.Filter = "Документ Word|*.docx";
             this.saveDocumentDialog.Title = "Сохранение документа";
+            // 
+            // aboutBoxButton
+            // 
+            this.aboutBoxButton.Name = "aboutBoxButton";
+            this.aboutBoxButton.Size = new System.Drawing.Size(94, 20);
+            this.aboutBoxButton.Text = "О программе";
+            this.aboutBoxButton.Click += new System.EventHandler(this.aboutBoxButton_Click);
             // 
             // MainForm
             // 
@@ -254,6 +262,7 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reloadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem refreshSizListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutBoxButton;
     }
 }
 
