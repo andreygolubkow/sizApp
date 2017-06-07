@@ -55,5 +55,10 @@ namespace SizView
         private void EmployeeForm_FormClosing(object sender, FormClosingEventArgs e)
         {
         }
+
+        private void cardExportButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

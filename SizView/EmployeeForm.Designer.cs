@@ -38,7 +38,6 @@
             this.standartEmployeeControl = new SizView.Controls.StandartEmployeeControl();
             this.addButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
-            this.cardExportButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // standartEmployeeControl
@@ -50,9 +49,9 @@
             // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(228, 488);
+            this.addButton.Location = new System.Drawing.Point(93, 488);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(88, 23);
+            this.addButton.Size = new System.Drawing.Size(223, 23);
             this.addButton.TabIndex = 1;
             this.addButton.Text = "Добавить";
             this.addButton.UseVisualStyleBackColor = true;
@@ -68,19 +67,9 @@
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
-            // cardExportButton
-            // 
-            this.cardExportButton.Location = new System.Drawing.Point(93, 488);
-            this.cardExportButton.Name = "cardExportButton";
-            this.cardExportButton.Size = new System.Drawing.Size(129, 23);
-            this.cardExportButton.TabIndex = 3;
-            this.cardExportButton.Text = "Экспорт личной карты";
-            this.cardExportButton.UseVisualStyleBackColor = true;
-            // 
             // EmployeeForm
             // 
             this.ClientSize = new System.Drawing.Size(330, 526);
-            this.Controls.Add(this.cardExportButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.standartEmployeeControl);
@@ -100,6 +89,5 @@
         private Controls.StandartEmployeeControl standartEmployeeControl;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.Button cardExportButton;
     }
 }

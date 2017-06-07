@@ -1,6 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+
+using DocumentWorker;
+
+using Model.Project;
+
+using TemplateEngine.Docx;
+
 using Tools;
 
 namespace SizView
@@ -13,14 +20,16 @@ namespace SizView
     public partial class EmployesListForm : Form
     {
         private IList<IEmployee> _employees;
+        private readonly IProject _project;
+        private readonly IList<IProfession> _professions;
 
-        private IList<IProfession> _professions;
-        public EmployesListForm(List<IEmployee> employeesList,List<IProfession>  professions)
+        public EmployesListForm(List<IEmployee> employeesList,List<IProfession>  professions,IProject project)
         {
             InitializeComponent();
             var empList = employeesList;
             employesListControl.Employees = empList;
             _professions = professions;
+            _project = project;
         }
 
         private void EmployesForm_Load(object sender, EventArgs e)
@@ -65,6 +74,25 @@ namespace SizView
         private void searchMenuItem_Click(object sender, EventArgs e)
         {
             employesListControl.SearchBox = !employesListControl.SearchBox;
+        }
+
+        private void personelCardExportButton_Click(object sender, EventArgs e)
+        {
+            if (employesListControl.CurrentEmployee != null)
+            {
+                if (saveDocumentDialog.ShowDialog() == DialogResult.OK)
+                {
+                    DocumentBuilder.PrepareDocument("PersCardTemplate.docx", saveDocumentDialog.FileName);
+                    Content document = DocumentBuilder.BuildPersonalCard(employesListControl.CurrentEmployee,
+                                                              ((Project)_project).ProjectInformation);
+                    DocumentBuilder.WriteDocument(document, saveDocumentDialog.FileName);
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Пожалуйста, выберите позицию для генерации документа.");
+            }
         }
     }
 }

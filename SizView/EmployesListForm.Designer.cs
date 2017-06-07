@@ -39,7 +39,9 @@
             this.editMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.personelCardExportButton = new System.Windows.Forms.ToolStripMenuItem();
             this.employesListControl = new SizView.Controls.EmployesListControl();
+            this.saveDocumentDialog = new System.Windows.Forms.SaveFileDialog();
             this.employeeMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +49,8 @@
             // 
             this.employeeMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.listMenuItem,
-            this.searchMenuItem});
+            this.searchMenuItem,
+            this.personelCardExportButton});
             this.employeeMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.employeeMenuStrip.Name = "employeeMenuStrip";
             this.employeeMenuStrip.Size = new System.Drawing.Size(747, 24);
@@ -100,17 +103,29 @@
             this.searchMenuItem.ToolTipText = "Нажмите Ctrl + F";
             this.searchMenuItem.Click += new System.EventHandler(this.searchMenuItem_Click);
             // 
+            // personelCardExportButton
+            // 
+            this.personelCardExportButton.Name = "personelCardExportButton";
+            this.personelCardExportButton.Size = new System.Drawing.Size(145, 20);
+            this.personelCardExportButton.Text = "Экспорт личной карты";
+            this.personelCardExportButton.Click += new System.EventHandler(this.personelCardExportButton_Click);
+            // 
             // employesListControl
             // 
             this.employesListControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.employesListControl.Employees = ((System.Collections.Generic.IList<Model.Employee.IEmployee>)(resources.GetObject("employesListControl.Employees")));
             this.employesListControl.Location = new System.Drawing.Point(0, 27);
             this.employesListControl.Name = "employesListControl";
             this.employesListControl.SearchBox = false;
             this.employesListControl.Size = new System.Drawing.Size(747, 456);
             this.employesListControl.TabIndex = 0;
+            // 
+            // saveDocumentDialog
+            // 
+            this.saveDocumentDialog.DefaultExt = "docx";
+            this.saveDocumentDialog.Filter = "Документ Word|*.docx";
+            this.saveDocumentDialog.Title = "Сохранение документа";
             // 
             // EmployesListForm
             // 
@@ -142,5 +157,7 @@
         private System.Windows.Forms.ToolStripMenuItem editMenuItem;
         private System.Windows.Forms.ToolStripMenuItem removeMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem personelCardExportButton;
+        private System.Windows.Forms.SaveFileDialog saveDocumentDialog;
     }
 }
